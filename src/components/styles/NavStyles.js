@@ -1,0 +1,80 @@
+import styled from 'styled-components'
+
+const NavStyles = styled.div`
+  margin: 0 2rem 0 0;
+  padding: 0;
+  display: flex;
+  justify-self: end;
+  font-size: 2.3rem;
+  a,
+  button {
+    transition: color 0.4s;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    color: var(--black);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 1em;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    &:before {
+      content: '';
+      height: 0;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      background: var(--orange);
+      transform: rotate(-2deg);
+      transform-origin: center;
+      transition: height 0.4s;
+      transition-timing-function: cubic-bezier(1, -0.65, 0, 2.5);
+      box-shadow: 0 7px 5px -6px rgba(0, 0, 0, 0.5);
+    }
+    &:hover {
+      outline: none;
+      color: #fff;
+      &:before {
+        height: 40%;
+      }
+    }
+    &[aria-current] {
+      color: var(--orange);
+      pointer-events: none;
+    }
+  }
+  @media (max-width: 1300px) {
+    margin: 0;
+    border-top: 1px solid var(--grey);
+    width: 100%;
+    justify-content: center;
+    a,
+    button {
+      font-size: 1.8rem;
+      &:before {
+        width: 100%;
+        left: 0;
+      }
+      &:hover {
+        &:before {
+          height: 70%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 700px) {
+    a,
+    button {
+      font-size: 1.3rem;
+      padding: 1rem;
+    }
+  }
+`
+
+export default NavStyles
