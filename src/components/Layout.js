@@ -10,8 +10,8 @@ import WeatherData from './WeatherData'
 import {
   WEATHER_BASE_URL,
   APP_KEY,
-  UNSPLASH_URL,
   UNSPLASH_KEY,
+  UNSPLASH_URL,
 } from '../../config'
 
 let cityInput = React.createRef()
@@ -22,14 +22,12 @@ const Wrapper = styled.div`
   position: relative;
 `
 export default class Layout extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   state = {
     headerImg: {},
     weather: {},
   }
+
+  defaultQuery = 'Chicago'
 
   headerImg = {
     raw: '',
@@ -52,97 +50,80 @@ export default class Layout extends Component {
     time: '',
   }
 
-  componentDidMount() {
-    // this.headerURL = `${UNSPLASH_URL}client_id=${UNSPLASH_KEY}&query=${this.weather.query}`
-    this.fetchHeaderImage(
-      `https://api.unsplash.com/search/photos/?client_id=${UNSPLASH_KEY}&query=${this.weather.query}`
-    )
-    // Header
-    const headerRef = localStorage.getItem('headerImg')
-    if (headerRef) {
+  headerDefault = `${UNSPLASH_URL}client_id=${UNSPLASH_KEY}&query=${this.defaultQuery}`
+  weatherDefault = `${WEATHER_BASE_URL}key=${APP_KEY}&q=${this.defaultQuery}`
+
+  mountLocalStorage(dataName, apiURL, func) {
+    const ref = localStorage.getItem(dataName)
+    if (ref) {
+      console.log('LOADING DATA', ref)
       this.setState({
-        headerImg: JSON.parse(headerRef),
+        [dataName]: JSON.parse(ref),
       })
     } else {
-      this.weather.query = 'Chicago'
-      this.headerURL = `https://api.unsplash.com/search/photos/?client_id=${UNSPLASH_KEY}&query=${this.weather.query}`
-      this.fetchHeaderImage(this.headerURL)
-    }
-
-    // Weather
-    const weatherRef = localStorage.getItem('weather')
-    if (weatherRef) {
-      this.setState({
-        weather: JSON.parse(weatherRef),
-      })
-    } else {
-      this.weather.query = 'Chicago'
-      this.weatherURL = `${WEATHER_BASE_URL}key=${APP_KEY}&q=${this.weather.query}`
-
-      this.fetchWeather(this.weatherURL)
+      console.log({ func }, { apiURL })
+      console.log('Running')
+      func(apiURL)
     }
   }
 
+  setWeather = (data) => {
+    const weather = this.weather
+
+    weather.temp = data.current.temp_f
+    weather.tempFeelsLike = data.current.feelslike_f
+    weather.humidity = data.current.humidity
+    weather.conditionText = data.current.condition.text
+    weather.conditionIconURL = data.current.condition.icon
+    weather.time = formatTime(data.location.localtime)
+    weather.location = data.location.name
+
+    this.setState({ weather: this.weather })
+  }
+
+  setHeaderImg = (data) => {
+    const imgData = this.headerImg
+    const results = data.results[0]
+
+    imgData.raw = results.urls.raw + '&crop=edges&fit=facearea&h=600&w=1500'
+    imgData.blur_hash = results.blur_hash
+    imgData.download = results.links.download
+    imgData.download_location = results.links.download_location
+    imgData.html = results.links.html
+    imgData.self = results.links.self
+    imgData.name = results.user.name
+
+    this.setState({ headerImg: imgData })
+  }
+
+  componentDidMount() {
+    this.mountLocalStorage(
+      'headerImg',
+      this.headerDefault,
+      this.fetchHeaderImage
+    )
+    this.mountLocalStorage('weather', this.weatherDefault, this.fetchWeather)
+  }
+
   componentDidUpdate() {
-    // Weather
-    // console.log('It Updated!')
-    // console.log(this.state.weather)
     localStorage.setItem('weather', JSON.stringify(this.state.weather))
     localStorage.setItem('headerImg', JSON.stringify(this.state.headerImg))
   }
 
   handleClick = async (e) => {
     e.preventDefault()
-
     this.weather.query = cityInput.current.value
-    this.headerURL = `https://api.unsplash.com/search/photos/?client_id=${UNSPLASH_KEY}&query=${this.weather.query}`
+    this.headerURL = `${UNSPLASH_URL}client_id=${UNSPLASH_KEY}&query=${this.weather.query}`
     this.weatherURL = `${WEATHER_BASE_URL}key=${APP_KEY}&q=${this.weather.query}`
-    this.fetchHeaderImage(this.headerURL)
-    this.fetchWeather(this.weatherURL)
+    this.fetchApiData(this.headerURL, this.setHeaderImg)
+    this.fetchApiData(this.weatherURL, this.setWeather)
   }
 
-  fetchWeather(url) {
+  fetchApiData = (url, setData) => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        this.weather.temp = data.current.temp_f
-        this.weather.tempFeelsLike = data.current.feelslike_f
-        this.weather.humidity = data.current.humidity
-        this.weather.conditionText = data.current.condition.text
-        this.weather.conditionIconURL = data.current.condition.icon
-        this.weather.time = formatTime(data.location.localtime)
-        this.weather.location = data.location.name
-
-        this.setState({ weather: this.weather })
-      })
-  }
-
-  /// ******************************************* UNSPLASH API / HEADER IMAGE
-  // testing var until location integration
-  tempImgQuery = 'snow'
-
-  fetchHeaderImage(url) {
-    //`https://api.unsplash.com/search/photos/?client_id=${UNSPLASH_KEY}&query=${this.query}`
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        const imgData = this.headerImg
-        const results = data.results[0]
-        console.log(results)
-        imgData.raw = results.urls.raw + '&crop=edges&fit=facearea&h=600&w=1500'
-        imgData.blur_hash = results.blur_hash
-        imgData.download = results.links.download
-        imgData.download_location = results.links.download_location
-        imgData.html = results.links.html
-        imgData.self = results.links.self
-        imgData.name = results.user.name
-
-        this.setState({
-          headerImg: imgData,
-        })
-      })
-      .catch((err) => {
-        console.log('ERROR: ', err)
+        setData(data)
       })
   }
 

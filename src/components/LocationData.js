@@ -5,7 +5,7 @@ class LocationData extends Component {
   render() {
     const { blur_hash, raw, links, user } = this.props.details
 
-    console.log('DEETS', this.props.details)
+    //console.log('DEETS', this.props.details)
     return (
       <LocationStyles>
         <p>Location Data!</p>
