@@ -18,12 +18,6 @@ import {
 } from '../styles/Theme'
 import { WEATHER_URL, UNSPLASH_URL } from '../../config'
 
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV || 'development'}`,
-})
-
-console.log(process.env.WEATHER_BASE_URL, 'DOTENV')
-
 let cityInput = React.createRef()
 
 export default class Layout extends Component {
