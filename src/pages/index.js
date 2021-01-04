@@ -81,6 +81,7 @@ export default function HomePage(props) {
         <Video muted playsinline loop autoplay className="vid bg">
           <source src={AutomatorVid} type="video/mp4" />
         </Video>
+        <div className="bg"></div>
       </SectionStyles>
       <SectionStyles
         className="panel parallax panel4"
