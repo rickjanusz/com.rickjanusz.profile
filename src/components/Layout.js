@@ -57,7 +57,7 @@ export default class Layout extends Component {
   }
 
   headerDefault = `${UNSPLASH_URL}client_id=${process.env.UNSPLASH_KEY}&query=${this.defaultQuery}`
-  weatherDefault = `${WEATHER_URL}key=${process.env.WEATHER_KEY}&q=${this.defaultQuery}`
+  weatherDefault = `${WEATHER_URL}key=${process.env.WEATHER_APP_KEY}&q=${this.defaultQuery}`
 
   mountLocalStorage(dataName, apiURL, setData) {
     const ref = localStorage.getItem(dataName)
@@ -206,7 +206,7 @@ export default class Layout extends Component {
     e.preventDefault()
     this.weather.query = cityInput.current.value
     this.headerURL = `${UNSPLASH_URL}client_id=${process.env.UNSPLASH_KEY}&query=${this.weather.query}`
-    this.weatherURL = `${WEATHER_URL}key=${process.env.WEATHER_KEY}&q=${this.weather.query}`
+    this.weatherURL = `${WEATHER_URL}key=${process.env.WEATHER_APP_KEY}&q=${this.weather.query}`
     this.fetchApiData(this.headerURL, this.setHeaderImg)
     this.fetchApiData(this.weatherURL, this.setWeather)
   }
