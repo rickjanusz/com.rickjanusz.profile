@@ -3,9 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
-import dotenv from 'dotenv'
-
-dotenv.config({ path: '.env' })
+const path = require(`path`)
 
 module.exports = {
   siteMetadata: {
@@ -16,7 +14,15 @@ module.exports = {
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: path.join(__dirname, `src`, `assets`),
+      },
+    },
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {},
@@ -27,6 +33,7 @@ module.exports = {
         // Add any options here
       },
     },
+
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
@@ -43,6 +50,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ['WEATHER_APP_KEY', 'UNSPLASH_KEY', 'UNSPLASH_SECRET'],
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `rickjanusz.com`,
@@ -51,7 +64,7 @@ module.exports = {
         background_color: `#f7f0eb`,
         theme_color: `#ea6d07`,
         display: `standalone`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/icon.png`, // This path is relative to the root of the site.
         icons: [
           {
             src: `/favicons/android-chrome-192x192.png`,

@@ -1,5 +1,5 @@
 import React, { Component, setState } from 'react'
-import WeatherData from './WeatherData'
+import WeatherData from './Weather'
 import { BASE_URL, APP_KEY } from '../../config'
 
 // import dotenv from 'dotenv'

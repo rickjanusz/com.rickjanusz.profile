@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
+// import { GOOGLE_KEY } from '../../config'
 
 export default function SEO({ children, location, description, title, image }) {
   const { site } = useStaticQuery(graphql`

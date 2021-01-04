@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1669" height="3871.8" viewBox="0 0 1669 3871.8">
+  <title>timeline</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <path id="path" d="M727.5,68.3c42.5,230.5,395,174.6,402.5,541.5,8,391-515.9,60.5-487,532,20,326-162.4,196.7-165,533-2,254,277,307,206,533-79.9,254.3,122.9,222.3,64,533-53.5,282.5,210,351,325,532,124,195.2-180.6,381.1-45.5,559.5" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="10"/>
+      <circle id="ball2021" cx="722.5" cy="72.3" r="47.5"/>
+      <circle id="ball2020" cx="1124.5" cy="607.3" r="47.5"/>
+      <circle id="ball2019" cx="643" cy="1142.3" r="47.5"/>
+      <circle id="ball2018" cx="473.5" cy="1675.3" r="47.5"/>
+      <circle id="ball2017" cx="684.5" cy="2207.3" r="47.5"/>
+      <circle id="ball2016" cx="747.5" cy="2740.3" r="47.5"/>
+      <circle id="ball2015" cx="1073.5" cy="3272.3" r="47.5"/>
+      <circle id="ball2014" cx="1024.5" cy="3824.3" r="47.5"/>
+      <text transform="translate(217.8 51)" font-size="60" font-family="BRAVEEightyone-Regular, BRAVE Eightyone">2021</text>
+      <text transform="translate(217.8 581.8)" font-size="60" font-family="BRAVEEightyone-Regular, BRAVE Eightyone">2020</text>
+      <text transform="translate(217.8 1115.6)" font-size="60" font-family="BRAVEEightyone-Regular, BRAVE Eightyone">2019</text>
+      <text transform="translate(217.8 1649.4)" font-size="60" font-family="BRAVEEightyone-Regular, BRAVE Eightyone">2018</text>
+      <text transform="translate(217.8 2181.1)" font-size="60" font-family="BRAVEEightyone-Regular, BRAVE Eightyone">2017</text>
+      <text transform="translate(217.8 2712.9)" font-size="60" font-family="BRAVEEightyone-Regular, BRAVE Eightyone">2016</text>
+      <text transform="translate(217.8 3246.7)" font-size="60" font-family="BRAVEEightyone-Regular, BRAVE Eightyone">2015</text>
+      <text transform="translate(217.8 3802.5)" font-size="60" font-family="BRAVEEightyone-Regular, BRAVE Eightyone">2014</text>
+      <line id="line2021" y1="76.8" x2="1669" y2="76.8" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="9.35"/>
+      <line id="line2020" y1="609.6" x2="1669" y2="609.6" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="11.6"/>
+      <line id="line2019" y1="1142.3" x2="1669" y2="1142.3" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="8.75"/>
+      <line id="line2018" y1="1675" x2="1669" y2="1675" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="7.55"/>
+      <line id="line2017" y1="2207.7" x2="1669" y2="2207.7" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="9.03"/>
+      <line id="line2016" y1="2740.4" x2="1669" y2="2740.4" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="9.41"/>
+      <line id="line2015" y1="3273.1" x2="1669" y2="3273.1" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="11.31"/>
+      <line id="line2014" x1="1.5" y1="3830.3" x2="1669" y2="3830.3" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="11.04"/>
+    </g>
+  </g>
+</svg>
