@@ -5,7 +5,7 @@ import Logo from './Logo'
 
 const StyledHeader = styled.header`
   .bar {
-    border-bottom: 10px solid ${(props) => props.theme.separatorTop};
+    border-bottom: 1px solid ${(props) => props.theme.separatorTop};
     transition: var(--transition);
     display: grid;
     grid-template-columns: auto 1fr;

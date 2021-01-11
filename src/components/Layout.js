@@ -242,7 +242,7 @@ export default class Layout extends Component {
           </form>
           <ThemeSelector setTheme={this.setTheme} />
         </Weather>
-        <Location details={this.state.headerImg} props={this.props} />
+        {/* <Location details={this.state.headerImg} props={this.props} /> */}
         <ContentWrapperStyles>{this.props.children}</ContentWrapperStyles>
         <Footer />
       </ThemeProvider>

@@ -16,11 +16,11 @@ const LogoStyles = styled.svg`
   }
   @media (max-width: 1000px) {
     transition: width 1s;
-    width: 16%;
+    width: 18%;
   }
   @media (max-width: 700px) {
     transition: width 1s;
-    width: 20%;
+    width: 30%;
   }
 `
 export default LogoStyles

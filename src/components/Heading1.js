@@ -6,7 +6,7 @@ const Heading1 = styled.header`
   h1 {
     font-family: Arial, sans-serif;
     margin: 50px auto;
-    color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.dark};
     text-align: center;
     font-size: 2.3em;
     position: relative;
@@ -43,7 +43,7 @@ const Heading1 = styled.header`
     position: absolute;
   }
   h1 span {
-    background-color: ${(props) => props.theme.contentBgColor};
+    background-color: #ccc;
     padding: 0.2em;
     border: 5px solid ${(props) => props.theme.primary};
     border-radius: 20px 0 20px 0;

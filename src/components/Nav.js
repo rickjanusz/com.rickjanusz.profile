@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const NavStyles = styled.div`
-  margin: 0 2rem 0 0;
+  margin: 0 2rem 5rem 0;
   padding: 0;
   display: flex;
   justify-self: end;
@@ -54,7 +54,7 @@ const NavStyles = styled.div`
     }
   }
   @media (max-width: 1000px) {
-    margin: 0;
+    /* margin: 0; */
     border-top: 1px solid ${(props) => props.theme.headings};
     width: 100%;
     justify-content: center;

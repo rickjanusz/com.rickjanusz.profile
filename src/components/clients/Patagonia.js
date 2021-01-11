@@ -7,7 +7,7 @@ export default class AMC extends Component {
       <LogoStyles>
         <svg viewBox="0 0 2500 2500">
           <g>
-            <path className="st1" d="M0,0h2500v2500H0V0z" />
+            {/* <path className="st1" d="M0,0h2500v2500H0V0z" /> */}
             <path
               className="st0"
               d="M508.2,1247.5h-14.9c-26.5,0-48,19.8-48,46.3c0,21.5,6.6,46.3,34.7,46.3c24.8,0,29.8-19.8,29.8-39.7v-49.6

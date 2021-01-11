@@ -9,6 +9,11 @@ const WeatherWrapper = styled.div`
   overflow: hidden;
   transition: var(--transition);
   z-index: 1000;
+  pointer-events: none;
+  @media (max-width: 1000px) {
+  }
+  @media (max-width: 700px) {
+  }
 `
 
 const WeatherStyles = styled.div`
@@ -17,6 +22,7 @@ const WeatherStyles = styled.div`
   height: 100vh;
   position: absolute;
   right: -300px;
+  pointer-events: auto;
   /* right: 0px; */
   z-index: 2;
   font-size: 2rem;
@@ -64,7 +70,7 @@ const WeatherStyles = styled.div`
       border-left: 1px solid ${(props) => props.theme.separatorBtm};
       background-color: ${(props) => props.theme.primary};
       color: ${(props) => props.theme.white};
-      transition: all 0.25s ease-in-out;
+      transition: var(--transition);
       :hover {
         background-color: ${(props) => props.theme.headings};
         cursor: pointer;
@@ -73,7 +79,7 @@ const WeatherStyles = styled.div`
   }
   .cityDetails {
     position: absolute;
-    right: 20px;
+    /* right: 20px; */
     top: 300px;
   }
   .weatherForm {
@@ -86,7 +92,6 @@ const WeatherStyles = styled.div`
   }
   @media (max-width: 1000px) {
     margin: 0;
-    justify-content: center;
     width: 100vw;
     right: -100vw;
     /* right: 0vw; */

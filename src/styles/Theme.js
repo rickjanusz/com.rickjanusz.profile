@@ -118,7 +118,7 @@ export const rainTheme = {
   transparentBar: 'rgba(93, 159, 163, 0.6)',
   separatorTop: '#2296AD',
   separatorBtm: '#fff',
-  clientLogoColor: '#45696D',
+  clientLogoColor: '#2296AD',
   white: '#ffffff',
   separatorHt: ht,
   dark: 'hsla(194,20%,30%,1)',

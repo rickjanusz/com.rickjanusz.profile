@@ -24,7 +24,7 @@ const StyledButton = styled.button`
   border-bottom: 1px solid ${(props) => props.theme.separatorBtm};
   font-size: 0.8em;
   padding: 15px;
-  transition: all 0.25s;
+  transition: var(--transition);
   &.condition {
     transition: var(--transition);
     width: 50%;

@@ -7,7 +7,7 @@ export default class Audi extends Component {
       <LogoStyles>
         <svg viewBox="0 0 2500 2500">
           <g>
-            <path className="st1" d="M0,0h2500v2500H0V0z" />
+            {/* <path className="st1" d="M0,0h2500v2500H0V0z" /> */}
             <path
               className="st0"
               d="M2030.9,1945v-302.6H1906V1945H2030.9z M1369.7,1819.4V1647h-121v131.8c0,38.3-1.5,49-3.8,59
