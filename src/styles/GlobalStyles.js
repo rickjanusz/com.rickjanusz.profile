@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
+  :root {
+    --transition: all .6s ease-in-out;
+  }
+
   html {
     font-size: 10px;
     font-family: Arial, Helvetica, sans-serif;
@@ -21,6 +25,9 @@ const GlobalStyles = createGlobalStyle`
   .gatsby-image-wrapper img[src*='base64\\,'] {
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
+  }
+  a {
+    text-decoration: none;
   }
 
 

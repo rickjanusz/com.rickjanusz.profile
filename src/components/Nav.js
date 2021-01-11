@@ -34,10 +34,10 @@ const NavStyles = styled.div`
       background: ${(props) => props.theme.primary};
       transform: rotate(-2deg);
       transform-origin: center;
-      transition: height 0.4s;
+      transition: all 0.4s;
       transition-timing-function: cubic-bezier(1, -0.65, 0, 2.5);
       box-shadow: 0 7px 5px -6px rgba(0, 0, 0, 0.5);
-      border-radius: 15px 0 15px 0;
+      border-radius: 5px 0 5px 0;
     }
     &:hover {
       outline: none;
@@ -58,7 +58,7 @@ const NavStyles = styled.div`
     border-top: 1px solid ${(props) => props.theme.headings};
     width: 100%;
     justify-content: center;
-    transition: border-color 1s;
+    transition: all 1s;
     a,
     button {
       font-size: 2rem;
@@ -90,6 +90,9 @@ const Nav = () => (
     </Link>
     <Link to="/work/" activeClassName="active">
       Work
+    </Link>
+    <Link to="/projects/" activeClassName="active">
+      Projects
     </Link>
     <Link to="/contact/" activeClassName="active">
       Contact

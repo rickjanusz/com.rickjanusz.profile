@@ -4,38 +4,62 @@ import Heading1 from '../components/Heading1'
 import callMe from '../assets/qr/call.png'
 import addMe from '../assets/qr/vcard.png'
 import emailMe from '../assets/qr/email.png'
+import PageWrapper from '../styles/PageWrapperStyles'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
+// console.clear()
+
+const Wrapper3Col = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  gap: 2em;
+  transition: all 1s;
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
 `
+
 export default function ContactPage() {
   return (
     <>
       <SEO title="Contact Me" />
       <Heading1>
-        <h1>Contact Me</h1>
+        <h1>
+          <span>Contact Me</span>
+        </h1>
       </Heading1>
-      <section>
-        <p>Form?</p>
-      </section>
-      <Wrapper>
-        <div>
-          <p>Call Send to mobile (phone icon)</p>
-          <img src={callMe} height="200" />
-        </div>
-        <div>
-          <p>Email Send to mobile (phone icon)</p>
-          <img src={emailMe} height="200" />
-        </div>
-        <div>
-          <p>VCard Send to mobile (phone icon)</p>
-          <img src={addMe} height="200" />
-        </div>
-      </Wrapper>
+      <PageWrapper>
+        <section>
+          <p>Form?</p>
+        </section>
+        <Wrapper3Col>
+          <div>
+            <p>
+              Call Send to mobile <br />
+              (phone icon)
+            </p>
+            <img src={callMe} height="200" alt="call me" />
+          </div>
+          <div>
+            <p>
+              Email Send to mobile <br />
+              (phone icon)
+            </p>
+            <img src={emailMe} height="200" alt="email me" />
+          </div>
+          <div>
+            <p>
+              VCard Send to mobile <br />
+              (phone icon)
+            </p>
+            <img src={addMe} height="200" alt="download my info" />
+          </div>
+        </Wrapper3Col>
+      </PageWrapper>
     </>
   )
 }

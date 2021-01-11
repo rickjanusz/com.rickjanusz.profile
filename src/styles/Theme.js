@@ -6,8 +6,7 @@ export const defaultTheme = {
   footer: '#CCC',
   hoverColor: '#fff',
   active: '#ea6d07',
-  backgroundColor:
-    'linear-gradient(180deg, #FFF 0%, hsla(27, 94%, 80%, 1) 100%)',
+  backgroundColor: '#fff',
   contentBgColor: '#fff',
   darkSection: '#555',
   transparentBar: 'rgba(75, 75, 75, .8)',
@@ -16,6 +15,8 @@ export const defaultTheme = {
   clientLogoColor: '#ea6d07',
   white: '#ffffff',
   separatorHt: ht,
+  dark: '#ea6d07',
+  light: 'hsla(27, 94%, 80%, 1)',
 }
 export const sunTheme = {
   primary: '#ea6d07',
@@ -24,7 +25,8 @@ export const sunTheme = {
   footer: '#ea6d07',
   hoverColor: '#942004',
   active: '#ea6d07',
-  backgroundColor: 'linear-gradient(-240deg, #fffaaa, 50%, #ea6d07 100%)',
+  backgroundColor:
+    'linear-gradient(-270deg, #fffaaa, 50%, rgba(255, 188, 5, 1) 100%)',
   contentBgColor: '#fff',
   darkSection: 'hsla(40,90%,30%,1)',
   transparentBar: 'rgba(255, 188, 5, 0.6)',
@@ -33,6 +35,8 @@ export const sunTheme = {
   clientLogoColor: '#FFE196',
   white: '#ffffff',
   separatorHt: ht,
+  dark: 'rgba(235, 138, 1, 1)',
+  light: '#ffffaa',
 }
 export const snowTheme = {
   primary: 'hsla(224, 30%, 66%, 1)',
@@ -42,7 +46,7 @@ export const snowTheme = {
   hoverColor: '#ffffff',
   active: '#ffffff',
   backgroundColor:
-    'linear-gradient(220deg, hsla(224, 30%, 60%, 1) 0%, #fff 100%)',
+    'linear-gradient(270deg, hsla(224, 30%, 60%, 1) 0%, hsla(210,44%,80%, 1) 100%)',
   contentBgColor: 'hsla(224, 30%, 80%, 1)',
   darkSection: 'hsla(224,50%,20%,1)',
   transparentBar: 'rgba(190, 205, 255, 0.6)',
@@ -51,6 +55,8 @@ export const snowTheme = {
   clientLogoColor: '#777',
   white: '#ffffff',
   separatorHt: ht,
+  dark: 'hsla(224,50%,20%,1)',
+  light: 'hsla(224, 30%, 80%, 1)',
 }
 
 export const overcastTheme = {
@@ -62,7 +68,7 @@ export const overcastTheme = {
   active: 'hsla(90, 10%, 90%, 1)',
   // hoverColor: '#8fb6c8',
   backgroundColor:
-    'linear-gradient(-240deg, hsla(190, 10%, 60%, 1) 0%, hsla(90, 10%, 30%, 1) 100%)',
+    'linear-gradient(-270deg, hsla(190, 10%, 60%, 1) 0%, hsla(90, 10%, 30%, 1) 100%)',
   // contentBgColor: '#31485e',
   contentBgColor: 'hsla(190, 10%, 70%, 1)',
   darkSection: 'hsla(200,50%,20%,1)',
@@ -72,6 +78,8 @@ export const overcastTheme = {
   clientLogoColor: '#999',
   white: '#ffffff',
   separatorHt: ht,
+  dark: 'hsla(200, 100%, 10%, 1)',
+  light: 'hsla(190, 10%, 70%, 1)',
 }
 
 export const midnightTheme = {
@@ -83,7 +91,7 @@ export const midnightTheme = {
   active: '#999',
   // hoverColor: '#8fb6c8',
   backgroundColor:
-    'linear-gradient(-240deg, hsla(200, 100%, 10%, 1) 0%, hsla(251, 100%, 0%, 1) 100%)',
+    'linear-gradient(-270deg, hsla(200, 100%, 10%, 1) 0%, hsla(251, 100%, 0%, 1) 100%)',
   contentBgColor: '#31485e',
   darkSection: 'hsla(200,50%,10%,1)',
   transparentBar: 'rgba(49, 72, 94, 0.6)',
@@ -92,6 +100,8 @@ export const midnightTheme = {
   clientLogoColor: '#999',
   white: '#ffffff',
   separatorHt: ht,
+  dark: 'hsla(200, 100%, 10%, 1)',
+  light: '#8fb6c8',
 }
 
 export const rainTheme = {
@@ -102,7 +112,7 @@ export const rainTheme = {
   hoverColor: '#ffffff',
   active: '#5D9FA3',
   backgroundColor:
-    'linear-gradient(240deg, hsla(214, 3%, 87%, 1) 0%, #8fb6c8 50%)',
+    'linear-gradient(270deg, hsla(214, 3%, 87%, 1) 0%, #8fb6c8 50%)',
   contentBgColor: '#D1E1F0',
   darkSection: 'hsla(194,20%,30%,1)',
   transparentBar: 'rgba(93, 159, 163, 0.6)',
@@ -111,4 +121,6 @@ export const rainTheme = {
   clientLogoColor: '#45696D',
   white: '#ffffff',
   separatorHt: ht,
+  dark: 'hsla(194,20%,30%,1)',
+  light: '#D1E1F0',
 }

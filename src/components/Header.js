@@ -6,7 +6,7 @@ import Logo from './Logo'
 const StyledHeader = styled.header`
   .bar {
     border-bottom: 10px solid ${(props) => props.theme.separatorTop};
-    transition: border-color 1s;
+    transition: var(--transition);
     display: grid;
     grid-template-columns: auto 1fr;
     @media (max-width: 1000px) {
@@ -16,7 +16,7 @@ const StyledHeader = styled.header`
   }
 `
 
-function Header(props) {
+export default function Header(props) {
   return (
     <>
       <StyledHeader>
@@ -29,5 +29,3 @@ function Header(props) {
     </>
   )
 }
-
-export default Header

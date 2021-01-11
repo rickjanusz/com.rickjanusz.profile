@@ -9,54 +9,79 @@ import {
   rainTheme,
 } from '../styles/Theme'
 
+const ThemeWrapper = styled.div`
+  transition: var(--transition);
+  display: flex;
+  flex-wrap: wrap;
+  transition: all 0.25s;
+  margin-top: 50px;
+`
 const StyledButton = styled.button`
+  transition: var(--transition);
   color: ${(props) => props.theme.white};
   background-color: ${(props) => props.theme.primary};
-  box-shadow: none;
-  border: none;
-  border-left: 1px solid ${(props) => props.theme.separatorTop};
-  border-right: 1px solid ${(props) => props.theme.separatorBtm};
+  border-top: 1px solid ${(props) => props.theme.separatorTop};
+  border-bottom: 1px solid ${(props) => props.theme.separatorBtm};
   font-size: 0.8em;
-  min-width: 100px;
-  padding: 15px 30px;
-  margin: 10px 0;
-  transition: background-color 0.25s;
+  padding: 15px;
+  transition: all 0.25s;
+  &.condition {
+    transition: var(--transition);
+    width: 50%;
+    height: 10vh;
+  }
   :hover {
+    transition: var(--transition);
     background-color: ${(props) => props.theme.headings};
     cursor: pointer;
   }
   :focus,
   :active {
+    transition: var(--transition);
     outline: none;
-  }
-  :first-child {
-    border-radius: 5px 0 0 5px;
-  }
-  :last-child {
-    border-radius: 0 5px 5px 0;
   }
 `
 
 const ThemeSelector = (props) => {
   return (
-    <div className="themeSelector">
-      <StyledButton onClick={() => props.setTheme(defaultTheme)}>
-        Default
+    <ThemeWrapper>
+      <StyledButton
+        className="condition default"
+        onClick={() => props.setTheme(defaultTheme)}
+      >
+        D
       </StyledButton>
-      <StyledButton onClick={() => props.setTheme(snowTheme)}>
-        Frozen
+      <StyledButton
+        className="condition freezing"
+        onClick={() => props.setTheme(snowTheme)}
+      >
+        Frz
       </StyledButton>
-      <StyledButton onClick={() => props.setTheme(sunTheme)}>
-        Toasty
+      <StyledButton
+        className="condition hot"
+        onClick={() => props.setTheme(sunTheme)}
+      >
+        Hot
       </StyledButton>
-      <StyledButton onClick={() => props.setTheme(overcastTheme)}>
-        Gloomy
+      <StyledButton
+        className="condition overcast"
+        onClick={() => props.setTheme(overcastTheme)}
+      >
+        Rain
       </StyledButton>
-      <StyledButton onClick={() => props.setTheme(midnightTheme)}>
-        Vamp
+      <StyledButton
+        className="condition midnight"
+        onClick={() => props.setTheme(midnightTheme)}
+      >
+        Drk
       </StyledButton>
-      <StyledButton onClick={() => props.setTheme(rainTheme)}>Wet</StyledButton>
-    </div>
+      <StyledButton
+        className="condition "
+        onClick={() => props.setTheme(rainTheme)}
+      >
+        Wet
+      </StyledButton>
+    </ThemeWrapper>
   )
 }
 export default ThemeSelector

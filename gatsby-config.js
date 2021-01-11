@@ -33,7 +33,15 @@ module.exports = {
         // Add any options here
       },
     },
-
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        projectId: 'kk9pk2m1',
+        dataset: 'production',
+        watchMode: true,
+        token: process.env.SANITY_TOKEN,
+      },
+    },
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {

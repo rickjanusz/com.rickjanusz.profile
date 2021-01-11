@@ -87,11 +87,11 @@ export default class Layout extends Component {
       timeofday = 'night'
     }
 
-    console.log(timeofday)
+    // console.log(timeofday)
     var condition = conditionText.toLowerCase()
-    console.log('Condition:', condition)
+    // console.log('Condition:', condition)
     if (!condition.includes('sunny')) {
-      console.log('SNOW CONDITION: ', condition)
+      // console.log('SNOW CONDITION: ', condition)
       if (
         condition.includes('mist') ||
         condition.includes('snow') ||
@@ -100,14 +100,14 @@ export default class Layout extends Component {
         condition.includes('sleet') ||
         condition.includes('blizzard')
       ) {
-        console.log('CONDITION: ', condition)
+        // console.log('CONDITION: ', condition)
         this.setTheme(snowTheme)
       } else if (
         condition.includes('fog') ||
         condition.includes('overcast') ||
         (condition.includes('cloudy') && !condition.includes('partly'))
       ) {
-        console.log('OVERCAST: ', condition)
+        // console.log('OVERCAST: ', condition)
         this.setTheme(overcastTheme)
       } else if (condition.includes('rain')) {
         this.setTheme(rainTheme)
@@ -145,7 +145,7 @@ export default class Layout extends Component {
       condition.includes('sunny') ||
       condition.includes('partly cloudy')
     ) {
-      console.log('SUNNY: ', condition)
+      // console.log('SUNNY: ', condition)
       this.setTheme(sunTheme)
 
       // console.log('CONDITION OUT: ', weather.conditionText)
@@ -154,7 +154,7 @@ export default class Layout extends Component {
       condition.includes('overcast') ||
       (condition.includes('cloudy') && !condition.includes('partly'))
     ) {
-      console.log('OVERCAST: ', condition)
+      // console.log('OVERCAST: ', condition)
       this.setTheme(overcastTheme)
 
       // console.log('CONDITION OUT: ', weather.conditionText)
@@ -181,7 +181,7 @@ export default class Layout extends Component {
   }
 
   componentDidMount() {
-    console.log('UPDATING')
+    // console.log('UPDATING')
 
     this.mountLocalStorage('theme')
     this.mountLocalStorage('headerImg', this.headerDefault, this.setHeaderImg)
@@ -189,7 +189,7 @@ export default class Layout extends Component {
   }
 
   componentDidUpdate() {
-    console.log('UPDATING')
+    // console.log('UPDATING')
 
     localStorage.setItem('theme', JSON.stringify(this.state.theme))
     localStorage.setItem('weather', JSON.stringify(this.state.weather))
@@ -214,7 +214,8 @@ export default class Layout extends Component {
         // console.log(data)
       })
       .catch((err) => {
-        alert('That sure is a far out place man, try something a little closer')
+        console.log(err)
+        // alert('That sure is a far out place man, try something a little closer')
       })
   }
 
@@ -230,7 +231,6 @@ export default class Layout extends Component {
         <GlobalStyle />
         <Header />
         <Weather details={this.state.weather}>
-          <ThemeSelector setTheme={this.setTheme} />
           <form className="weatherForm" onSubmit={this.handleClick}>
             <input
               type="text"
@@ -240,6 +240,7 @@ export default class Layout extends Component {
             />
             <button type="Submit">Theme My City</button>
           </form>
+          <ThemeSelector setTheme={this.setTheme} />
         </Weather>
         <Location details={this.state.headerImg} props={this.props} />
         <ContentWrapperStyles>{this.props.children}</ContentWrapperStyles>

@@ -1,27 +1,53 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+const WeatherWrapper = styled.div`
+  height: 60vh;
+  width: 100vw;
+  position: fixed;
+  right: 0px;
+  overflow: hidden;
+  transition: var(--transition);
+  z-index: 1000;
+`
+
 const WeatherStyles = styled.div`
   margin: 0;
-  width: 100%;
+  width: 300px;
+  height: 100vh;
   position: absolute;
+  right: -300px;
+  /* right: 0px; */
   z-index: 2;
   font-size: 2rem;
   color: ${(props) => props.theme.white};
   background-color: ${(props) => props.theme.transparentBar};
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(20, 1fr);
-  align-items: center;
-  justify-items: center;
-  transition: color 1s;
+  transition: var(--transition);
+  &.active {
+    right: 0;
+  }
+  .handle {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    position: absolute;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    background-color: ${(props) => props.theme.primary};
+    left: -50px;
+    transition: var(--transition);
+  }
+
   img {
     width: 4vw;
   }
   form {
-    font-size: 0.8em;
+    border: 1px solid red;
+    background-color: blue;
     input {
       padding: 10px;
+      width: 100%;
       border: none;
       border-right: 1px solid ${(props) => props.theme.separatorTop};
       border-radius: 3px 0 0 3px;
@@ -34,11 +60,11 @@ const WeatherStyles = styled.div`
     button {
       padding: 10px 20px;
       border: none;
+      width: 100%;
       border-left: 1px solid ${(props) => props.theme.separatorBtm};
       background-color: ${(props) => props.theme.primary};
       color: ${(props) => props.theme.white};
-      border-radius: 0 3px 3px 0;
-      transition: background-color 0.25s;
+      transition: all 0.25s ease-in-out;
       :hover {
         background-color: ${(props) => props.theme.headings};
         cursor: pointer;
@@ -46,38 +72,58 @@ const WeatherStyles = styled.div`
     }
   }
   .cityDetails {
-    grid-column: span 10;
-    /* background: yellow; */
-    order: 1;
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
-    align-items: center;
+    position: absolute;
+    right: 20px;
+    top: 300px;
   }
   .weatherForm {
-    grid-column: span 10;
-    /* background: yellow; */
-    order: 2;
+    position: absolute;
+    top: 400px;
   }
   .themeSelector {
-    /* background: yellow; */
-    grid-column: 1/-1;
-    order: 3;
+    top: 0px;
+    position: absolute;
   }
   @media (max-width: 1000px) {
     margin: 0;
-    width: 100%;
     justify-content: center;
+    width: 100vw;
+    right: -100vw;
+    /* right: 0vw; */
+    &.active {
+      .handle {
+        left: 0px;
+        width: 100%;
+      }
+    }
   }
   @media (max-width: 700px) {
   }
 `
 
 class Weather extends Component {
+  constructor(props) {
+    super(props)
+    // this.addActiveClass = this.addActiveClass.bind(this)
+    // this.state = {
+    //   active: false,
+    // }
+  }
+
+  state = {
+    active: false,
+  }
+
+  toggleClass() {
+    const currentState = this.state.active
+    this.setState({ active: !currentState })
+  }
+
   render(props) {
     const {
       conditionIconURL,
       conditionText,
-      humidity,
+      // humidity,
       location,
       //query,
       temp,
@@ -86,8 +132,14 @@ class Weather extends Component {
     } = this.props.details
 
     return (
-      <>
-        <WeatherStyles>
+      <WeatherWrapper>
+        <WeatherStyles className={this.state.active && 'active'}>
+          <div
+            className="handle"
+            onClick={() => this.setState({ active: !this.state.active })}
+          >
+            X
+          </div>
           <div className="cityDetails">
             <img src={conditionIconURL} alt={conditionText} />
             <div>Location: {location}</div>
@@ -96,7 +148,7 @@ class Weather extends Component {
           </div>
           {this.props.children}
         </WeatherStyles>
-      </>
+      </WeatherWrapper>
     )
   }
 }

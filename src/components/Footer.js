@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const StyledFooter = styled.footer`
   background-color: ${(props) => props.theme.footer};
-  transition: border-color 1s;
+  transition: var(--transition);
   border-top: ${(props) => props.theme.separatorHt} solid
     ${(props) => props.theme.separatorBtm}; // SEPARATOR
   padding: 5rem 10rem;
@@ -15,7 +15,7 @@ const StyledFooter = styled.footer`
     border-radius: 5px;
     padding: 0 20px;
     margin: 0 auto;
-    transition: border-color 1s;
+    transition: var(--transition);
     display: grid;
     grid-template-columns: auto 1fr;
     box-sizing: border-box;

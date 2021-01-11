@@ -8,12 +8,14 @@ import ClientRoster from '../components/clients/_ClientRoster'
 import DarkSection from '../components/SectionDark'
 import me from '../assets/me2.jpg'
 
+import PageWrapper from '../styles/PageWrapperStyles'
+
 const v = 150
 const GridWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   max-width: 1200px;
-  margin: 100px auto;
+  margin: 0 auto;
   border: 1px solid ${(props) => props.theme.separatorTop};
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.2);
@@ -60,12 +62,11 @@ const GridWrapper = styled.div`
   }
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
+    ul,
+    li {
+      font-size: 2rem;
+    }
   }
-`
-
-const Wrapper = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
 `
 const TextWrapper = styled.div`
   margin: 0 auto;
@@ -74,6 +75,9 @@ const TextWrapper = styled.div`
   grid-template-columns: 1fr 2fr;
   max-width: 900px;
   align-items: center;
+  .em {
+    font-weight: 900;
+  }
   img {
     width: 300px;
     margin-right: 40px;
@@ -106,112 +110,125 @@ const TextWrapper = styled.div`
       height: auto;
     }
     padding: 0 50px;
-    p {
-      font-size: 1.1em;
-    }
   }
 `
-export default function AboutPage(props) {
+export default function AboutPage() {
   //console.log(props)
   return (
     <>
       <SEO title="About Rick Janusz" />
       <Heading1>
-        <h1>About</h1>
+        <h1>
+          <span>About</span>
+        </h1>
       </Heading1>
 
-      <TextWrapper>
-        <img src={me} alt="Rick Janusz" width="300" />
-        <p>
-          I'm a {new Date().getFullYear() - 2003} year veteran developer working
-          in Chicago, IL. I've been at Epsilon, formerly Conversant, formerly
-          Dotomi for 7 years. Prior to that, I spent time at Manifest Digital,
-          Element79 of DBD/Omnicom and then Disney Interactive Media Group.
-        </p>
-      </TextWrapper>
+      <PageWrapper>
+        <TextWrapper>
+          <img src={me} alt="Rick Janusz" width="300" />
+          <section>
+            <p>
+              I'm a {new Date().getFullYear() - 2003} year veteran developer
+              working in Chicago, IL. I've been at{' '}
+              <span className="em">Epsilon</span>, formerly Conversant, formerly
+              Dotomi for {new Date().getFullYear() - 2014} years. Prior to that,
+              I spent time at <span className="em">Manifest Digital</span>,{' '}
+              <span className="em">Element79</span> of DDB/Omnicom,{' '}
+              <span className="em">AnthemWW</span> and also
+              <span className="em">Disney Interactive Media Group</span>.
+            </p>
+            <p>
+              I'm currently a <span className="em">Creative Director</span> with
+              a focus on <span className="em">Tech</span>,{' '}
+              <span className="em">Innovation</span>
+              and <span className="em">Creative Capabilities</span>. I lead
+              cross organizational teams in developing, implementing new ad
+              tech. The space I work in is highly personalized and automated
+              requiring deep knowledge of scaling technology to assist in
+              delivery to billions of impressions daily.
+            </p>
+          </section>
+        </TextWrapper>
 
-      <Heading1>
-        <h1>Skills</h1>
-      </Heading1>
-      <GridWrapper>
-        <section>
-          <div>
-            <div>
-              <h4 className="where">Tools</h4>
-            </div>
-            <ul>
-              <li>Lighthouse</li>
-              <li>DevTools</li>
-              <li>Confluence</li>
-              <li>GIT</li>
-              <li>Terminal</li>
-              <li>Adobe Suite</li>
-              <li>Google Business/Teams</li>
-              <li>More...</li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <div>
-            <div>
-              <h4 className="interests">Frontend</h4>
-            </div>
-            <ul>
-              <li>HTML5</li>
-              <li>CSS3</li>
-              <li>JavaScript ES5/6+</li>
-              <li>TypeScript</li>
-              <li>RXjs</li>
-              <li>MarkDown</li>
-              <li>jQuery</li>
-              <li>Too many to list...</li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <div>
-            <div>
-              <h4 className="">SPAs / API / FW</h4>
-            </div>
-            <ul>
-              <li>React</li>
-              <li>Apollo</li>
-              <li>Angular</li>
-              <li>Gatsby</li>
-              <li>Next</li>
-              <li>NODE</li>
-              <li>Firebase</li>
-              <li>Again- the list goes on...</li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <div>
-            <div>
-              <h4 className="">Content</h4>
-            </div>
-            <ul>
-              <li>Netlify</li>
-              <li>Contentful</li>
-              <li>Sanity</li>
-              <li>GraphQL</li>
-              <li>YOGA</li>
-              <li>Prisma</li>
-              <li>MongoDB Atlas</li>
-              <li>Et al...</li>
-            </ul>
-          </div>
-        </section>
-      </GridWrapper>
+        <h2>Skills</h2>
 
-      <Heading1 className="dark">
-        <h1>Client History</h1>
-      </Heading1>
+        <GridWrapper>
+          <section>
+            <div>
+              <div>
+                <h4 className="where">Tools</h4>
+              </div>
+              <ul>
+                <li>Lighthouse</li>
+                <li>DevTools</li>
+                <li>Confluence</li>
+                <li>GIT</li>
+                <li>Terminal</li>
+                <li>Adobe Suite</li>
+                <li>Google Business/Teams</li>
+                <li>More...</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <div>
+              <div>
+                <h4 className="interests">Frontend</h4>
+              </div>
+              <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript ES5/6+</li>
+                <li>TypeScript</li>
+                <li>RXjs</li>
+                <li>MarkDown</li>
+                <li>jQuery</li>
+                <li>Too many to list...</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <div>
+              <div>
+                <h4 className="">SPAs/API/FW</h4>
+              </div>
+              <ul>
+                <li>React</li>
+                <li>Apollo</li>
+                <li>Angular</li>
+                <li>Gatsby</li>
+                <li>Next</li>
+                <li>NODE</li>
+                <li>Firebase</li>
+                <li>Again- the list goes on...</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <div>
+              <div>
+                <h4 className="">Content</h4>
+              </div>
+              <ul>
+                <li>Netlify</li>
+                <li>Contentful</li>
+                <li>Sanity</li>
+                <li>GraphQL</li>
+                <li>YOGA</li>
+                <li>Prisma</li>
+                <li>MongoDB Atlas</li>
+                <li>Et al...</li>
+              </ul>
+            </div>
+          </section>
+        </GridWrapper>
 
+        <h2>Client History</h2>
+      </PageWrapper>
       <DarkSection>
-        <Wrapper>
+        <PageWrapper>
           <ClientRoster />
-        </Wrapper>
+        </PageWrapper>
       </DarkSection>
     </>
   )

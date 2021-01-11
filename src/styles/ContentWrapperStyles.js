@@ -15,6 +15,11 @@ const ContentWrapperStyles = styled.div`
     max-width: 1000px;
     margin: 0 auto;
   }
+  .fullWidth section {
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
+  }
   @media (max-width: 1000px) {
     font-size: 1.5rem;
     section {
