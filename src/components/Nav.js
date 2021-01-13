@@ -8,6 +8,7 @@ const NavStyles = styled.div`
   display: flex;
   justify-self: end;
   font-size: 2rem;
+  transition: var(--transition);
   a,
   button {
     transition: color 0.4s;

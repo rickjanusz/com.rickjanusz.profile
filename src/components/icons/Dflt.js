@@ -1,5 +1,5 @@
 import React from 'react'
-import IconStyles from '../../styles/IconStyles'
+import IconStyles from './_IconStyles'
 
 export default function Dflt() {
   return (

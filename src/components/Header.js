@@ -9,9 +9,11 @@ const StyledHeader = styled.header`
     transition: var(--transition);
     display: grid;
     grid-template-columns: auto 1fr;
+    transition: var(--transition);
     @media (max-width: 1000px) {
       grid-template-columns: 1fr;
       justify-content: center;
+      transition: var(--transition);
     }
   }
 `
@@ -24,7 +26,7 @@ export default function Header(props) {
           <Logo />
           <Nav />
         </div>
-        {/* {props.children} */}
+        {props.children}
       </StyledHeader>
     </>
   )

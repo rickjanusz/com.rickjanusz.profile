@@ -1,15 +1,35 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import WeatherIcon from '../components/icons/Dflt'
 
+const Wrap = styled.div`
+  .handle {
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    background-color: ${(props) => props.theme.dark};
+    transition: var(--transition);
+    &:hover {
+      background-color: ${(props) => props.theme.light};
+      svg {
+        fill: ${(props) => props.theme.dark};
+      }
+    }
+    svg {
+      height: 100%;
+      width: 40px;
+      fill: ${(props) => props.theme.light};
+    }
+  }
+`
 const WeatherWrapper = styled.div`
-  height: 60vh;
+  height: auto;
   width: 100vw;
-  position: fixed;
   right: 0px;
-  overflow: hidden;
   transition: var(--transition);
   z-index: 1000;
   pointer-events: none;
+  position: relative;
   @media (max-width: 1000px) {
   }
   @media (max-width: 700px) {
@@ -18,48 +38,24 @@ const WeatherWrapper = styled.div`
 
 const WeatherStyles = styled.div`
   margin: 0;
-  width: 300px;
-  height: 100vh;
-  position: absolute;
-  right: -300px;
+  width: 100vw;
+  height: 0vh;
   pointer-events: auto;
-  display: flex;
+  /* display: flex; */
   z-index: 2;
   font-size: 2rem;
+  overflow: hidden;
+  /* position: relative; */
   color: ${(props) => props.theme.white};
-  background-color: ${(props) => props.theme.primary};
+  background-color: ${(props) => props.theme.dark};
   transition: var(--transition);
   &.active {
-    right: 0;
+    height: 100vh;
   }
-  div {
-    flex: 1;
-    height: 50px;
-  }
-  .handle {
-    height: 50px;
-    width: 50px;
-    text-align: center;
-    position: absolute;
-    z-index: 3;
-    display: grid;
-    place-items: center;
-    background-color: ${(props) => props.theme.primary};
-    left: -50px;
-    transition: var(--transition);
-  }
-  &.active {
-    .handle {
-      left: 0px;
-      width: 100%;
-    }
-  }
-
   img {
     width: 4vw;
   }
   form {
-    background-color: blue;
     input {
       padding: 10px;
       width: 100%;
@@ -87,31 +83,18 @@ const WeatherStyles = styled.div`
     }
   }
   .cityDetails {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    /* right: 20px; */
-    top: 300px;
-  }
-  .weatherForm {
-    position: absolute;
-    top: 400px;
-  }
-  .themeSelector {
-    top: 0px;
-    position: absolute;
+    /* display: flex; */
+    /* flex-direction: row; */
+    text-align: center;
+    img {
+      height: 75px;
+      width: 75px;
+    }
   }
   @media (max-width: 1000px) {
     margin: 0;
     width: 100vw;
     right: -100vw;
-    /* right: 0vw; */
-    /* &.active {
-      .handle {
-        left: 0px;
-        width: 100%;
-      }
-    } */
   }
   @media (max-width: 700px) {
   }
@@ -140,27 +123,29 @@ class Weather extends Component {
     } = this.props.details
 
     return (
-      <WeatherWrapper>
-        <WeatherStyles className={this.state.active && 'active'}>
-          <div
-            className="handle"
-            onClick={() => this.setState({ active: !this.state.active })}
-          >
-            X
-          </div>
-          <div className="cityDetails">
-            <img
-              className="cityChild"
-              src={conditionIconURL}
-              alt={conditionText}
-            />
-            <div className="cityChild">Location: {location}</div>
-            <div className="cityChild">Temp: {temp}</div>
-            {/* <div>Humidity: {humidity}</div> */}
-          </div>
-          {this.props.children}
-        </WeatherStyles>
-      </WeatherWrapper>
+      <Wrap>
+        <div
+          className="handle"
+          onClick={() => this.setState({ active: !this.state.active })}
+        >
+          <WeatherIcon />
+        </div>
+        <WeatherWrapper>
+          <WeatherStyles className={this.state.active && 'active'}>
+            <div className="cityDetails">
+              <img
+                className="cityChild"
+                src={conditionIconURL}
+                alt={conditionText}
+              />
+              <div className="cityChild">Location: {location}</div>
+              <div className="cityChild">Temp: {temp}</div>
+              {/* <div>Humidity: {humidity}</div> */}
+            </div>
+            {this.props.children}
+          </WeatherStyles>
+        </WeatherWrapper>
+      </Wrap>
     )
   }
 }

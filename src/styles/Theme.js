@@ -1,4 +1,12 @@
+import Dflt from '../components/icons/Dflt'
+import Night from '../components/icons/Night'
+import Sun from '../components/icons/Sun'
+import Snow from '../components/icons/Snow'
+import Rain from '../components/icons/Rain'
+import Overcast from '../components/icons/Overcast'
+
 let ht = '1px'
+
 export const defaultTheme = {
   primary: '#ea6d07',
   headings: '#777',
@@ -17,6 +25,7 @@ export const defaultTheme = {
   separatorHt: ht,
   dark: '#ea6d07',
   light: 'hsla(27, 94%, 80%, 1)',
+  icon: Dflt,
 }
 export const sunTheme = {
   primary: '#ea6d07',
@@ -37,6 +46,7 @@ export const sunTheme = {
   separatorHt: ht,
   dark: 'rgba(235, 138, 1, 1)',
   light: '#ffffaa',
+  icon: Sun,
 }
 export const snowTheme = {
   primary: 'hsla(224, 30%, 66%, 1)',
@@ -57,6 +67,7 @@ export const snowTheme = {
   separatorHt: ht,
   dark: 'hsla(224,50%,20%,1)',
   light: 'hsla(224, 30%, 80%, 1)',
+  icon: Snow,
 }
 
 export const overcastTheme = {
@@ -80,6 +91,7 @@ export const overcastTheme = {
   separatorHt: ht,
   dark: 'hsla(200, 100%, 10%, 1)',
   light: 'hsla(190, 10%, 70%, 1)',
+  icon: Overcast,
 }
 
 export const midnightTheme = {
@@ -102,6 +114,7 @@ export const midnightTheme = {
   separatorHt: ht,
   dark: 'hsla(200, 100%, 10%, 1)',
   light: '#8fb6c8',
+  icon: Night,
 }
 
 export const rainTheme = {
@@ -123,4 +136,5 @@ export const rainTheme = {
   separatorHt: ht,
   dark: 'hsla(194,20%,30%,1)',
   light: '#8fb6c8',
+  icon: Rain,
 }

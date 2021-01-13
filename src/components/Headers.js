@@ -3,18 +3,23 @@ import styled from 'styled-components'
 const w = '50vw'
 const s = '10px'
 const Heading1 = styled.header`
-  /* h1 {
+  h1 {
     font-family: Arial, sans-serif;
     margin: 50px auto;
     color: ${(props) => props.theme.dark};
     text-align: center;
     font-size: 2.3em;
-    position: relative;
     z-index: 20;
     transition: var(--transition);
-    top: -80px;
   }
-  h1:after,
+  h2 {
+    color: ${(props) => props.theme.dark};
+    font-family: Arial, sans-serif;
+    font-size: 2em;
+    text-align: center;
+    transition: var(--transition);
+  }
+  /*h1:after,
   h2:after {
     content: '';
     display: block;
@@ -52,16 +57,7 @@ const Heading1 = styled.header`
     transition: var(--transition);
   }
 
-  h2 {
-    margin: 50px 0 -20px;
-    position: relative;
-    z-index: 20;
-    color: ${(props) => props.theme.dark};
-    font-family: Arial, sans-serif;
-    font-size: 2em;
-    text-align: center;
-    transition: var(--transition);
-  } */
+   */
 
   @media (max-width: 1000px) {
     font-size: 1.5rem;

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import LogoStyles from './_LogoStyles'
+import ApiStyles from './_ApiStyles'
 
 export default class Logo extends Component {
   render() {
     return (
-      <LogoStyles>
+      <ApiStyles>
         <svg viewBox="0 0 2500 2500"></svg>
-      </LogoStyles>
+      </ApiStyles>
     )
   }
 }

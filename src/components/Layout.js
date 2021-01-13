@@ -228,19 +228,20 @@ export default class Layout extends Component {
     return (
       <ThemeProvider theme={this.state.theme}>
         <GlobalStyle />
-        <Header />
-        <Weather details={this.state.weather}>
-          <form className="weatherForm" onSubmit={this.handleClick}>
-            <input
-              type="text"
-              ref={cityInput}
-              id="city"
-              placeholder="Enter your city"
-            />
-            <button type="Submit">Theme My City</button>
-          </form>
-          <ThemeSelector setTheme={this.setTheme} />
-        </Weather>
+        <Header>
+          <Weather details={this.state.weather}>
+            <ThemeSelector setTheme={this.setTheme} />
+            <form className="weatherForm" onSubmit={this.handleClick}>
+              <input
+                type="text"
+                ref={cityInput}
+                id="city"
+                placeholder="Enter a City Name"
+              />
+              <button type="Submit">Theme my Site by City Weather</button>
+            </form>
+          </Weather>
+        </Header>
         {/* <Location details={this.state.headerImg} props={this.props} /> */}
         <ContentWrapperStyles>{this.props.children}</ContentWrapperStyles>
         <Footer />

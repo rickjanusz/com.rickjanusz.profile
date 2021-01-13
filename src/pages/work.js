@@ -115,12 +115,38 @@ export default function WorkPage() {
 
       var x = 0,
         y = direction * 100
-      if (elem.classList.contains('gs_reveal_fromLeft')) {
-        x = -100
-        y = 0
-      } else if (elem.classList.contains('gs_reveal_fromRight')) {
-        x = 100
-        y = 0
+      if (elem.classList.contains('gs_reveal_fromTop')) {
+        x = 0
+        y = -100
+      } else if (elem.classList.contains('gs_reveal_fromBottom')) {
+        x = 0
+        y = 100
+      }
+      gsap.fromTo(
+        elem,
+        { x: x, y: y, autoAlpha: 0 },
+        {
+          duration: 1.25,
+          x: 0,
+          y: 0,
+          autoAlpha: 1,
+          ease: 'expo',
+          overwrite: 'auto',
+        }
+      )
+    }
+
+    function animateFromFirst(elem, direction) {
+      direction = direction | 1
+
+      var x = 0,
+        y = direction * 100
+      if (elem.classList.contains('gs_reveal_fromTop')) {
+        x = 0
+        y = -100
+      } else if (elem.classList.contains('gs_reveal_fromBottom')) {
+        x = 0
+        y = 100
       }
       gsap.fromTo(
         elem,
@@ -153,16 +179,16 @@ export default function WorkPage() {
         onEnterBack: function () {
           animateFrom(elem, -1)
         },
-        // onLeave: function () {
-        //   hide(elem)
-        // }, // assure that the element is hidden when scrolled into view
+        onLeave: function () {
+          hide(elem)
+        }, // assure that the element is hidden when scrolled into view
       })
     })
 
     ScrollTrigger.create({
       trigger: '#trigger1',
       start: 'top top',
-      end: '+=1280',
+      end: '+=1180',
       pin: '#pinnedContent',
     })
   }, [])
@@ -197,7 +223,7 @@ export default function WorkPage() {
 
               <div
                 id="pinnedContent"
-                className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromRight"
+                className="featured-image-container ipsGrid_span6 gs_reveal_fromBottomFirst"
               >
                 <div className="card">
                   <img width="600" src={epsilon} alt="" />
@@ -225,7 +251,7 @@ export default function WorkPage() {
                 </p>
               </div>
 
-              {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromRight">
+              {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromBottom">
               <div className="card">
               <img
               width="600"
@@ -254,7 +280,7 @@ export default function WorkPage() {
                 </p>
               </div>
 
-              {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromRight">
+              {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromBottom">
               <div className="card">
               <img
               width="600"
@@ -283,7 +309,7 @@ export default function WorkPage() {
                 </p>
               </div>
 
-              {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromRight">
+              {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromBottom">
               <div className="card">
               <img
               width="600"
@@ -295,7 +321,7 @@ export default function WorkPage() {
             </div>
             <div id="releaseTrigger1"></div>
             <div className="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
-              <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromLeft">
+              <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromTop">
                 <div className="card">
                   <img width="600" src={manifest} alt="" />
                 </div>
@@ -323,7 +349,7 @@ export default function WorkPage() {
                 <p className="gs_reveal"></p>
               </div>
 
-              <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromRight">
+              <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromBottom">
                 <div className="card">
                   <img width="600" src={anthem} alt="" />
                 </div>
@@ -331,7 +357,7 @@ export default function WorkPage() {
             </div>
 
             <div className="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
-              <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromLeft">
+              <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromTop">
                 <div className="card">
                   <img width="600" src={e79} alt="" />
                 </div>
@@ -361,7 +387,7 @@ export default function WorkPage() {
                 <p className="gs_reveal"></p>
               </div>
 
-              <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromRight">
+              <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromBottom">
                 <div className="card">
                   <img width="600" src={dimg} alt="" />
                 </div>

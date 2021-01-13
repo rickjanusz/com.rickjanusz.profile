@@ -1,17 +1,25 @@
 import styled from 'styled-components'
 
 const IconStyles = styled.svg`
-  fill: ${(props) => props.theme.headings};
-  transition: fill 1s;
+  fill: ${(props) => props.theme.light};
+  transition: var(--transition);
+  display: block;
+  width: 100%;
+  margin: 3px auto;
+  cursor: pointer;
   .st0 {
-    /* fill: #898989; */
-    transition: fill 1s;
+    transition: var(--transition);
+  }
+  .st1 {
+    fill: ${(props) => props.theme.darkSection};
   }
   @media (max-width: 1000px) {
-    transition: width 1s;
+    transition: var(--transition);
+    /* width: 18%; */
   }
   @media (max-width: 700px) {
-    transition: width 1s;
+    transition: var(--transition);
+    /* width: 30%; */
   }
 `
 export default IconStyles
