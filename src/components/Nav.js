@@ -4,14 +4,14 @@ import styled from 'styled-components'
 
 const NavStyles = styled.div`
   margin: 0 0 5rem 0;
-  padding: 0;
+  padding: 0 5rem 0 0;
   display: flex;
   justify-self: end;
-  font-size: 2.3rem;
+  font-size: 2rem;
   a,
   button {
     transition: color 0.4s;
-    padding: 1rem 2rem;
+    padding: 1rem 1vw;
     display: flex;
     align-items: center;
     position: relative;
@@ -59,6 +59,7 @@ const NavStyles = styled.div`
     width: 100%;
     justify-content: center;
     transition: var(--transition);
+    padding: 0;
     a,
     button {
       font-size: 2rem;
@@ -90,7 +91,7 @@ const Nav = () => (
       About
     </Link>
     <Link to="/work/" activeClassName="active">
-      Work
+      <nobr>Work History</nobr>
     </Link>
     <Link to="/projects/" activeClassName="active">
       Projects

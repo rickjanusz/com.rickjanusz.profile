@@ -19,10 +19,10 @@ const StyledFooter = styled.footer`
     display: grid;
     grid-template-columns: auto 1fr;
     box-sizing: border-box;
+    font-size: 1.5rem;
   }
   @media (max-width: 1000px) {
     padding: 2rem 5rem 10rem;
-    font-size: 1.5rem;
     .wrapper {
       border-radius: 0px;
       top: 0;
@@ -30,11 +30,9 @@ const StyledFooter = styled.footer`
     }
   }
   @media (max-width: 700px) {
-    font-size: 1.5rem;
     padding: 2rem 0 10rem;
     p,
     ul {
-      font-size: 1.5rem;
     }
   }
 `

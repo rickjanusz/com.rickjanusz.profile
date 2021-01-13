@@ -28,6 +28,24 @@ const GlobalStyles = createGlobalStyle`
   }
   a {
     text-decoration: none;
+    transition: var(--transition);
+    color: ${(props) => props.theme.dark};
+  }
+
+  .card {
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 1px 1px 5px 1px #cccccc;
+    transition: 0.3s;
+  }
+
+  .featured-image-container .card {
+    padding: 10px;
+    height: 0;
+    padding-bottom: calc(100% - 10px);
   }
 
 

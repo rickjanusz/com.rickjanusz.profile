@@ -1,14 +1,12 @@
-import React, { Component } from 'react'
-import LogoStyles from './_ClientLogoStyles'
+import React from 'react'
+import LogoStyles from '../../styles/LogoStyles'
 
-export default class AMC extends Component {
-  render() {
-    return (
-      <LogoStyles>
-        <svg viewBox="0 0 2500 817">
-          <path
-            className="st0"
-            d="M1001.9,317.5h48.3v69.3h57.1v-69.3h48.3v181.2h-48.3v-77.6h-57.1v77.6h-48.3V317.5z M1228,445.8
+export default function HR() {
+  return (
+    <LogoStyles viewBox="0 0 2500 817">
+      <path
+        className="st0"
+        d="M1001.9,317.5h48.3v69.3h57.1v-69.3h48.3v181.2h-48.3v-77.6h-57.1v77.6h-48.3V317.5z M1228,445.8
 	c0-13,6.2-19.5,16.3-24.9c13.8,12.7,27.2,25.7,40.2,40c-9.1,6.7-16.6,9.9-27.5,9.9C1242.5,470.7,1228,461.4,1228,445.8z
 	 M1324.9,400.9c-0.5,11.7-3.6,23.6-12,32.7c-10.1-9.9-20.5-19.5-31.2-28.8c19.2-11.2,39-22.8,39-45.7c0-33.7-31.2-44.6-62.8-44.6
 	c-28.6,0-60.2,11.4-60.2,43.3c0,15.8,7.2,28.3,21.8,39.7c-22.3,10.4-35.6,24.1-35.6,49.3c0,37.4,34,55,68.5,55
@@ -25,10 +23,8 @@ export default class AMC extends Component {
 	c-13.8,3.4-29.1,7.2-53.8,7.2c-48.3,0-104.1-24.4-104.1-93c0-63.1,44.1-94.5,103.8-94.5c18.4,0,36.3,4.2,53.7,9.4l-3.9,39.2
 	c-14.4-8.3-30.7-12.7-47.3-12.7c-34.2,0-56.6,24.9-56.6,58.7c0,35.6,25.2,57.1,60.5,57.1c15.8,0,31.9-4.2,45.2-9.4L2311.3,494.6z
 	 M2333.3,317.5h48.3v74h0.5l54.6-74h58.2l-67,84.4l72.1,96.8h-61.5l-56.4-82.3h-0.5v82.3h-48.3V317.5L2333.3,317.5z"
-          />
-          <path className="st0" d="M0,0.1h819.7v816.8H0V0.1z" />
-        </svg>
-      </LogoStyles>
-    )
-  }
+      />
+      <path className="st0" d="M0,0.1h819.7v816.8H0V0.1z" />
+    </LogoStyles>
+  )
 }

@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 const ProjectGridStyles = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 4rem;
   margin: 2rem 4rem;
   transition: var(--transition);
@@ -14,11 +14,11 @@ const ProjectStyles = styled.div`
   display: grid;
   transition: var(--transition);
   gap: 1rem;
-  img {
+  /* img {
     width: 200px;
     transition: var(--transition);
     border: 1px solid ${(props) => props.theme.headings};
-  }
+  } */
   .gatsby-image-wrapper {
     overflow: visible !important;
     transition: var(--transition);
@@ -32,8 +32,6 @@ const ProjectStyles = styled.div`
     transition: var(--transition);
   }
   a {
-    transition: var(--transition);
-    color: ${(props) => props.theme.dark};
   }
 `
 
@@ -66,12 +64,17 @@ function SingleProject({ project }) {
 
   return (
     <ProjectStyles>
-      <Link to={`/project/${slug(project.slug.current)}`}>
-        <Img
-          imgStyle={{ objectFit: 'fillmax' }}
-          fluid={project.featureImage.asset.fluid}
-          alt={project.name}
-        />
+      <Link
+        className="featured-image-container"
+        to={`/project/${slug(project.slug.current)}`}
+      >
+        <div className="card">
+          <Img
+            imgStyle={{ objectFit: 'fillmax' }}
+            fluid={project.featureImage.asset.fluid}
+            alt={project.name}
+          />
+        </div>
         <span>{project.name}</span>
       </Link>
     </ProjectStyles>

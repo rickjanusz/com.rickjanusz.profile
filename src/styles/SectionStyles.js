@@ -3,7 +3,6 @@ import styled from 'styled-components'
 const SectionStyles = styled.div`
   position: relative;
   height: 100vh;
-  /* width: 100vw; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,18 +26,5 @@ const SectionStyles = styled.div`
     font-size: 7vw;
     font-weight: 600;
   }
-
-  /* &.panel1 {
-    background: bisque;
-  }
-  &.panel2 {
-    background: palevioletred;
-  }
-  &.panel3 {
-    background: rebeccapurple;
-  }
-  &.panel4 {
-    background: gainsboro;
-  } */
 `
 export default SectionStyles

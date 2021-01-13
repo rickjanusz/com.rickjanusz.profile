@@ -1,6 +1,6 @@
 import React from 'react'
 import SEO from '../components/SEO'
-import Heading1 from '../components/Heading1'
+import Headers from '../components/Headers'
 import callMe from '../assets/qr/call.png'
 import addMe from '../assets/qr/vcard.png'
 import emailMe from '../assets/qr/email.png'
@@ -27,11 +27,11 @@ export default function ContactPage() {
   return (
     <>
       <SEO title="Contact Me" />
-      <Heading1>
+      <Headers>
         <h1>
           <span>Contact Me</span>
         </h1>
-      </Heading1>
+      </Headers>
       <PageWrapper>
         <section>
           <p>Form?</p>

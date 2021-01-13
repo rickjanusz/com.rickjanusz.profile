@@ -5,6 +5,10 @@ const PageWrapper = styled.div`
   margin: 0 auto;
   transition: padding 1s;
   margin-top: -40px;
+  &.sub {
+    margin-top: 0px;
+    padding: 0;
+  }
   @media (max-width: 1000px) {
     margin-top: -60px;
     padding: 0 10vw;

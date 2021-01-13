@@ -61,7 +61,7 @@ export default function Timeline() {
     var tlCircles = gsap
       .timeline({
         defaults: {
-          duration: 0.009,
+          duration: 0,
           autoAlpha: 1,
           scale: 1.5,
           transformOrigin: 'center',

@@ -1,14 +1,12 @@
-import React, { Component } from 'react'
-import LogoStyles from './_ClientLogoStyles'
+import React from 'react'
+import LogoStyles from '../../styles/LogoStyles'
 
-export default class AMC extends Component {
-  render() {
-    return (
-      <LogoStyles>
-        <svg viewBox="-500 -300 3500 1680">
-          <path
-            className="st0"
-            d="M445.9,912.9v232.4c0,0-76.8-217.8-78.6-223.5c-1.9-5.8-6.1-8.9-14-8.9h-73.2v283h49.4V966.5
+export default function Infiniti() {
+  return (
+    <LogoStyles viewBox="-500 -300 3500 1680">
+      <path
+        className="st0"
+        d="M445.9,912.9v232.4c0,0-76.8-217.8-78.6-223.5c-1.9-5.8-6.1-8.9-14-8.9h-73.2v283h49.4V966.5
 	c0,0,75.6,214.9,77.6,220.5c1.7,5.7,6.5,8.9,12.9,8.9h75.3v-283L445.9,912.9z M705.8,912.9v283H764l-0.1-120.4h104.7v-51.7
 	l-104.6,0.1V965h106.2v-52.1L705.8,912.9z M2049.9,912.9v54.4h64.9v228.5h59.1V967.3h64.8v-54.4L2049.9,912.9z M1074.8,1195.8h62.6
 	V913h-62.6V1195.8z M1787.6,1195.8h62.6V913h-62.6V1195.8z M2437.7,1195.8h62.3V913h-62.3V1195.8z M0,1195.8h62.6V913H0V1195.8z
@@ -18,9 +16,7 @@ export default class AMC extends Component {
 	C1741.4,384.3,1592.5,441.1,1506.2,448.4 M1250,4.1c-353.9,0-600.3,138.2-600.3,317.3c0,83.5,53.9,178,168.2,234.8
 	c106.1,52.7,256,71.1,277.6,73.7L1250,174.8L1406.1,630c21.6-2.7,170.1-21,276.2-73.7c114.2-56.8,168.1-151.3,168.1-234.8
 	C1850.4,142.4,1604,4.1,1250,4.1"
-          />
-        </svg>
-      </LogoStyles>
-    )
-  }
+      />
+    </LogoStyles>
+  )
 }

@@ -1,16 +1,14 @@
-import React, { Component } from 'react'
-import LogoStyles from './_ClientLogoStyles'
+import React from 'react'
+import LogoStyles from '../../styles/LogoStyles'
 
-export default class AMC extends Component {
-  render() {
-    return (
-      <LogoStyles>
-        <svg viewBox="0 0 2500 2500">
-          <g>
-            {/* <path className="st1" d="M0,0h2500v2500H0V0z" /> */}
-            <path
-              className="st0"
-              d="M508.2,1247.5h-14.9c-26.5,0-48,19.8-48,46.3c0,21.5,6.6,46.3,34.7,46.3c24.8,0,29.8-19.8,29.8-39.7v-49.6
+export default function Patagonia() {
+  return (
+    <LogoStyles viewBox="0 0 2500 2500">
+      <g>
+        {/* <path className="st1" d="M0,0h2500v2500H0V0z" /> */}
+        <path
+          className="st0"
+          d="M508.2,1247.5h-14.9c-26.5,0-48,19.8-48,46.3c0,21.5,6.6,46.3,34.7,46.3c24.8,0,29.8-19.8,29.8-39.7v-49.6
 		C509.8,1250.8,511.5,1247.5,508.2,1247.5L508.2,1247.5z M1261.9,1489h-52.1c-37.4-4.5-69.8-18.7-69.8-52.9
 		c0-24.8,28.1-43,51.3-46.3c0,0,6.6-1.6,0-1.6c-8.3-1.7-52.9-5-67.8-1.7c0,0-3.3,0-5-3.3c-1.6-3.3-9.9-26.5-11.6-28.1
 		c-1.6-3.3,1.6-5,1.6-5c33.1-5,62.9-21.5,76.1-26.5c8.3-1.6,0-3.3,0-3.3c-46.3-8.3-92.6-39.7-92.6-94.3
@@ -70,10 +68,8 @@ export default class AMC extends Component {
 		s-33.1,14.9-33.1,31.4c0,18.2,14.9,33.1,33.1,33.1S2458.3,1065.6,2458.3,1047.4z M2445,1068.9h-6.6l-11.6-19.8h-8.3v19.8h-5v-41.3
 		h16.5c3.3,0,8.3,0,9.9,1.7c3.3,1.6,4.9,6.6,4.9,9.9c0,6.6-4.9,9.9-13.2,9.9L2445,1068.9L2445,1068.9z M2425.2,1045.7
 		c6.6,0,14.9,1.6,14.9-6.6c0-6.6-5-8.3-9.9-8.3h-11.6v14.9H2425.2L2425.2,1045.7z"
-            />
-          </g>
-        </svg>
-      </LogoStyles>
-    )
-  }
+        />
+      </g>
+    </LogoStyles>
+  )
 }

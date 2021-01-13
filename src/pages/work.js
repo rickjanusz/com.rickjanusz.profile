@@ -1,143 +1,372 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import Heading1 from '../components/Heading1'
-import SEO from '../components/SEO'
-import Timeline from '../components/Timeline'
-import PageWrapper from '../styles/PageWrapperStyles'
+// import Headers from '../components/Headers'
+// import SEO from '../components/SEO'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { GSDevTools } from 'gsap/GSDevTools'
+import Headers from '../components/Headers'
+import anthem from '../assets/company_anthem.jpg'
+import dimg from '../assets/company_dimg.jpg'
+import epsilon from '../assets/company_epsilon.jpg'
+import e79 from '../assets/company_e79.jpg'
+import manifest from '../assets/company_manifest.jpg'
 
-// console.clear()
+gsap.registerPlugin(GSDevTools)
+// import PageWrapper from '../styles/PageWrapperStyles'
 
-const Wrapper3Col = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-`
-const Wrapper1Col = styled.div`
-  display: grid;
-  grid-template-rows: 1fr;
-  h1 {
-    font-size: 1.3em;
+const ExpWrapper = styled.div`
+  margin-top: 0px;
+  h3 {
+    margin: 0 0 0px;
   }
-  h2 {
-    font-size: 1em;
+  .ipsType_right {
+    text-align: right;
   }
-  p {
-    font-size: 1em;
+  .ipsType_center {
+    text-align: center;
+  }
+  .cInnerContent {
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ipsSpacer_bottom_double {
+    margin-bottom: 30px;
+  }
+  .ipsGrid {
+    display: inline-block;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .ipsGrid::before,
+  .ipsGrid::after {
+    display: table;
+    content: '';
+    line-height: 0;
+  }
+  .ipsGrid > [class*='ipsGrid_span'] {
+    display: block;
+    width: 100%;
+    min-height: 30px;
+    box-sizing: border-box;
+  }
+  .ipsGrid > .ipsGrid_span5 {
+    width: 40.42553191489362%;
+  }
+  .ipsGrid > .ipsGrid_span6 {
+    width: 48.5%;
+  }
+  .ipsGrid > .ipsGrid_span7 {
+    width: 57.44680851063829%;
+  }
+  .ipsGrid > [class*='ipsGrid_span'] {
+    float: left;
+    margin-left: 2%;
+  }
+  .ipsGrid > [class*='ipsGrid_span']:first-child {
+    margin-left: 0;
+  }
+  .feature {
+    display: flex;
+    align-items: center;
+  }
+
+  .heading_large {
+    font-size: 1.8em;
+  }
+  .empty {
+    height: 400px;
   }
   img {
-    width: 300px;
-    margin-right: 40px;
-    border-radius: 28px 0 28px 0;
-    border-bottom: 2px solid ${(props) => props.theme.separatorTop};
-    border-top: 2px solid ${(props) => props.theme.separatorBtm};
-
-    transition: all 0.3s;
-    :hover {
-      cursor: pointer;
-      transform: scale(1.01);
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    }
+    max-width: 100%;
   }
+
+  .header-section {
+    margin: 200px auto;
+  }
+
+  .gs_reveal {
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0s;
+  }
+  .sm {
+    font-size: 2rem;
+  }
+  .em {
+    font-weight: bold;
+    font-style: italic;
+  }
+`
+const Wrapper1Col = styled.div`
   @media (max-width: 1000px) {
-    padding: 0 40px;
-    img {
-      width: 80%;
-      height: auto;
-    }
-    p {
-      font-size: 1.2em;
-    }
   }
   @media (max-width: 700px) {
-    grid-template-columns: 1fr;
-    align-content: center;
-    img {
-      width: 100%;
-      height: auto;
-    }
-    padding: 0 50px;
-    p {
-      font-size: 1.1em;
-    }
   }
 `
 
-//gsap.set('.ball', { xPercent: -50, yPercent: -50 })
-
 export default function WorkPage() {
+  useEffect(() => {
+    function animateFrom(elem, direction) {
+      direction = direction | 1
+
+      var x = 0,
+        y = direction * 100
+      if (elem.classList.contains('gs_reveal_fromLeft')) {
+        x = -100
+        y = 0
+      } else if (elem.classList.contains('gs_reveal_fromRight')) {
+        x = 100
+        y = 0
+      }
+      gsap.fromTo(
+        elem,
+        { x: x, y: y, autoAlpha: 0 },
+        {
+          duration: 1.25,
+          x: 0,
+          y: 0,
+          autoAlpha: 1,
+          ease: 'expo',
+          overwrite: 'auto',
+        }
+      )
+    }
+
+    function hide(elem) {
+      gsap.set(elem, { autoAlpha: 0 })
+    }
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    gsap.utils.toArray('.gs_reveal').forEach(function (elem) {
+      hide(elem) // assure that the element is hidden when scrolled into view
+
+      ScrollTrigger.create({
+        trigger: elem,
+        onEnter: function () {
+          animateFrom(elem)
+        },
+        onEnterBack: function () {
+          animateFrom(elem, -1)
+        },
+        // onLeave: function () {
+        //   hide(elem)
+        // }, // assure that the element is hidden when scrolled into view
+      })
+    })
+
+    ScrollTrigger.create({
+      trigger: '#trigger1',
+      start: 'top top',
+      end: '+=1280',
+      pin: '#pinnedContent',
+    })
+  }, [])
+
   return (
     <>
-      <SEO title="Portfolio | RJ" />
-      <Heading1>
+      <Headers>
         <h1>
-          <span>Work</span>
+          <span>Work History</span>
         </h1>
-      </Heading1>
+      </Headers>
 
-      <PageWrapper>
-        <Wrapper3Col>
-          <Wrapper1Col>
-            <section>
-              <h1>
-                2019-Current Creative, Creative Director, Capabilities &amp;
-                Innovation
-              </h1>
-              <div>
-                <h2>Partnering with Creative / Prototype Process</h2>
-                <h2>QR Codes</h2>
-                <h2>3D Images</h2>
-                <h2>Parallax 2.0</h2>
-                <h2>Ambient Video Tabbed</h2>
+      <ExpWrapper>
+        <div className="cInnerContent" id="trigger1">
+          <div className="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+            <div className="ipsGrid_span6 ipsType_right">
+              <div className="heading_large gs_reveal">
+                <div className="sm">2019-current</div>
+                <h3>Creative Director</h3>
               </div>
-            </section>
-            <section>
-              <h1>
-                2017-2019 Creative Technology, Associate Creative Director
-              </h1>
-              <div>
-                <h2>Adaptive Advertising Framework</h2>
-                <h2>Augmented Reality</h2>
-                <h2>Animation Presets</h2>
-                <div>
-                  <p>Presets</p>
-                  <p>Automation</p>
-                  <p>Categorical</p>
-                  <p>POV</p>
-                </div>
-                <h2>Predictive Interaction</h2>
-                <h2>Video as Animation / Overlays</h2>
-                <div>
-                  <p>Emotion</p>
-                  <p>Weather</p>
-                </div>
+              <div className="gs_reveal sm em">
+                Epsilon (formerly Conversant)
               </div>
-            </section>
-          </Wrapper1Col>
-          <Timeline className="tl" />
-          <Wrapper1Col>
-            <section>
-              <h1>2016-2017 Creative Technology Sr. Manager</h1>
-              <div>
-                <h2>HTML5 Hosting</h2>
-                <h2>Templates 2.0</h2>
-                <h2>360 Image</h2>
-                <h2>Parallax 2.0 (Animation/Carousels)</h2>
-                <h2>Animation Theory for Advertising</h2>
+              <div className="gs_reveal">
+                Creative Innovation &amp; Capabilities
               </div>
-            </section>
+              <p className="gs_reveal">
+                Define, develop and lead organizational cross teams on the
+                implementation of the innovation roadmap.
+              </p>
+            </div>
 
-            <section>
-              <h1>2014-2016 Creative Technology Team Lead</h1>
-              <div>
-                <h2>Parallax</h2>
-                <h2>Templates 1.0</h2>
-                <h2>Video cue points</h2>
-                <h2>3P API: Weather / Maps / Social</h2>
-                <h2>Sprites</h2>
+            <div
+              id="pinnedContent"
+              className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromRight"
+            >
+              <div className="card">
+                <img width="600" src={epsilon} alt="" />
               </div>
-            </section>
-          </Wrapper1Col>
-        </Wrapper3Col>
-      </PageWrapper>
+            </div>
+          </div>
+
+          <div className="empty feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+            <div className="ipsGrid_span6 ipsType_right">
+              <div className="heading_large gs_reveal">
+                <div className="sm">2017-2019</div>
+                <h3>Assoc. Director</h3>
+              </div>
+              <div className="gs_reveal sm em">
+                Epsilon (formerly Conversant)
+              </div>
+              <div className="gs_reveal">Creative Technology</div>
+              <p className="gs_reveal">
+                {' '}
+                Built and developed Animation Presets and responsive ad unit
+                methodology for implementation within our proprietary javaScript
+                framework to facilitate dynamic layout of any ad size. <br />
+                <span className="em">One set of code. All ad sizes.</span>
+              </p>
+            </div>
+
+            {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromRight">
+              <div className="card">
+               <img
+                  width="600"
+                  src="https://picsum.photos/550/550?index=4"
+                  alt=""
+                /> 
+              </div>
+            </div> */}
+          </div>
+
+          <div className="empty feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+            <div className="ipsGrid_span6 ipsType_right">
+              <div className="heading_large gs_reveal">
+                <div className="sm">2016-2017</div>
+                <h3>Sr. Manager</h3>
+              </div>
+              <div className="gs_reveal sm em">
+                Epsilon (formerly Conversant)
+              </div>
+              <div className="gs_reveal">Creative Technology</div>
+
+              <p className="gs_reveal">
+                Team manager of the custom client development tech team.
+                Responsible for integrating new technologies and training teams
+                on new tech.
+              </p>
+            </div>
+
+            {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromRight">
+              <div className="card">
+                 <img
+                  width="600"
+                  src="https://picsum.photos/550/550?index=4"
+                  alt=""
+                /> 
+              </div>
+            </div> */}
+          </div>
+
+          <div className="empty feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+            <div className="ipsGrid_span6 ipsType_right">
+              <div className="heading_large gs_reveal">
+                <div className="sm">2014-2016</div>
+                <h3>Sr. Creative Tech, Team Lead</h3>
+              </div>
+              <div className="gs_reveal sm em">
+                Epsilon (formerly Conversant)
+              </div>
+              <div className="gs_reveal">Creative Technology</div>
+
+              <p className="gs_reveal">
+                Team leader of all custom development of ad units. Lead
+                developer on templates 1.0 for the Agency line of business. Lead
+                developer in innovation exercises.
+              </p>
+            </div>
+
+            {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromRight">
+              <div className="card">
+                 <img
+                  width="600"
+                  src="https://picsum.photos/550/550?index=4"
+                  alt=""
+                /> 
+              </div>
+            </div> */}
+          </div>
+          <div id="releaseTrigger1"></div>
+          <div className="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+            <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromLeft">
+              <div className="card">
+                <img width="600" src={manifest} alt="" />
+              </div>
+            </div>
+
+            <div className="ipsGrid_span6 ipsType_left">
+              <div className="heading_large gs_reveal">
+                <div className="sm">2012-2014</div>
+                <h3>Sr. Tech Architect</h3>
+              </div>
+              <div className="gs_reveal sm em">Manifest Digital</div>
+              <div className="gs_reveal">Tech</div>
+              <p className="gs_reveal"></p>
+            </div>
+          </div>
+
+          <div className="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+            <div className="ipsGrid_span6 ipsType_right">
+              <div className="heading_large gs_reveal">
+                <div className="sm">2012-2012</div>
+                <h3>Developer</h3>
+              </div>
+              <div className="gs_reveal sm em">Anthem! Digital Worldwide</div>
+              <div className="gs_reveal">Tech Team</div>
+              <p className="gs_reveal"></p>
+            </div>
+
+            <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromRight">
+              <div className="card">
+                <img width="600" src={anthem} alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div className="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+            <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromLeft">
+              <div className="card">
+                <img width="600" src={e79} alt="" />
+              </div>
+            </div>
+
+            <div className="ipsGrid_span6 ipsType_left">
+              <div className="heading_large gs_reveal">
+                <div className="sm">2009-2012</div>
+                <h3>Front-end Developer</h3>
+              </div>
+              <div className="gs_reveal sm em">Element79 of DDB</div>
+              <div className="gs_reveal">Technology</div>
+              <p className="gs_reveal"></p>
+            </div>
+          </div>
+
+          <div className="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+            <div className="ipsGrid_span6 ipsType_right">
+              <div className="heading_large gs_reveal">
+                <div className="sm">2008-2009</div>
+                <h3>Lead Production Designer</h3>
+              </div>
+              <div className="gs_reveal sm em">
+                Disney Interactive Media Group
+              </div>
+              <div className="gs_reveal">Interactive Media Group</div>
+              <p className="gs_reveal"></p>
+            </div>
+
+            <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromRight">
+              <div className="card">
+                <img width="600" src={dimg} alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </ExpWrapper>
     </>
   )
 }

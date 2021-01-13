@@ -1,16 +1,14 @@
-import React, { Component } from 'react'
-import LogoStyles from './_ClientLogoStyles'
+import React from 'react'
+import LogoStyles from '../../styles/LogoStyles'
 
-export default class AmEx extends Component {
-  render() {
-    return (
-      <LogoStyles>
-        <svg viewBox="-500 -500 3500 3500">
-          <g>
-            <path className="st0" d="M0,0h2500v2500H0V0z" />
-            <path
-              className="st1"
-              d="M110,2304.7h-7.1c0-3.6-1.8-8.9-1.8-10.7c0-1.8,0-5.3-5.4-5.3H85v16.1h-5.4v-37.6h16.1
+export default function AmEx() {
+  return (
+    <LogoStyles viewBox="-500 -500 3500 3500">
+      <g>
+        <path className="st0" d="M0,0h2500v2500H0V0z" />
+        <path
+          className="st1"
+          d="M110,2304.7h-7.1c0-3.6-1.8-8.9-1.8-10.7c0-1.8,0-5.3-5.4-5.3H85v16.1h-5.4v-37.6h16.1
 		c7.2,0,12.5,1.8,12.5,8.9c0,5.4-1.8,7.2-3.6,8.9c1.8,1.8,3.6,3.6,3.6,7.2v7.1c0,1.8,0,1.8,1.8,1.8L110,2304.7L110,2304.7z
 		 M102.9,2277.9c0-5.4-3.6-5.4-5.4-5.4H85v10.7h10.7C99.3,2283.3,102.9,2281.5,102.9,2277.9z M133.3,2285
 		c0-21.5-17.9-39.4-41.2-39.4c-21.5,0-39.4,17.9-39.4,39.4c0,23.3,17.9,41.2,39.4,41.2C115.4,2326.2,133.3,2308.3,133.3,2285z
@@ -49,10 +47,8 @@ export default class AmEx extends Component {
 		c-26.8,12.5-57.2,12.5-84.1,12.5h-17.9v82.3h-196.8l-46.5-53.7l-51.9,53.7H609.2v-350.7h322.1l46.5,53.7l50.1-53.7h216.5
 		c25,0,66.2,3.6,84.1,21.5v-21.5h193.2c19.7,0,57.3,3.6,82.3,21.5v-21.5h291.6v21.5c16.1-14.3,46.5-21.5,73.4-21.5h162.8v21.5
 		c17.9-12.5,42.9-21.5,75.2-21.5h110.9V173.8L2317.9,173.8z"
-            />
-          </g>
-        </svg>
-      </LogoStyles>
-    )
-  }
+        />
+      </g>
+    </LogoStyles>
+  )
 }

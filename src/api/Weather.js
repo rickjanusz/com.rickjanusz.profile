@@ -23,14 +23,18 @@ const WeatherStyles = styled.div`
   position: absolute;
   right: -300px;
   pointer-events: auto;
-  /* right: 0px; */
+  display: flex;
   z-index: 2;
   font-size: 2rem;
   color: ${(props) => props.theme.white};
-  background-color: ${(props) => props.theme.transparentBar};
+  background-color: ${(props) => props.theme.primary};
   transition: var(--transition);
   &.active {
     right: 0;
+  }
+  div {
+    flex: 1;
+    height: 50px;
   }
   .handle {
     height: 50px;
@@ -44,12 +48,17 @@ const WeatherStyles = styled.div`
     left: -50px;
     transition: var(--transition);
   }
+  &.active {
+    .handle {
+      left: 0px;
+      width: 100%;
+    }
+  }
 
   img {
     width: 4vw;
   }
   form {
-    border: 1px solid red;
     background-color: blue;
     input {
       padding: 10px;
@@ -78,6 +87,8 @@ const WeatherStyles = styled.div`
     }
   }
   .cityDetails {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     /* right: 20px; */
     top: 300px;
@@ -95,26 +106,18 @@ const WeatherStyles = styled.div`
     width: 100vw;
     right: -100vw;
     /* right: 0vw; */
-    &.active {
+    /* &.active {
       .handle {
         left: 0px;
         width: 100%;
       }
-    }
+    } */
   }
   @media (max-width: 700px) {
   }
 `
 
 class Weather extends Component {
-  constructor(props) {
-    super(props)
-    // this.addActiveClass = this.addActiveClass.bind(this)
-    // this.state = {
-    //   active: false,
-    // }
-  }
-
   state = {
     active: false,
   }
@@ -146,9 +149,13 @@ class Weather extends Component {
             X
           </div>
           <div className="cityDetails">
-            <img src={conditionIconURL} alt={conditionText} />
-            <div>Location: {location}</div>
-            <div>Temp: {temp}</div>
+            <img
+              className="cityChild"
+              src={conditionIconURL}
+              alt={conditionText}
+            />
+            <div className="cityChild">Location: {location}</div>
+            <div className="cityChild">Temp: {temp}</div>
             {/* <div>Humidity: {humidity}</div> */}
           </div>
           {this.props.children}

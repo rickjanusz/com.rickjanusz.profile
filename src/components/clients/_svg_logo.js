@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import LogoStyles from './_ClientLogoStyles'
+import LogoStyles from '../../styles/LogoStyles'
 
 export default class Logo extends Component {
   render() {

@@ -12,10 +12,10 @@ const Heading1 = styled.header`
     position: relative;
     z-index: 20;
     transition: var(--transition);
-    position: relative;
     top: -80px;
   }
-  h1:after {
+  h1:after,
+  h2:after {
     content: '';
     display: block;
     width: ${w};
@@ -29,7 +29,8 @@ const Heading1 = styled.header`
     position: absolute;
   }
 
-  h1:before {
+  h1:before,
+  h2:before {
     content: '';
     display: block;
     width: ${w};
@@ -42,29 +43,37 @@ const Heading1 = styled.header`
     z-index: -1;
     position: absolute;
   }
-  h1 span {
+  h1 span,
+  h2 span {
     background-color: #ccc;
     padding: 0.2em;
     border: 5px solid ${(props) => props.theme.primary};
     border-radius: 20px 0 20px 0;
     transition: var(--transition);
   }
+
+  h2 {
+    margin: 50px 0 -20px;
+    position: relative;
+    z-index: 20;
+    color: ${(props) => props.theme.dark};
+    font-family: Arial, sans-serif;
+    font-size: 2em;
+    text-align: center;
+    transition: var(--transition);
+  }
+
   @media (max-width: 1000px) {
     font-size: 1.5rem;
     h1 {
       top: -72px;
     }
+    h2 {
+      margin: 30px 0 -15px;
+    }
   }
   @media (max-width: 700px) {
     font-size: 1.3rem;
-    h1:after {
-      width: 50vw;
-      right: 0%;
-    }
-    h1:before {
-      width: 50vw;
-      left: 0%;
-    }
   }
 `
 

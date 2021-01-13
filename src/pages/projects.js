@@ -4,7 +4,7 @@ import SEO from '../components/SEO'
 // import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import ProjectList from '../components/ProjectList'
-import Heading1 from '../components/Heading1'
+import Headers from '../components/Headers'
 import ProjectsFilter from '../components/ProjectsFilter'
 import PageWrapper from '../styles/PageWrapperStyles'
 
@@ -13,11 +13,11 @@ export default function ProjectsPage({ data }, pageContext) {
   return (
     <div>
       <SEO title="Projects" />
-      <Heading1>
+      <Headers>
         <h1>
           <span>Projects</span>
         </h1>
-      </Heading1>
+      </Headers>
       <PageWrapper>
         <ProjectsFilter activeTag={pageContext.tag} />
         <ProjectList projects={projects} />

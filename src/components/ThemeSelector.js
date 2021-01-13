@@ -9,26 +9,32 @@ import {
   rainTheme,
 } from '../styles/Theme'
 
+import Dflt from '../components/icons/Dflt'
+import Night from '../components/icons/Night'
+import Sun from '../components/icons/Sun'
+import Snow from '../components/icons/Snow'
+import Rain from '../components/icons/Rain'
+import Overcast from '../components/icons/Overcast'
+
 const ThemeWrapper = styled.div`
   transition: var(--transition);
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
+  align-items: stretch;
   transition: all 0.25s;
   margin-top: 50px;
 `
 const StyledButton = styled.button`
   transition: var(--transition);
   color: ${(props) => props.theme.white};
-  background-color: ${(props) => props.theme.primary};
-  border-top: 1px solid ${(props) => props.theme.separatorTop};
-  border-bottom: 1px solid ${(props) => props.theme.separatorBtm};
-  font-size: 0.8em;
-  padding: 15px;
+  background-color: ${(props) => props.theme.dark};
   transition: var(--transition);
+  flex: 1;
+  border: 1px solid #333;
   &.condition {
     transition: var(--transition);
-    width: 50%;
-    height: 10vh;
+    /* height: 10vh; */
   }
   :hover {
     transition: var(--transition);
@@ -49,37 +55,38 @@ const ThemeSelector = (props) => {
         className="condition default"
         onClick={() => props.setTheme(defaultTheme)}
       >
-        D
+        Default
+        <Dflt />
       </StyledButton>
       <StyledButton
         className="condition freezing"
         onClick={() => props.setTheme(snowTheme)}
       >
-        Frz
+        Snow <Snow />
       </StyledButton>
       <StyledButton
         className="condition hot"
         onClick={() => props.setTheme(sunTheme)}
       >
-        Hot
+        Sunny <Sun />
       </StyledButton>
       <StyledButton
         className="condition overcast"
         onClick={() => props.setTheme(overcastTheme)}
       >
-        Rain
+        Overcast <Overcast />
       </StyledButton>
       <StyledButton
         className="condition midnight"
         onClick={() => props.setTheme(midnightTheme)}
       >
-        Drk
+        Midnight <Night />
       </StyledButton>
       <StyledButton
-        className="condition "
+        className="condition rain"
         onClick={() => props.setTheme(rainTheme)}
       >
-        Wet
+        Rain <Rain />
       </StyledButton>
     </ThemeWrapper>
   )

@@ -1,16 +1,14 @@
-import React, { Component } from 'react'
-import LogoStyles from './_ClientLogoStyles'
+import React from 'react'
+import LogoStyles from '../../styles/LogoStyles'
 
-export default class AMC extends Component {
-  render() {
-    return (
-      <LogoStyles>
-        <svg viewBox="0 0 2500 2500">
-          <g>
-            <path className="st1" d="M0,0h2500v2500H0V0z" />
-            <path
-              className="st0"
-              d="M539.3,1055.6c-0.4,0-0.1-0.5-37.4,3.2c-10.7,1.1-21.7,3.6-31.7,6.1c-9.7,2.3-19.2,5.3-28.4,8.9
+export default function EddieBauer() {
+  return (
+    <LogoStyles viewBox="0 0 2500 2500">
+      <g>
+        <path className="st1" d="M0,0h2500v2500H0V0z" />
+        <path
+          className="st0"
+          d="M539.3,1055.6c-0.4,0-0.1-0.5-37.4,3.2c-10.7,1.1-21.7,3.6-31.7,6.1c-9.7,2.3-19.2,5.3-28.4,8.9
 		c-10,3.9-9.8,4.3-27.6,14.2c-3.6,2-7,4.3-10.2,6.9c-6.1,5.3-11.8,11-17.1,17.1c-6,7.1-10.8,15.2-14.2,24c-1.5,4-3.1,8-3.7,12.6
 		c-0.7,5.6,0,11.8,0,17.9c1.6,7.7,1.6,7.7,4.5,17c0.8,1.6,1.6,3.2,2.4,5.3c0,0.8,0,1.6-0.4,2.8c-0.4,0-0.8,0.4-1.6,0.8
 		c-6.9,0-13.8,0-20.7,0.4c-16.2,1.6-16.2,1.6-32.9,4.5c-21.5,6.1-21.5,6.1-29.6,8.9c-8.1,4.1-8.1,4.1-10.6,4.5
@@ -202,10 +200,8 @@ export default class AMC extends Component {
 		c2,0.4,2,0.4,9.4,4.5c5.3,0,10.5,0,15.8,0.4c1.6-0.4,3.2-0.8,5.3-1.2c2.4-1.2,5.3-2.4,8.1-3.6c14.2-10.6,15-11.8,17.5-13
 		c4-4.5,8.5-8.9,13-13.8c6.5-9.4,13-18.7,19.9-28c1.2-3.2,2.8-5.3,8.5-17v-4C1524.1,1335.6,1522.8,1335.2,1521.4,1334.9
 		L1521.4,1334.9z"
-            />
-          </g>
-        </svg>
-      </LogoStyles>
-    )
-  }
+        />
+      </g>
+    </LogoStyles>
+  )
 }

@@ -122,5 +122,5 @@ export const rainTheme = {
   white: '#ffffff',
   separatorHt: ht,
   dark: 'hsla(194,20%,30%,1)',
-  light: '#D1E1F0',
+  light: '#8fb6c8',
 }

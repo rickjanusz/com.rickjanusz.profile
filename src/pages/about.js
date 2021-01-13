@@ -3,7 +3,7 @@ import React from 'react'
 import SEO from '../components/SEO'
 import styled from 'styled-components'
 
-import Heading1 from '../components/Heading1'
+import Headers from '../components/Headers'
 import ClientRoster from '../components/clients/_ClientRoster'
 import DarkSection from '../components/SectionDark'
 import me from '../assets/me2.jpg'
@@ -19,7 +19,7 @@ const GridWrapper = styled.div`
   border: 1px solid ${(props) => props.theme.separatorTop};
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.2);
-  transition: max-width 0.5s;
+  transition: var(--transition);
   section {
     border-left: 1px solid ${(props) => props.theme.separatorTop};
     border-right: 1px solid ${(props) => props.theme.separatorBtm};
@@ -30,12 +30,12 @@ const GridWrapper = styled.div`
 
   h4 {
     margin: 0;
-    padding: 15px;
+    padding: 40px 15px 15px;
     border-radius: 5px;
     font-size: 1.5em;
     background-color: rgba(0, 0, 0, 0.7);
     color: rgba(${v}, ${v}, ${v}, 0.5);
-    color: ${(props) => props.theme.headings};
+    color: ${(props) => props.theme.headers};
     background-color: ${(props) => props.theme.primary};
     mix-blend-mode: multiply;
     border-bottom: 1px solid ${(props) => props.theme.separatorBtm};
@@ -43,7 +43,7 @@ const GridWrapper = styled.div`
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
-    transition: 1s font-size;
+    transition: var(--transition);
   }
   ul {
     padding: 0;
@@ -61,7 +61,7 @@ const GridWrapper = styled.div`
     max-width: 700px;
   }
   @media (max-width: 700px) {
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
     ul,
     li {
       font-size: 2rem;
@@ -72,32 +72,42 @@ const TextWrapper = styled.div`
   margin: 0 auto;
   padding: 0 20px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   max-width: 900px;
   align-items: center;
+  gap: 20px;
   .em {
     font-weight: 900;
   }
-  img {
-    width: 300px;
-    margin-right: 40px;
-    border-radius: 28px 0 28px 0;
-    border-bottom: 2px solid ${(props) => props.theme.separatorTop};
-    border-top: 2px solid ${(props) => props.theme.separatorBtm};
 
-    transition: 0.3s transform;
-    :hover {
-      cursor: pointer;
-      transform: scale(1.01);
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    }
+  .card {
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 1px 1px 5px 1px #cccccc;
+    transition: 0.3s;
+  }
+
+  .featured-image-container .card {
+    padding: 10px;
+    height: 0;
+    padding-bottom: calc(100%);
+    overflow: hidden;
+    margin-right: 10px;
+  }
+
+  img {
+    transition: var(--transition);
+    width: 100%;
   }
   @media (max-width: 1000px) {
     padding: 0 40px;
-    img {
+    /* img {
       width: 80%;
       height: auto;
-    }
+    } */
     p {
       font-size: 1.2em;
     }
@@ -105,10 +115,10 @@ const TextWrapper = styled.div`
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
     align-content: center;
-    img {
+    /* img {
       width: 100%;
       height: auto;
-    }
+    } */
     padding: 0 50px;
   }
 `
@@ -117,15 +127,19 @@ export default function AboutPage() {
   return (
     <>
       <SEO title="About Rick Janusz" />
-      <Heading1>
+      <Headers>
         <h1>
-          <span>About</span>
+          <span>About Me</span>
         </h1>
-      </Heading1>
+      </Headers>
 
       <PageWrapper>
         <TextWrapper>
-          <img src={me} alt="Rick Janusz" width="300" />
+          <div className="featured-image-container">
+            <div className="card">
+              <img src={me} alt="Rick Janusz" width="300" />
+            </div>
+          </div>
           <section>
             <p>
               I'm a {new Date().getFullYear() - 2003} year veteran developer
@@ -134,7 +148,7 @@ export default function AboutPage() {
               Dotomi for {new Date().getFullYear() - 2014} years. Prior to that,
               I spent time at <span className="em">Manifest Digital</span>,{' '}
               <span className="em">Element79</span> of DDB/Omnicom,{' '}
-              <span className="em">AnthemWW</span> and also
+              <span className="em">AnthemWW</span> and also{' '}
               <span className="em">Disney Interactive Media Group</span>.
             </p>
             <p>
@@ -142,16 +156,39 @@ export default function AboutPage() {
               a focus on <span className="em">Tech</span>,{' '}
               <span className="em">Innovation</span>
               and <span className="em">Creative Capabilities</span>. I lead
-              cross organizational teams in developing, implementing new ad
-              tech. The space I work in is highly personalized and automated
-              requiring deep knowledge of scaling technology to assist in
-              delivery to billions of impressions daily.
+              cross organizational teams in developing and implementing new ad
+              tech. The space I work in is highly personalized online media
+              which delivers billions of ad impressions daily.{' '}
+              <span className="em">
+                I only work in ES6 javascript, all day, everyday.
+              </span>
             </p>
           </section>
         </TextWrapper>
+      </PageWrapper>
 
-        <h2>Skills</h2>
+      <Headers className="sub">
+        <h2>
+          <span>About This Site</span>
+        </h2>
+      </Headers>
+      <DarkSection>
+        <ul>
+          <li>Its the JAMstack</li>
+          <li>Its the Gatsburger</li>
+          <li>Its the Netlify</li>
+          <li>Its the Sanity</li>
+          <li>Its the PWA</li>
+          <li>Lighthouse results - link to</li>
+        </ul>
+      </DarkSection>
 
+      <Headers>
+        <h2>
+          <span>Skills</span>
+        </h2>
+      </Headers>
+      <PageWrapper className="sub">
         <GridWrapper>
           <section>
             <div>
@@ -222,13 +259,16 @@ export default function AboutPage() {
             </div>
           </section>
         </GridWrapper>
-
-        <h2>Client History</h2>
       </PageWrapper>
+
+      <Headers>
+        <h2>
+          <span>Client History</span>
+        </h2>
+      </Headers>
+
       <DarkSection>
-        <PageWrapper>
-          <ClientRoster />
-        </PageWrapper>
+        <ClientRoster />
       </DarkSection>
     </>
   )
