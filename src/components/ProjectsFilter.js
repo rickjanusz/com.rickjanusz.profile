@@ -37,6 +37,12 @@ const Tag = styled.div`
       background-color: ${(props) => props.theme.dark};
     }
   }
+  @media (max-width: 1000px) {
+    display: none;
+  }
+
+  @media (max-width: 700px) {
+  }
 `
 
 function countTagsInProjects(projects) {

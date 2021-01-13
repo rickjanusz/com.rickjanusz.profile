@@ -7,22 +7,18 @@ const ProjectGridStyles = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 4rem;
-  margin: 2rem 4rem;
   transition: var(--transition);
+  /* place-content: center; */
+  @media (max-width: 1000px) {
+  }
+
+  @media (max-width: 700px) {
+    /* margin: 2rem auto; */
+  }
 `
 const ProjectStyles = styled.div`
   display: grid;
   transition: var(--transition);
-  gap: 1rem;
-  /* img {
-    width: 200px;
-    transition: var(--transition);
-    border: 1px solid ${(props) => props.theme.headings};
-  } */
-  .gatsby-image-wrapper {
-    overflow: visible !important;
-    transition: var(--transition);
-  }
   span {
     display: block;
     text-align: center;
@@ -30,16 +26,17 @@ const ProjectStyles = styled.div`
     font-weight: bold;
     margin-top: 15px;
     transition: var(--transition);
+    font-size: 2rem;
   }
-  a {
+  @media (max-width: 1000px) {
+    /* margin: 0 auto; */
+  }
+
+  @media (max-width: 700px) {
+    width: 94vw;
+    /* gap: 0; */
   }
 `
-
-// function blocksToText(blocks) {
-//   return blocks.map((block) =>
-//     block.children.map((child) => child.text).join('')
-//   )
-// }
 var slug = function (str) {
   str = str.replace(/^\s+|\s+$/g, '') // trim
   str = str.toLowerCase()

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const w = '50vw'
 const s = '10px'
 const Heading1 = styled.header`
-  h1 {
+  /* h1 {
     font-family: Arial, sans-serif;
     margin: 50px auto;
     color: ${(props) => props.theme.dark};
@@ -61,15 +61,15 @@ const Heading1 = styled.header`
     font-size: 2em;
     text-align: center;
     transition: var(--transition);
-  }
+  } */
 
   @media (max-width: 1000px) {
     font-size: 1.5rem;
     h1 {
-      top: -72px;
+      /* top: -72px; */
     }
     h2 {
-      margin: 30px 0 -15px;
+      /* margin: 30px 0 -15px; */
     }
   }
   @media (max-width: 700px) {

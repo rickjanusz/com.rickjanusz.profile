@@ -80,7 +80,7 @@ const NavStyles = styled.div`
     a,
     button {
       font-size: 1.5rem;
-      padding: 1rem;
+      padding: 0.5rem;
     }
   }
 `
