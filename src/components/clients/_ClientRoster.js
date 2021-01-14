@@ -94,9 +94,9 @@ export default function ClientRoster() {
       function hide(elem) {
         gsap.set(elem, { autoAlpha: 0 })
       }
-      gsap.utils.toArray('.section').forEach(function (elem) {
-        hide(elem) // assure that the element is hidden when scrolled into view
-      })
+      // gsap.utils.toArray('.section').forEach(function (elem) {
+      //   hide(elem) // assure that the element is hidden when scrolled into view
+      // })
 
       elArr.forEach((el) => {
         el.classList.remove('active')
