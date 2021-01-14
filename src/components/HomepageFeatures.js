@@ -40,44 +40,12 @@ const H1 = styled.h3`
   margin: 0;
   z-index: 3;
   font: bold 10vw Arial, sans-serif;
+  /* text-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
   color: white;
 `
-// const Video = styled.video`
-//   position: absolute;
-//   width: 100vw;
-//   height: 100vh;
-//   object-fit: cover;
-// `
-// const SectionStyles = styled.section`
-//   position: relative;
-//   z-index: 1;
-//   display: grid;
-//   gap: 0;
-
-//   /* place-items: center; */
-//   .feature img {
-//     height: 100vh;
-//     width: 100vw;
-//   }
-// `
 
 export default function HomepageFeatures({ features }) {
   const feats = features[0]
-
-  // useEffect(() => {
-  //   gsap.utils.toArray('.panel').forEach((panel, i) => {
-  //     ScrollTrigger.create({
-  //       trigger: panel,
-  //       start: 'top top',
-  //       pin: true,
-  //       pinSpacing: false,
-  //     })
-  //   })
-
-  //   ScrollTrigger.create({
-  //     snap: 1 / 4, // snap whole page to the closest section!
-  //   })
-  // }, [])
 
   useEffect(() => {
     const innerHeight = window.innerHeight

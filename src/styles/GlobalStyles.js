@@ -59,7 +59,7 @@ const GlobalStyles = createGlobalStyle`
     border-radius: 8px;
     overflow: hidden;
     background: #ffffff;
-    box-shadow: 1px 1px 5px 1px #cccccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
   }
 

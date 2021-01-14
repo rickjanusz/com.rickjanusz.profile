@@ -261,7 +261,9 @@ export default function WorkPage() {
               <div className="ipsGrid_span6 ipsType_right">
                 <div className="heading_large gs_reveal">
                   <div className="sm">2014-2016</div>
-                  <h3>Sr. Creative Tech, Team Lead</h3>
+                  <h3>
+                    Sr. Creative Tech, <br /> Team Lead
+                  </h3>
                 </div>
                 <div className="gs_reveal sm em">
                   Epsilon (formerly Conversant)

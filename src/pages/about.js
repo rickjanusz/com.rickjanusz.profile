@@ -16,11 +16,11 @@ const GridWrapper = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   max-width: 1200px;
   margin: 0 auto;
-  border: 1px solid ${(props) => props.theme.separatorTop};
+  border: 10px solid ${(props) => props.theme.separatorTop};
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.1);
   transition: var(--transition);
-  /* box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   h4 {
     margin: 0;
     padding: 20px 0;
@@ -102,7 +102,7 @@ const TextWrapper = styled.div`
     border-radius: 8px;
     overflow: hidden;
     background: #ffffff;
-    box-shadow: 1px 1px 5px 1px #cccccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
   }
 
