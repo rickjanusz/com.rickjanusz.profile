@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
 import AMC from './AMC'
@@ -35,57 +35,106 @@ import WellsFargo from './WellsFargo'
 import WilliamsSonoma from './WilliamsSonoma'
 // import WolfBrandChili from './WolfBrandChili'
 
+import { gsap } from 'gsap'
+import { GSDevTools } from 'gsap/GSDevTools'
+
+// gsap.registerPlugin(GSDevTools)
+// GSDevTools.create()
+
+const LogoWrapperStyles = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+  .section {
+    display: none;
+    opacity: 0;
+    transition: all 1s;
+  }
+  .active {
+    display: block;
+    opacity: 1;
+  }
+`
+
 const ClientRosterStyles = styled.div`
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-
   padding: 50px 20px;
+
   @media (max-width: 1000px) {
   }
   @media (max-width: 700px) {
   }
 `
 
-const ClientRoster = () => {
+export default function ClientRoster() {
+  useEffect(() => {
+    const els = document.querySelectorAll('.section')
+    const elArr = Array.from(els)
+
+    let n = 0
+    function nextItem() {
+      if (n === 2) {
+        n = 0
+      } else {
+        n++
+      }
+
+      elArr.forEach((el) => {
+        el.classList.remove('active')
+      })
+
+      elArr[n].classList.add('active')
+      console.log(n)
+    }
+
+    const x = setInterval(nextItem, 3000)
+  }, [])
+
   return (
-    <ClientRosterStyles>
-      <AMC className="item" />
-      <AmEx className="item" />
-      <Audi className="item" />
-      <BCBS className="item" />
-      <Bulls className="item" />
-      <Cabelas className="item" />
-      <Carhartt className="item" />
-      <Champs className="item" />
-      <Chase className="item" />
-      <Chevy className="item" />
-      <Cinemark className="item" />
-      <Columbia className="item" />
-      <Crate className="item" />
-      <Disney className="item" />
-      {/* <EddieBauer className="item" /> */}
-      {/* <Fidelity className="item" /> */}
-      <Gatorade className="item" />
-      <HRBlock className="item" />
-      <Infiniti className="item" />
-      <Loccitane className="item" />
-      <McDonalds className="item" />
-      <Michelob className="item" />
-      <Nissan className="item" />
-      <Patagonia className="item" />
-      <Pepsi className="item" />
-      <Pixar className="item" />
-      <PotteryBarn className="item" />
-      <ToysRUs className="item" />
-      <Ulta className="item" />
-      <VS className="item" />
-      <WellsFargo className="item" />
-      <WilliamsSonoma className="item" />
-      {/* <WolfBrandChili className="item" /> */}
-    </ClientRosterStyles>
+    <LogoWrapperStyles>
+      <div className="section active">
+        <ClientRosterStyles>
+          <AMC />
+          <AmEx />
+          <Audi />
+          <BCBS />
+          <Bulls />
+          <Cabelas />
+          <Carhartt />
+          <Champs />
+          <Chase />
+          <Chevy />
+        </ClientRosterStyles>
+      </div>
+      <div className="section">
+        <ClientRosterStyles>
+          <Cinemark />
+          <Columbia />
+          <Crate />
+          <Disney />
+          <Gatorade />
+          <HRBlock />
+          <Infiniti />
+          <Loccitane />
+          <McDonalds />
+          <Michelob />
+        </ClientRosterStyles>
+      </div>
+      <div className="section">
+        <ClientRosterStyles>
+          <Nissan />
+          <Patagonia />
+          <Pepsi />
+          <Pixar />
+          <PotteryBarn />
+          <ToysRUs />
+          <Ulta />
+          <VS />
+          <WellsFargo />
+          <WilliamsSonoma />
+        </ClientRosterStyles>
+      </div>
+    </LogoWrapperStyles>
   )
 }
-
-export default ClientRoster

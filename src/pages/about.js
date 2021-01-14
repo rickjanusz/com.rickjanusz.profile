@@ -17,28 +17,23 @@ const GridWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   border: 1px solid ${(props) => props.theme.separatorTop};
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
   transition: var(--transition);
-  section {
-    border-left: 1px solid ${(props) => props.theme.separatorTop};
-    border-right: 1px solid ${(props) => props.theme.separatorBtm};
-  }
-  section > div > div {
-    background: ${(props) => props.theme.primary};
-  }
-
+  /* box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2); */
   h4 {
     margin: 0;
-    padding: 40px 15px 15px;
-    border-radius: 5px;
+    padding: 20px 0;
+    text-align: center;
+    /* border-radius: 5px; */
     font-size: 1.5em;
-    background-color: rgba(0, 0, 0, 0.7);
+    border-right: 1px solid ${(props) => props.theme.separatorTop};
+    border-bottom: 1px solid ${(props) => props.theme.separatorTop};
+    /* background-color: rgba(0, 0, 0, 0.7); */
     color: rgba(${v}, ${v}, ${v}, 0.5);
     color: ${(props) => props.theme.headers};
-    background-color: ${(props) => props.theme.primary};
+    background-color: #000;
     mix-blend-mode: multiply;
-    border-bottom: 1px solid ${(props) => props.theme.separatorBtm};
     text-shadow: 1px 1px 1px #fff;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -53,14 +48,35 @@ const GridWrapper = styled.div`
       margin: 0;
       padding: 15px 0 15px 20px;
       border-top: 1px solid ${(props) => props.theme.separatorTop};
-      border-bottom: 1px solid ${(props) => props.theme.separatorBtm};
+      border-right: 1px solid ${(props) => props.theme.separatorTop};
+      border-bottom: 1px solid ${(props) => props.theme.separatorTop};
+      &:last-child {
+        border-bottom: none;
+      }
     }
+  }
+  section:last-child h4 {
+    border-right: none;
+  }
+  section:last-child li {
+    border-right: none;
   }
   @media (max-width: 1000px) {
     grid-template-columns: 1fr 1fr;
+    section:nth-child(2) li {
+      border-right: none;
+    }
+    section:nth-child(2) h4 {
+      border-right: none;
+    }
+    section:nth-child(3) h4,
+    section:nth-child(4) h4 {
+      border-top: 1px solid ${(props) => props.theme.separatorTop};
+    }
     max-width: 700px;
   }
   @media (max-width: 700px) {
+    border-radius: 0;
     /* grid-template-columns: 1fr; */
     ul,
     li {
@@ -191,72 +207,59 @@ export default function AboutPage() {
       <PageWrapper className="sub">
         <GridWrapper>
           <section>
-            <div>
-              <div>
-                <h4 className="where">Tools</h4>
-              </div>
-              <ul>
-                <li>Lighthouse</li>
-                <li>DevTools</li>
-                <li>Confluence</li>
-                <li>GIT</li>
-                <li>Terminal</li>
-                <li>Adobe Suite</li>
-                <li>Google Business/Teams</li>
-                <li>More...</li>
-              </ul>
-            </div>
+            <h4 className="where">Tools</h4>
+            <ul>
+              <li>Lighthouse</li>
+              <li>DevTools</li>
+              <li>Confluence</li>
+              <li>GIT</li>
+              <li>Terminal</li>
+              <li>Adobe Suite</li>
+              <li>Google Business/Teams</li>
+              <li>More...</li>
+            </ul>
           </section>
           <section>
-            <div>
-              <div>
-                <h4 className="interests">Frontend</h4>
-              </div>
-              <ul>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>JavaScript ES5/6+</li>
-                <li>TypeScript</li>
-                <li>RXjs</li>
-                <li>MarkDown</li>
-                <li>jQuery</li>
-                <li>Too many to list...</li>
-              </ul>
-            </div>
+            <h4 className="interests">Frontend</h4>
+
+            <ul>
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript ES5/6+</li>
+              <li>TypeScript</li>
+              <li>RXjs</li>
+              <li>MarkDown</li>
+              <li>jQuery</li>
+              <li>More...</li>
+            </ul>
           </section>
           <section>
-            <div>
-              <div>
-                <h4 className="">SPAs/API/FW</h4>
-              </div>
-              <ul>
-                <li>React</li>
-                <li>Apollo</li>
-                <li>Angular</li>
-                <li>Gatsby</li>
-                <li>Next</li>
-                <li>NODE</li>
-                <li>Firebase</li>
-                <li>Again- the list goes on...</li>
-              </ul>
-            </div>
+            <h4 className="">SPAs/API/FW</h4>
+
+            <ul>
+              <li>React</li>
+              <li>Gatsby</li>
+              <li>Next</li>
+              <li>Apollo</li>
+              <li>Firebase</li>
+              <li>Angular</li>
+              <li>NODE</li>
+              <li>More...</li>
+            </ul>
           </section>
           <section>
-            <div>
-              <div>
-                <h4 className="">Content</h4>
-              </div>
-              <ul>
-                <li>Netlify</li>
-                <li>Contentful</li>
-                <li>Sanity</li>
-                <li>GraphQL</li>
-                <li>YOGA</li>
-                <li>Prisma</li>
-                <li>MongoDB Atlas</li>
-                <li>Et al...</li>
-              </ul>
-            </div>
+            <h4 className="">Content</h4>
+
+            <ul>
+              <li>Netlify</li>
+              <li>Sanity</li>
+              <li>GraphQL</li>
+              <li>Prisma</li>
+              <li>YOGA</li>
+              <li>MongoDB Atlas</li>
+              <li>Contentful</li>
+              <li>More...</li>
+            </ul>
           </section>
         </GridWrapper>
       </PageWrapper>

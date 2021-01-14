@@ -4,7 +4,7 @@ import styled from 'styled-components'
 // import SEO from '../components/SEO'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { GSDevTools } from 'gsap/GSDevTools'
+// import { GSDevTools } from 'gsap/GSDevTools'
 import Headers from '../components/Headers'
 import anthem from '../assets/company_anthem.jpg'
 import dimg from '../assets/company_dimg.jpg'
@@ -13,7 +13,8 @@ import e79 from '../assets/company_e79.jpg'
 import manifest from '../assets/company_manifest.jpg'
 import PageWrapper from '../styles/PageWrapperStyles'
 
-gsap.registerPlugin(GSDevTools)
+// gsap.registerPlugin(GSDevTools)
+// GSDevTools.create()
 // import PageWrapper from '../styles/PageWrapperStyles'
 
 const ExpWrapper = styled.div`
@@ -179,9 +180,9 @@ export default function WorkPage() {
         onEnterBack: function () {
           animateFrom(elem, -1)
         },
-        onLeave: function () {
-          hide(elem)
-        }, // assure that the element is hidden when scrolled into view
+        // onLeave: function () {
+        //   // hide(elem)
+        // }, // assure that the element is hidden when scrolled into view
       })
     })
 
@@ -215,10 +216,10 @@ export default function WorkPage() {
                 <div className="gs_reveal">
                   Creative Innovation &amp; Capabilities
                 </div>
-                <p className="gs_reveal">
+                {/* <p className="gs_reveal">
                   Define, develop and lead organizational cross teams on the
                   implementation of the innovation roadmap.
-                </p>
+                </p> */}
               </div>
 
               <div
@@ -241,14 +242,14 @@ export default function WorkPage() {
                   Epsilon (formerly Conversant)
                 </div>
                 <div className="gs_reveal">Creative Technology</div>
-                <p className="gs_reveal">
+                {/* <p className="gs_reveal">
                   {' '}
                   Built and developed Animation Presets and responsive ad unit
                   methodology for implementation within our proprietary
                   javaScript framework to facilitate dynamic layout of any ad
                   size. <br />
                   <span className="em">One set of code. All ad sizes.</span>
-                </p>
+                </p> */}
               </div>
 
               {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromBottom">
@@ -273,11 +274,11 @@ export default function WorkPage() {
                 </div>
                 <div className="gs_reveal">Creative Technology</div>
 
-                <p className="gs_reveal">
+                {/* <p className="gs_reveal">
                   Team manager of the custom client development tech team.
                   Responsible for integrating new technologies and training
                   teams on new tech.
-                </p>
+                </p> */}
               </div>
 
               {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromBottom">
@@ -302,11 +303,11 @@ export default function WorkPage() {
                 </div>
                 <div className="gs_reveal">Creative Technology</div>
 
-                <p className="gs_reveal">
+                {/* <p className="gs_reveal">
                   Team leader of all custom development of ad units. Lead
                   developer on templates 1.0 for the Agency line of business.
                   Lead developer in innovation exercises.
-                </p>
+                </p> */}
               </div>
 
               {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromBottom">
