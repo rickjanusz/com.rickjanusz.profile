@@ -11,18 +11,24 @@ import JamStack from './JamStack'
 import PageWrapper from '../../styles/PageWrapperStyles'
 
 const ApiStyles = styled.div`
-  margin: 100px 0;
+  margin: 40px 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
+  place-items: center;
+  align-items: stretch;
   svg {
     flex: 1;
+    min-width: 100px;
   }
 `
 
 export default function ApiLogos() {
   return (
     <PageWrapper>
-      <JamStack />
+      <ApiStyles>
+        <JamStack />
+      </ApiStyles>
       <ApiStyles>
         <ReactLogo />
         <Gatsby />

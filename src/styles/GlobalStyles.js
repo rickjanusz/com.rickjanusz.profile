@@ -34,6 +34,9 @@ const GlobalStyles = createGlobalStyle`
   h2 {
     text-align: center;
     font-size: 2em;
+    margin-top:100px;
+  }
+  h3 {
   }
 
   p, ul {

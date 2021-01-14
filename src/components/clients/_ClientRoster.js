@@ -45,12 +45,10 @@ const LogoWrapperStyles = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   .section {
-    transition: all 1s;
     display: none;
     opacity: 0;
   }
   .active {
-    transition: all 1s;
     display: block;
     opacity: 1;
   }

@@ -34,7 +34,7 @@ const ExpWrapper = styled.div`
     margin-right: auto;
   }
   .ipsSpacer_bottom_double {
-    margin-bottom: 30px;
+    margin-bottom: 230px;
   }
   .ipsGrid {
     display: inline-block;
@@ -119,19 +119,19 @@ export default function WorkPage() {
       direction = direction | 1
 
       var x = 0,
-        y = direction * 100
+        y = direction * 500
       if (elem.classList.contains('gs_reveal_fromTop')) {
         x = 0
-        y = -100
+        y = 50
       } else if (elem.classList.contains('gs_reveal_fromBottom')) {
         x = 0
-        y = 100
+        y = -50
       }
       gsap.fromTo(
         elem,
         { x: x, y: y, autoAlpha: 0 },
         {
-          duration: 1.25,
+          duration: 2,
           x: 0,
           y: 0,
           autoAlpha: 1,
@@ -148,16 +148,16 @@ export default function WorkPage() {
         y = direction * 100
       if (elem.classList.contains('gs_reveal_fromTop')) {
         x = 0
-        y = -100
+        y = -200
       } else if (elem.classList.contains('gs_reveal_fromBottom')) {
         x = 0
-        y = 100
+        y = 200
       }
       gsap.fromTo(
         elem,
         { x: x, y: y, autoAlpha: 0 },
         {
-          duration: 1.25,
+          duration: 4,
           x: 0,
           y: 0,
           autoAlpha: 1,
@@ -167,14 +167,14 @@ export default function WorkPage() {
       )
     }
 
-    function hide(elem) {
-      gsap.set(elem, { autoAlpha: 0 })
-    }
+    // function hide(elem) {
+    //   gsap.set(elem, { autoAlpha: 0 })
+    // }
 
     gsap.registerPlugin(ScrollTrigger)
 
     gsap.utils.toArray('.gs_reveal').forEach(function (elem) {
-      hide(elem) // assure that the element is hidden when scrolled into view
+      // hide(elem) // assure that the element is hidden when scrolled into view
 
       ScrollTrigger.create({
         trigger: elem,
@@ -192,7 +192,7 @@ export default function WorkPage() {
 
     ScrollTrigger.create({
       trigger: '#trigger1',
-      start: 'top top',
+      start: window.innerHeight / 2 - 200,
       end: '+=1880',
       pin: '#pinnedContent',
     })
@@ -219,10 +219,6 @@ export default function WorkPage() {
                 <div className="gs_reveal">
                   Creative Innovation &amp; Capabilities
                 </div>
-                {/* <p className="gs_reveal">
-                  Define, develop and lead organizational cross teams on the
-                  implementation of the innovation roadmap.
-                </p> */}
               </div>
 
               <div
@@ -245,25 +241,7 @@ export default function WorkPage() {
                   Epsilon (formerly Conversant)
                 </div>
                 <div className="gs_reveal">Creative Technology</div>
-                {/* <p className="gs_reveal">
-                  {' '}
-                  Built and developed Animation Presets and responsive ad unit
-                  methodology for implementation within our proprietary
-                  javaScript framework to facilitate dynamic layout of any ad
-                  size. <br />
-                  <span className="em">One set of code. All ad sizes.</span>
-                </p> */}
               </div>
-
-              {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromBottom">
-              <div className="card">
-              <img
-              width="600"
-              src="https://picsum.photos/550/550?index=4"
-              alt=""
-              /> 
-              </div>
-            </div> */}
             </div>
 
             <div className="empty feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
@@ -276,23 +254,7 @@ export default function WorkPage() {
                   Epsilon (formerly Conversant)
                 </div>
                 <div className="gs_reveal">Creative Technology</div>
-
-                {/* <p className="gs_reveal">
-                  Team manager of the custom client development tech team.
-                  Responsible for integrating new technologies and training
-                  teams on new tech.
-                </p> */}
               </div>
-
-              {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromBottom">
-              <div className="card">
-              <img
-              width="600"
-              src="https://picsum.photos/550/550?index=4"
-              alt=""
-              /> 
-              </div>
-            </div> */}
             </div>
 
             <div className="lastEmpty feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
@@ -305,39 +267,24 @@ export default function WorkPage() {
                   Epsilon (formerly Conversant)
                 </div>
                 <div className="gs_reveal">Creative Technology</div>
-
-                {/* <p className="gs_reveal">
-                  Team leader of all custom development of ad units. Lead
-                  developer on templates 1.0 for the Agency line of business.
-                  Lead developer in innovation exercises.
-                </p> */}
               </div>
-
-              {/* <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromBottom">
-              <div className="card">
-              <img
-              width="600"
-              src="https://picsum.photos/550/550?index=4"
-              alt=""
-              /> 
-              </div>
-            </div> */}
             </div>
+
             <div id="releaseTrigger1"></div>
+
             <div className="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
               <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromTop">
                 <div className="card">
                   <img width="600" src={manifest} alt="" />
                 </div>
               </div>
-
               <div className="ipsGrid_span6 ipsType_left">
                 <div className="heading_large gs_reveal">
                   <div className="sm">2012-2014</div>
                   <h3>Sr. Tech Architect</h3>
                 </div>
                 <div className="gs_reveal sm em">Manifest Digital</div>
-                <div className="gs_reveal">Tech</div>
+                <div className="gs_reveal">Tech Team</div>
                 <p className="gs_reveal"></p>
               </div>
             </div>
@@ -352,8 +299,7 @@ export default function WorkPage() {
                 <div className="gs_reveal">Tech Team</div>
                 <p className="gs_reveal"></p>
               </div>
-
-              <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromBottom">
+              <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromTop">
                 <div className="card">
                   <img width="600" src={anthem} alt="" />
                 </div>
@@ -366,14 +312,13 @@ export default function WorkPage() {
                   <img width="600" src={e79} alt="" />
                 </div>
               </div>
-
               <div className="ipsGrid_span6 ipsType_left">
                 <div className="heading_large gs_reveal">
                   <div className="sm">2009-2012</div>
                   <h3>Front-end Developer</h3>
                 </div>
                 <div className="gs_reveal sm em">Element79 of DDB</div>
-                <div className="gs_reveal">Technology</div>
+                <div className="gs_reveal">Tech Team</div>
                 <p className="gs_reveal"></p>
               </div>
             </div>
@@ -390,8 +335,7 @@ export default function WorkPage() {
                 <div className="gs_reveal">Interactive Media Group</div>
                 <p className="gs_reveal"></p>
               </div>
-
-              <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromBottom">
+              <div className="featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromTop">
                 <div className="card">
                   <img width="600" src={dimg} alt="" />
                 </div>
