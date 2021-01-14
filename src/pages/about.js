@@ -89,7 +89,7 @@ const TextWrapper = styled.div`
   padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  max-width: 900px;
+  max-width: 1000px;
   align-items: center;
   gap: 20px;
   .em {
@@ -119,11 +119,7 @@ const TextWrapper = styled.div`
     width: 100%;
   }
   @media (max-width: 1000px) {
-    padding: 0 40px;
-    /* img {
-      width: 80%;
-      height: auto;
-    } */
+    padding: 0;
     p {
       font-size: 1.2em;
     }
@@ -131,11 +127,9 @@ const TextWrapper = styled.div`
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
     align-content: center;
-    /* img {
-      width: 100%;
-      height: auto;
-    } */
-    padding: 0 50px;
+    .featured-image-container .card {
+      margin-right: 0;
+    }
   }
 `
 export default function AboutPage() {
@@ -266,7 +260,7 @@ export default function AboutPage() {
 
       <Headers>
         <h2>
-          <span>Client History</span>
+          <span>Clients I've Worked With...</span>
         </h2>
       </Headers>
 

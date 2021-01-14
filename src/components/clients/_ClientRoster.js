@@ -45,11 +45,12 @@ const LogoWrapperStyles = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   .section {
+    transition: all 1s;
     display: none;
     opacity: 0;
-    transition: all 1s;
   }
   .active {
+    transition: all 1s;
     display: block;
     opacity: 1;
   }
@@ -73,6 +74,18 @@ export default function ClientRoster() {
     const elArr = Array.from(els)
 
     let n = 0
+
+    gsap.fromTo(
+      els[0],
+      { autoAlpha: 0 },
+      {
+        duration: 0.6,
+        autoAlpha: 1,
+        ease: 'expo',
+        overwrite: 'auto',
+      }
+    )
+
     function nextItem() {
       if (n === 2) {
         n = 0
@@ -80,15 +93,32 @@ export default function ClientRoster() {
         n++
       }
 
+      function hide(elem) {
+        gsap.set(elem, { autoAlpha: 0 })
+      }
+      gsap.utils.toArray('.section').forEach(function (elem) {
+        hide(elem) // assure that the element is hidden when scrolled into view
+      })
+
       elArr.forEach((el) => {
         el.classList.remove('active')
+        gsap.fromTo(
+          el,
+          { autoAlpha: 0 },
+          {
+            duration: 0.75,
+            autoAlpha: 1,
+            ease: 'expo',
+            overwrite: 'auto',
+          }
+        )
       })
 
       elArr[n].classList.add('active')
-      console.log(n)
+      // console.log(n)
     }
 
-    const x = setInterval(nextItem, 3000)
+    const x = setInterval(nextItem, 7000)
   }, [])
 
   return (

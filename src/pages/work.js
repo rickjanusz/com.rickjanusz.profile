@@ -73,6 +73,7 @@ const ExpWrapper = styled.div`
   .feature {
     display: flex;
     align-items: center;
+    margin-bottom: 200px;
   }
 
   .heading_large {
@@ -80,6 +81,9 @@ const ExpWrapper = styled.div`
   }
   .empty {
     height: 400px;
+  }
+  .lastEmpty {
+    height: 450px;
   }
   img {
     max-width: 100%;
@@ -189,7 +193,7 @@ export default function WorkPage() {
     ScrollTrigger.create({
       trigger: '#trigger1',
       start: 'top top',
-      end: '+=1180',
+      end: '+=1880',
       pin: '#pinnedContent',
     })
   }, [])
@@ -292,7 +296,7 @@ export default function WorkPage() {
             </div> */}
             </div>
 
-            <div className="empty feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+            <div className="lastEmpty feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
               <div className="ipsGrid_span6 ipsType_right">
                 <div className="heading_large gs_reveal">
                   <div className="sm">2014-2016</div>

@@ -4,7 +4,7 @@ const LogoStyles = styled.svg`
   fill: ${(props) => props.theme.clientLogoColor};
   transition: fill 1s;
   display: block;
-  width: 14%;
+  width: 16%;
   font-size: 2rem;
   margin: 10px;
   .st0 {
