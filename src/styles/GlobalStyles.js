@@ -16,6 +16,24 @@ const GlobalStyles = createGlobalStyle`
     color: ${(props) => props.theme.bodyText};
     background: ${(props) => props.theme.backgroundColor};
     transition: background-color 1s;
+  }  
+  h1,
+  h2,
+  h3 {
+    color: ${(props) => props.theme.dark};
+    transition: var(--transition);
+  }
+  
+  h1
+  {
+    text-align: center;
+    margin: 50px auto;
+    font-size: 2.3em;
+    z-index: 20;
+  }
+  h2 {
+    text-align: center;
+    font-size: 2em;
   }
 
   p, ul {

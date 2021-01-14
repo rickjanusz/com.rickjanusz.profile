@@ -3,7 +3,7 @@ import PortableText from '@sanity/block-content-to-react'
 import urlBuilder from '@sanity/image-url'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
-import Headers from '../components/Headers'
+
 import PageWrapper from '../styles/PageWrapperStyles'
 import SEO from '../components/SEO'
 
@@ -56,11 +56,11 @@ export default function SingleProjectPage({ data: { project } }) {
   return (
     <>
       <SEO title={project.name} />
-      <Headers>
-        <h1>
-          <span>{project.name}</span>
-        </h1>
-      </Headers>
+
+      <h1>
+        <span>{project.name}</span>
+      </h1>
+
       <PageWrapper>
         {/* <pre>{JSON.stringify(project.description.map((child) => child))}</pre> */}
         <PortableText

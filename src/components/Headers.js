@@ -3,22 +3,6 @@ import styled from 'styled-components'
 const w = '50vw'
 const s = '10px'
 const Heading1 = styled.header`
-  h1 {
-    font-family: Arial, sans-serif;
-    margin: 50px auto;
-    color: ${(props) => props.theme.dark};
-    text-align: center;
-    font-size: 2.3em;
-    z-index: 20;
-    transition: var(--transition);
-  }
-  h2 {
-    color: ${(props) => props.theme.dark};
-    font-family: Arial, sans-serif;
-    font-size: 2em;
-    text-align: center;
-    transition: var(--transition);
-  }
   /*h1:after,
   h2:after {
     content: '';
@@ -61,12 +45,6 @@ const Heading1 = styled.header`
 
   @media (max-width: 1000px) {
     font-size: 1.5rem;
-    h1 {
-      /* top: -72px; */
-    }
-    h2 {
-      /* margin: 30px 0 -15px; */
-    }
   }
   @media (max-width: 700px) {
     font-size: 1.3rem;

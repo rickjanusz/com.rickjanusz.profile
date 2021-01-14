@@ -1,26 +1,26 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-// import Headers from '../components/Headers'
-// import SEO from '../components/SEO'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-// import { GSDevTools } from 'gsap/GSDevTools'
-import Headers from '../components/Headers'
+
+import PageWrapper from '../styles/PageWrapperStyles'
+import SEO from '../components/SEO'
+
 import anthem from '../assets/company_anthem.jpg'
 import dimg from '../assets/company_dimg.jpg'
 import epsilon from '../assets/company_epsilon.jpg'
 import e79 from '../assets/company_e79.jpg'
 import manifest from '../assets/company_manifest.jpg'
-import PageWrapper from '../styles/PageWrapperStyles'
 
+// import { GSDevTools } from 'gsap/GSDevTools'
 // gsap.registerPlugin(GSDevTools)
 // GSDevTools.create()
-// import PageWrapper from '../styles/PageWrapperStyles'
 
 const ExpWrapper = styled.div`
   margin-top: 0px;
   h3 {
-    margin: 0 0 0px;
+    margin: 0;
+    color: ${(props) => props.theme.primary};
   }
   .ipsType_right {
     text-align: right;
@@ -200,11 +200,10 @@ export default function WorkPage() {
 
   return (
     <>
-      <Headers>
-        <h1>
-          <span>Work History</span>
-        </h1>
-      </Headers>
+      <SEO title="Work History" />
+      <h1>
+        <span>Work History</span>
+      </h1>
       <PageWrapper>
         <ExpWrapper>
           <div className="cInnerContent" id="trigger1">

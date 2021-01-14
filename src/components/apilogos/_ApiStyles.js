@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
 const ApiStyles = styled.svg`
+  max-width: 100px;
   fill: ${(props) => props.theme.headings};
   transition: fill 1s;
+  &#titleSvg {
+    max-width: 450px;
+  }
   .st0 {
     /* fill: #898989; */
     transition: fill 1s;

@@ -3,12 +3,12 @@ import React from 'react'
 import SEO from '../components/SEO'
 import styled from 'styled-components'
 
-import Headers from '../components/Headers'
 import ClientRoster from '../components/clients/_ClientRoster'
 import DarkSection from '../components/SectionDark'
 import me from '../assets/me2.jpg'
 
 import PageWrapper from '../styles/PageWrapperStyles'
+import ApiLogos from '../components/apilogos/_ApiLogos'
 
 const v = 150
 const GridWrapper = styled.div`
@@ -135,13 +135,11 @@ const TextWrapper = styled.div`
 export default function AboutPage() {
   //console.log(props)
   return (
-    <>
+    <div>
       <SEO title="About Rick Janusz" />
-      <Headers>
-        <h1>
-          <span>About Me</span>
-        </h1>
-      </Headers>
+      <h1>
+        <span>About Me</span>
+      </h1>
 
       <PageWrapper>
         <TextWrapper>
@@ -177,27 +175,16 @@ export default function AboutPage() {
         </TextWrapper>
       </PageWrapper>
 
-      <Headers className="sub">
-        <h2>
-          <span>About This Site</span>
-        </h2>
-      </Headers>
+      <h2>
+        <span>This Site Was Built With...</span>
+      </h2>
       <DarkSection>
-        <ul>
-          <li>Its the JAMstack</li>
-          <li>Its the Gatsburger</li>
-          <li>Its the Netlify</li>
-          <li>Its the Sanity</li>
-          <li>Its the PWA</li>
-          <li>Lighthouse results - link to</li>
-        </ul>
+        <ApiLogos />
       </DarkSection>
 
-      <Headers>
-        <h2>
-          <span>Skills</span>
-        </h2>
-      </Headers>
+      <h2>
+        <span>Skills</span>
+      </h2>
       <PageWrapper className="sub">
         <GridWrapper>
           <section>
@@ -258,15 +245,13 @@ export default function AboutPage() {
         </GridWrapper>
       </PageWrapper>
 
-      <Headers>
-        <h2>
-          <span>Clients I've Worked With...</span>
-        </h2>
-      </Headers>
+      <h2>
+        <span>Clients I've Worked With...</span>
+      </h2>
 
       <DarkSection>
         <ClientRoster />
       </DarkSection>
-    </>
+    </div>
   )
 }
