@@ -15,7 +15,7 @@ export default function HomePage(props) {
   let section3 = useRef(null)
   let section4 = useRef(null)
 
-  console.log(section1.current)
+  // console.log(section1.current)
   useEffect(() => {
     gsap.utils.toArray('.panel').forEach((panel, i) => {
       ScrollTrigger.create({

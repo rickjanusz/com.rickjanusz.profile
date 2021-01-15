@@ -125,10 +125,10 @@ export default class Layout extends Component {
         condition.includes('rain') ||
         (condition.includes('drizzle') && !condition.includes('freezing'))
       ) {
-        console.log('CONDITION: ', condition)
+        // console.log('CONDITION: ', condition)
         this.setTheme(rainTheme)
       } else if (condition.includes('fog') || condition.includes('overcast')) {
-        console.log('OVERCAST: ', condition)
+        // console.log('OVERCAST: ', condition)
         this.setTheme(overcastTheme)
       } else if (condition.includes('clear')) {
         this.setTheme(midnightTheme)
@@ -205,7 +205,7 @@ export default class Layout extends Component {
   }
 
   fetchApiData = (url, setData) => {
-    console.log(url)
+    // console.log(url)
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

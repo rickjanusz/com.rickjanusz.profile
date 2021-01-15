@@ -25,7 +25,7 @@ class Location extends Component {
     let imgHeight = '100vh'
     let imgHeight1k = '35vh'
     let imgHeight700 = '20vh'
-    console.log(loc)
+    // console.log(loc)
     if (loc !== '/') {
       imgHeight = '50vh'
       imgHeight1k = '35vh'

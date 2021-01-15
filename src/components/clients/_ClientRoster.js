@@ -36,7 +36,7 @@ import WilliamsSonoma from './WilliamsSonoma'
 // import WolfBrandChili from './WolfBrandChili'
 
 import { gsap } from 'gsap'
-import { GSDevTools } from 'gsap/GSDevTools'
+// import { GSDevTools } from 'gsap/GSDevTools'
 
 // gsap.registerPlugin(GSDevTools)
 // GSDevTools.create()
@@ -91,13 +91,6 @@ export default function ClientRoster() {
         n++
       }
 
-      function hide(elem) {
-        gsap.set(elem, { autoAlpha: 0 })
-      }
-      // gsap.utils.toArray('.section').forEach(function (elem) {
-      //   hide(elem) // assure that the element is hidden when scrolled into view
-      // })
-
       elArr.forEach((el) => {
         el.classList.remove('active')
         gsap.fromTo(
@@ -116,7 +109,7 @@ export default function ClientRoster() {
       // console.log(n)
     }
 
-    const x = setInterval(nextItem, 7000)
+    setInterval(nextItem, 7000)
   }, [])
 
   return (

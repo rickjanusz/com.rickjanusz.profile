@@ -97,14 +97,14 @@ export const overcastTheme = {
 export const midnightTheme = {
   primary: 'hsla(200, 100%, 15%, 1)',
   headings: 'hsla(200, 100%, 25%, 1)',
-  bodyText: '#999',
+  bodyText: '#333',
   footer: 'hsla(200, 100%, 15%, 1)',
   hoverColor: '#ffffff',
   active: '#999',
   // hoverColor: '#8fb6c8',
   backgroundColor:
     'linear-gradient(-270deg, hsla(200, 100%, 10%, 1) 0%, hsla(251, 100%, 0%, 1) 100%)',
-  contentBgColor: '#31485e',
+  contentBgColor: '#537380',
   darkSection: 'hsla(200,50%,10%,1)',
   transparentBar: 'rgba(49, 72, 94, 0.6)',
   separatorTop: '#777',

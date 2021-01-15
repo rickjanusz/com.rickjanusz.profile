@@ -1,11 +1,5 @@
  <svg viewBox="0 0 2500 2500" style="enable-background:new 0 0 2500 2500;"  >
-<style type="text/css">
-	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
-	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#898989;}
-	.st2{fill:none;stroke:#FFFEF9;stroke-width:0.858;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;}
-	.st3{fill:none;stroke:#FFFFFF;stroke-width:1.286;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;}
-	.st4{fill:none;stroke:#FFFFFF;stroke-width:0.858;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.613;}
-</style>
+
 <path  className="st0" d="M0,0h2500v2500H0V0z"/>
 <path  className="st1" d="M143.3,1250c0,609.2,496.4,1104.8,1106.7,1104.8c610.2,0,1106.6-495.6,1106.6-1104.8S1860.2,145.2,1250,145.2
 	S143.3,640.8,143.3,1250L143.3,1250z"/>

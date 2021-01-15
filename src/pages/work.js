@@ -12,10 +12,6 @@ import epsilon from '../assets/company_epsilon.jpg'
 import e79 from '../assets/company_e79.jpg'
 import manifest from '../assets/company_manifest.jpg'
 
-// import { GSDevTools } from 'gsap/GSDevTools'
-// gsap.registerPlugin(GSDevTools)
-// GSDevTools.create()
-
 const ExpWrapper = styled.div`
   margin-top: 0px;
   h3 {
@@ -106,12 +102,6 @@ const ExpWrapper = styled.div`
     font-style: italic;
   }
 `
-const Wrapper1Col = styled.div`
-  @media (max-width: 1000px) {
-  }
-  @media (max-width: 700px) {
-  }
-`
 
 export default function WorkPage() {
   useEffect(() => {
@@ -141,41 +131,9 @@ export default function WorkPage() {
       )
     }
 
-    function animateFromFirst(elem, direction) {
-      direction = direction | 1
-
-      var x = 0,
-        y = direction * 100
-      if (elem.classList.contains('gs_reveal_fromTop')) {
-        x = 0
-        y = -200
-      } else if (elem.classList.contains('gs_reveal_fromBottom')) {
-        x = 0
-        y = 200
-      }
-      gsap.fromTo(
-        elem,
-        { x: x, y: y, autoAlpha: 0 },
-        {
-          duration: 4,
-          x: 0,
-          y: 0,
-          autoAlpha: 1,
-          ease: 'expo',
-          overwrite: 'auto',
-        }
-      )
-    }
-
-    // function hide(elem) {
-    //   gsap.set(elem, { autoAlpha: 0 })
-    // }
-
     gsap.registerPlugin(ScrollTrigger)
 
     gsap.utils.toArray('.gs_reveal').forEach(function (elem) {
-      // hide(elem) // assure that the element is hidden when scrolled into view
-
       ScrollTrigger.create({
         trigger: elem,
         onEnter: function () {
@@ -184,9 +142,6 @@ export default function WorkPage() {
         onEnterBack: function () {
           animateFrom(elem, -1)
         },
-        // onLeave: function () {
-        //   // hide(elem)
-        // }, // assure that the element is hidden when scrolled into view
       })
     })
 

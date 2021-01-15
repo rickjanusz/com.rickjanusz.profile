@@ -146,6 +146,10 @@ export default function ContactPage() {
               <label for="job">Reason for Contact:</label>
               <select id="job" name="field4">
                 <optgroup label="Reason for Contact">
+                  <option value="" selected>
+                    {' '}
+                    - Select -{' '}
+                  </option>
                   <option value="employment">Employment</option>
                   <option value="networking">Networking</option>
                   <option value="speaking">Speaking/Training</option>

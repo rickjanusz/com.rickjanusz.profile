@@ -1,13 +1,9 @@
-// import React from 'react'
-import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import React, { useEffect } from 'react'
-// import { Link } from 'gatsby'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 // import Cloudy from '../components/Cloudy'
-// import SectionStyles from '../styles/SectionStyles'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -49,23 +45,15 @@ export default function HomepageFeatures({ features }) {
 
   useEffect(() => {
     const innerHeight = window.innerHeight
-    const innerWidth = window.innerWidth
-    // console.log({ innerHeight, innerWidth })
-    console.log(feats.subBanner1.asset.fluid.src)
     const bgs = [
       feats.subBanner1.asset.fluid.src,
       feats.subBanner2.asset.fluid.src,
       feats.subBanner3.asset.fluid.src,
     ]
     gsap.utils.toArray('section').forEach((section, i) => {
-      console.log(bgs[i])
-
       section.bg = section.querySelector('.bg')
-      // Give the backgrounds some random images
-      // section.bg.style.backgroundImage = `url(https://picsum.photos/${innerWidth}/${innerHeight}?random=${i})`
       section.bg.style.backgroundImage = `url(${bgs[i]})`
 
-      // Do the parallax effect on each section
       if (i) {
         section.bg.style.backgroundPosition = `50% ${-innerHeight / 2}px`
 
@@ -77,10 +65,7 @@ export default function HomepageFeatures({ features }) {
             scrub: true,
           },
         })
-      }
-
-      // the first image should be positioned against the top. Use px on the animating part to work with GSAP.
-      else {
+      } else {
         section.bg.style.backgroundPosition = '50% 0px'
 
         gsap.to(section.bg, {
@@ -95,7 +80,11 @@ export default function HomepageFeatures({ features }) {
         })
       }
     })
-  }, [])
+  }, [
+    feats.subBanner1.asset.fluid.src,
+    feats.subBanner2.asset.fluid.src,
+    feats.subBanner3.asset.fluid.src,
+  ])
 
   return (
     <Wrap className="fullWidth">

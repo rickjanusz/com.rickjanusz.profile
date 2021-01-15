@@ -90,7 +90,7 @@ const TextWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: 1000px;
-  align-items: center;
+  align-items: top;
   gap: 20px;
   .em {
     font-weight: 900;
@@ -246,7 +246,7 @@ export default function AboutPage() {
       </PageWrapper>
 
       <h2>
-        <span>Clients I've Worked With...</span>
+        <span>Client Sampling...</span>
       </h2>
 
       <DarkSection>

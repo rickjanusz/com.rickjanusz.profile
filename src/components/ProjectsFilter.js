@@ -68,7 +68,7 @@ function countTagsInProjects(projects) {
 }
 
 export default function ProjectsFilter({ activeTag }) {
-  const { tags, projects } = useStaticQuery(graphql`
+  const { projects } = useStaticQuery(graphql`
     query MyQuery {
       tags: allSanityTag {
         nodes {
@@ -90,7 +90,7 @@ export default function ProjectsFilter({ activeTag }) {
   //   console.log({ tags, projects })
 
   const tagsWithCounts = countTagsInProjects(projects.nodes)
-  console.log(tagsWithCounts)
+  // console.log(tagsWithCounts)
 
   return (
     <Tag>

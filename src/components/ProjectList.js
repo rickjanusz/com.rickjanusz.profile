@@ -79,7 +79,7 @@ function SingleProject({ project }) {
 }
 
 export default function ProjectList({ projects }) {
-  console.log(projects)
+  // console.log(projects)
   return (
     <>
       <ProjectGridStyles>
