@@ -118,10 +118,11 @@ function getDimensions(dim, url) {
     return h
   }
 }
-
-export default function SingleProjectPage({ data: { project, features } }) {
-  // console.log('projects: ', features)
-
+const SingleProjectPage = ({
+  location: { pathname },
+  data: { project, features },
+}) => {
+  console.log(pathname)
   return (
     <>
       <SEO title={project.name} />
@@ -135,10 +136,15 @@ export default function SingleProjectPage({ data: { project, features } }) {
         <TextWrapper>
           <div className="featured-image-container">
             <div className="card">
-              {features.nodes.map((feature) => {
-                const loc = window.location.pathname.split('/')
+              {features.nodes.map((feature, i) => {
+                const loc = pathname.split('/')
                 if (loc[2] === feature.slug.current) {
-                  return <Img fluid={feature.featureImage.asset.fluid} />
+                  return (
+                    <Img
+                      key={`${loc[2]}${i}`}
+                      fluid={feature.featureImage.asset.fluid}
+                    />
+                  )
                 } else {
                   return false
                 }
@@ -195,6 +201,8 @@ export default function SingleProjectPage({ data: { project, features } }) {
     </>
   )
 }
+
+export default SingleProjectPage
 
 export const query = graphql`
   query($slug: String!) {

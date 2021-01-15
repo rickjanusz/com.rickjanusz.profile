@@ -57,7 +57,7 @@ var slug = function (str) {
 }
 
 function SingleProject({ project }) {
-  //   console.log(Img)
+  // console.log(this.props)
 
   return (
     <ProjectStyles>
@@ -84,7 +84,11 @@ export default function ProjectList({ projects }) {
     <>
       <ProjectGridStyles>
         {projects.map((project) => (
-          <SingleProject key={project.id} project={project} />
+          <SingleProject
+            key={project.id}
+            project={project}
+            slug={project.slug.current}
+          />
         ))}
       </ProjectGridStyles>
     </>
