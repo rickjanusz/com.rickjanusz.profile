@@ -38,6 +38,10 @@ const GlobalStyles = createGlobalStyle`
   }
   h3 {
   }
+  
+  .darkSection h1, .darkSection h2, .darkSection h3 {
+    color: ${(props) => props.theme.light};
+  }
 
   p, ul {
     font-size: 2rem;

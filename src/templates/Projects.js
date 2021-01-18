@@ -1,30 +1,25 @@
 import React from 'react'
 import PortableText from '@sanity/block-content-to-react'
-import urlBuilder from '@sanity/image-url'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 import PageWrapper from '../styles/PageWrapperStyles'
 import SEO from '../components/SEO'
-import Code from '../utils/code'
+import { Serializer } from '../utils/serializer'
+import SectionDark from '../components/SectionDark'
 
 const ImageStyles = styled.div`
-  img {
-    width: 300px;
-    display: inline-block;
-    border-bottom: 1px solid ${(props) => props.theme.separatorBtm};
-    border-top: 1px solid ${(props) => props.theme.separatorTop};
-  }
+  width: auto;
   .gatsby-image-wrapper {
     margin-bottom: 5px;
   }
 `
 const VideoStyles = styled.div`
   display: grid;
-  grid-template-columns: repeat(1fr 1fr);
-  grid-template-rows: repeat(1fr 1fr);
-  grid-row: span 2;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 0;
 `
 
 const Breadcrumbs = styled.div`
@@ -86,38 +81,31 @@ const TextWrapper = styled.div`
   }
 `
 const BodyWrapper = styled.div`
+  position: relative;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0;
   max-width: 1000px;
   gap: 20px;
+  height: auto;
   figure {
     transition: var(--transition);
-    float: left;
-    margin-left: 0;
-    clear: both;
+    width: 100%;
+    margin: 50px 0;
     img {
       width: 100%;
     }
   }
+  .imgWrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  @media (max-width: 1000px) {
+  }
+  @media (max-width: 700px) {
+    padding: 0 2rem;
+  }
 `
-
-const urlFor = (source) =>
-  urlBuilder({ projectId: 'kk9pk2m1', dataset: 'production' }).image(source)
-
-const serializer = {
-  types: {
-    mainImage: (props) => (
-      <figure>
-        <img
-          src={urlFor(props.node.asset).width(600).url()}
-          alt={props.node.alt}
-        />
-        <figcaption>{props.node.caption}</figcaption>
-      </figure>
-    ),
-    code: Code,
-  },
-}
 
 function getDimensions(dim, url) {
   let x = url.split('=')
@@ -131,6 +119,91 @@ function getDimensions(dim, url) {
     return h
   }
 }
+
+function AdditionalDetails({ project }) {
+  if (project._rawBody !== null || project.images.length !== 0) {
+    return (
+      <>
+        <h2>
+          <span>Additional Details</span>
+        </h2>
+        <SectionDark>
+          <BodyWrapper>
+            <PortableText blocks={project._rawBody} serializers={Serializer} />
+            <ImageStyles className="imgWrapper">
+              {project.images.map((image, i) => (
+                <Img
+                  key={project.name + i}
+                  fluid={image.asset.fluid}
+                  alt={project.name}
+                  width="970"
+                />
+              ))}
+            </ImageStyles>
+          </BodyWrapper>
+        </SectionDark>
+      </>
+    )
+  } else {
+    return false
+  }
+}
+
+function VideoDisplay({ project }) {
+  if (project.videoUrls.length) {
+    // console.log(project)
+    return (
+      <>
+        <h2>
+          <span>Video Examples</span>
+        </h2>
+        <PageWrapper>
+          <VideoStyles>
+            {project.videoUrls.map((url) => (
+              <div>
+                <iframe
+                  title={project.name}
+                  key={`video-${project.id}`}
+                  src={url}
+                  width="100%"
+                  height={getDimensions('h', url)}
+                  frameBorder="0"
+                  allow="autoplay; fullscreen"
+                ></iframe>
+              </div>
+            ))}
+          </VideoStyles>
+        </PageWrapper>
+      </>
+    )
+  } else {
+    return false
+  }
+}
+
+function TagDisplay({ project }) {
+  if (project.tags !== null) {
+    return (
+      <>
+        <h2>
+          <span>Tags</span>
+        </h2>
+        <SectionDark>
+          <PageWrapper>
+            <ul>
+              {project.tags.map((tag) => (
+                <li key={tag.id}>{tag.name}</li>
+              ))}
+            </ul>
+          </PageWrapper>
+        </SectionDark>
+      </>
+    )
+  } else {
+    return false
+  }
+}
+
 const SingleProjectPage = ({
   location: { pathname },
   data: { project, features },
@@ -167,45 +240,13 @@ const SingleProjectPage = ({
 
           <PortableText
             blocks={project._rawDescription}
-            serializers={serializer}
+            serializers={Serializer}
           />
         </TextWrapper>
-        <BodyWrapper>
-          <ImageStyles>
-            {project.images.map((image, i) => (
-              <Img
-                key={project.name + i}
-                fluid={image.asset.fluid}
-                alt={project.name}
-                width="970"
-              />
-            ))}
-          </ImageStyles>
-
-          <PortableText blocks={project._rawBody} serializers={serializer} />
-        </BodyWrapper>
-        <VideoStyles>
-          {project.videoUrls.map((url) => (
-            <div>
-              <iframe
-                title={project.name}
-                key={`video-${project.id}`}
-                src={url}
-                width="100%"
-                height={getDimensions('h', url)}
-                frameBorder="0"
-                allow="autoplay; fullscreen"
-              ></iframe>
-            </div>
-          ))}
-        </VideoStyles>
-
-        <ul>
-          {project.tags.map((tag) => (
-            <li key={tag.id}>{tag.name}</li>
-          ))}
-        </ul>
       </PageWrapper>
+      <AdditionalDetails project={project} />
+      <VideoDisplay project={project} />
+      <TagDisplay project={project} />
     </>
   )
 }

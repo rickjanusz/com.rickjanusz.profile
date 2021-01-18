@@ -6,10 +6,12 @@ const SectionDark = styled.div`
   background-color: ${(props) => props.theme.darkSection};
   border-top: 1px solid ${(props) => props.theme.separatorBtm};
   border-bottom: 1px solid ${(props) => props.theme.separatorTop};
+  color: ${(props) => props.theme.light};
+  padding: 30px 0 70px;
 `
 
 const DarkSection = (props) => {
-  return <SectionDark>{props.children}</SectionDark>
+  return <SectionDark className="darkSection">{props.children}</SectionDark>
 }
 
 export default DarkSection
