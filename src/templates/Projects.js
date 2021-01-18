@@ -7,9 +7,11 @@ import { Link } from 'gatsby'
 
 import PageWrapper from '../styles/PageWrapperStyles'
 import SEO from '../components/SEO'
+import Code from '../utils/code'
 
 const ImageStyles = styled.div`
   img {
+    width: 300px;
     display: inline-block;
     border-bottom: 1px solid ${(props) => props.theme.separatorBtm};
     border-top: 1px solid ${(props) => props.theme.separatorTop};
@@ -83,6 +85,21 @@ const TextWrapper = styled.div`
     }
   }
 `
+const BodyWrapper = styled.div`
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1000px;
+  gap: 20px;
+  figure {
+    transition: var(--transition);
+    float: left;
+    margin-left: 0;
+    clear: both;
+    img {
+      width: 100%;
+    }
+  }
+`
 
 const urlFor = (source) =>
   urlBuilder({ projectId: 'kk9pk2m1', dataset: 'production' }).image(source)
@@ -98,6 +115,7 @@ const serializer = {
         <figcaption>{props.node.caption}</figcaption>
       </figure>
     ),
+    code: Code,
   },
 }
 
@@ -107,11 +125,6 @@ function getDimensions(dim, url) {
   let w = y[0]
   let h = y[1]
 
-  // let q = (w / h) * 100 + '%'
-  // return height %
-  // return q
-
-  // return w or h
   if (dim === 'w') {
     return w
   } else {
@@ -157,33 +170,28 @@ const SingleProjectPage = ({
             serializers={serializer}
           />
         </TextWrapper>
+        <BodyWrapper>
+          <ImageStyles>
+            {project.images.map((image, i) => (
+              <Img
+                key={project.name + i}
+                fluid={image.asset.fluid}
+                alt={project.name}
+                width="970"
+              />
+            ))}
+          </ImageStyles>
 
-        <ImageStyles>
-          {project.images.map((image, i) => (
-            <Img
-              key={project.name + i}
-              fluid={image.asset.fluid}
-              alt={project.name}
-              width="970"
-            />
-          ))}
-        </ImageStyles>
-
+          <PortableText blocks={project._rawBody} serializers={serializer} />
+        </BodyWrapper>
         <VideoStyles>
           {project.videoUrls.map((url) => (
-            // console.log(url);
-            // <video src={url} />
-            // <video controls width="300" height="600">
-            //   <source src={url} />
-            // </video>
             <div>
               <iframe
                 title={project.name}
                 key={`video-${project.id}`}
                 src={url}
-                // width={getDimensions('w', url)}
                 width="100%"
-                // height="auto"
                 height={getDimensions('h', url)}
                 frameBorder="0"
                 allow="autoplay; fullscreen"
@@ -211,6 +219,7 @@ export const query = graphql`
       id
       videoUrls
       _rawDescription(resolveReferences: { maxDepth: 10 })
+      _rawBody(resolveReferences: { maxDepth: 10 })
       images {
         asset {
           fluid(maxWidth: 970) {
