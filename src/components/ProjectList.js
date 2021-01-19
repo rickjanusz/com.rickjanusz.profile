@@ -8,6 +8,7 @@ const ProjectGridStyles = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 4rem;
   transition: var(--transition);
+  padding-bottom: 50px;
   /* place-content: center; */
   @media (max-width: 1000px) {
   }

@@ -15,7 +15,13 @@ const ImageStyles = styled.div`
     margin-bottom: 5px;
   }
 `
-const VideoStyles = styled.div`
+const LandscapeVideoStyles = styled.div`
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  margin: 0;
+`
+const PortraitVideoStyles = styled.div`
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -77,6 +83,7 @@ const TextWrapper = styled.div`
     align-content: center;
     .featured-image-container .card {
       margin-right: 0;
+      padding-bottom: calc(100% - 10px);
     }
   }
 `
@@ -150,16 +157,16 @@ function AdditionalDetails({ project }) {
 }
 
 function VideoDisplay({ project }) {
-  if (project.videoUrls.length) {
-    // console.log(project)
+  if (project.lndscp_videoUrls.length || project.prtrt_videoUrls.length) {
+    console.log('VIDS: ', project)
     return (
       <>
         <h2>
           <span>Video Examples</span>
         </h2>
         <PageWrapper>
-          <VideoStyles>
-            {project.videoUrls.map((url) => (
+          <LandscapeVideoStyles>
+            {project.lndscp_videoUrls.map((url) => (
               <div>
                 <iframe
                   title={project.name}
@@ -172,7 +179,23 @@ function VideoDisplay({ project }) {
                 ></iframe>
               </div>
             ))}
-          </VideoStyles>
+          </LandscapeVideoStyles>
+
+          <PortraitVideoStyles>
+            {project.prtrt_videoUrls.map((url) => (
+              <div>
+                <iframe
+                  title={project.name}
+                  key={`video-${project.id}`}
+                  src={url}
+                  width="100%"
+                  height={getDimensions('h', url)}
+                  frameBorder="0"
+                  allow="autoplay; fullscreen"
+                ></iframe>
+              </div>
+            ))}
+          </PortraitVideoStyles>
         </PageWrapper>
       </>
     )
@@ -258,7 +281,8 @@ export const query = graphql`
     project: sanityProject(slug: { current: { eq: $slug } }) {
       name
       id
-      videoUrls
+      lndscp_videoUrls
+      prtrt_videoUrls
       _rawDescription(resolveReferences: { maxDepth: 10 })
       _rawBody(resolveReferences: { maxDepth: 10 })
       images {
