@@ -19,7 +19,7 @@ const LandscapeVideoStyles = styled.div`
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr;
-  margin: 0;
+  margin: 0 0 30px;
 `
 const PortraitVideoStyles = styled.div`
   display: grid;
@@ -111,6 +111,24 @@ const BodyWrapper = styled.div`
   }
   @media (max-width: 700px) {
     padding: 0 2rem;
+  }
+`
+const TagStyles = styled.div`
+  display: flex;
+  margin: 1rem;
+  gap: 2rem;
+  flex-flow: row wrap;
+  color: ${(props) => props.theme.dark};
+  flex-basis: auto;
+  justify-content: center;
+  span {
+    background-color: ${(props) => props.theme.primary};
+    padding: 1em;
+    flex: 1 1 1;
+    border-left: 1px solid ${(props) => props.theme.dark};
+    border-top: 1px solid ${(props) => props.theme.dark};
+    border-right: 1px solid ${(props) => props.theme.light};
+    border-bottom: 1px solid ${(props) => props.theme.light};
   }
 `
 
@@ -213,11 +231,11 @@ function TagDisplay({ project }) {
         </h2>
         <SectionDark>
           <PageWrapper>
-            <ul>
+            <TagStyles>
               {project.tags.map((tag) => (
-                <li key={tag.id}>{tag.name}</li>
+                <span key={tag.id}>{tag.name}</span>
               ))}
-            </ul>
+            </TagStyles>
           </PageWrapper>
         </SectionDark>
       </>

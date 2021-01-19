@@ -55,38 +55,37 @@ const ThemeSelector = (props) => {
         className="condition default"
         onClick={() => props.setTheme(defaultTheme)}
       >
-        Default
         <Dflt />
       </StyledButton>
       <StyledButton
         className="condition freezing"
         onClick={() => props.setTheme(snowTheme)}
       >
-        Snow <Snow />
+        <Snow />
       </StyledButton>
       <StyledButton
         className="condition hot"
         onClick={() => props.setTheme(sunTheme)}
       >
-        Sunny <Sun />
+        <Sun />
       </StyledButton>
       <StyledButton
         className="condition overcast"
         onClick={() => props.setTheme(overcastTheme)}
       >
-        Overcast <Overcast />
+        <Overcast />
       </StyledButton>
       <StyledButton
         className="condition midnight"
         onClick={() => props.setTheme(midnightTheme)}
       >
-        Midnight <Night />
+        <Night />
       </StyledButton>
       <StyledButton
         className="condition rain"
         onClick={() => props.setTheme(rainTheme)}
       >
-        Rain <Rain />
+        <Rain />
       </StyledButton>
     </ThemeWrapper>
   )
