@@ -1,26 +1,8 @@
 import React from 'react'
 import SEO from '../components/SEO'
-import callMe from '../assets/qr/call.png'
-import addMe from '../assets/qr/vcard.png'
-import emailMe from '../assets/qr/email.png'
 import PageWrapper from '../styles/PageWrapperStyles'
 import styled from 'styled-components'
 
-// console.clear()
-
-const Wrapper3Col = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2em;
-  transition: all 1s;
-  @media (max-width: 1000px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media (max-width: 700px) {
-    grid-template-columns: 1fr;
-  }
-`
 const FormStyles = styled.form`
   max-width: 500px;
   padding: 10px 20px;
@@ -142,58 +124,48 @@ export default function ContactPage() {
               <legend>
                 <span class="number">1</span> Contact Info
               </legend>
-              <input type="text" name="name" placeholder="Your Name *" />
-              <input type="email" name="email" placeholder="Your Email *" />
-              <label for="job">Reason for Contact:</label>
-              <select id="job" name="field4">
-                <optgroup label="Reason for Contact">
-                  <option value="" selected>
-                    {' '}
-                    - Select -{' '}
-                  </option>
-                  <option value="employment">Employment</option>
-                  <option value="networking">Networking</option>
-                  <option value="speaking">Speaking/Training</option>
-                  <option value="other">Other</option>
-                </optgroup>
-              </select>
+              <input
+                type="text"
+                aria-label="Name"
+                name="name"
+                placeholder="Your Name *"
+              />
+              <input
+                type="email"
+                aria-label="Email"
+                name="email"
+                placeholder="Your Email *"
+              />
+              <label for="job">
+                Reason for Contact:
+                <select id="job" name="field4">
+                  <optgroup label="Reason for Contact">
+                    <option value="" selected>
+                      {' '}
+                      - Select -{' '}
+                    </option>
+                    <option value="employment">Employment</option>
+                    <option value="networking">Networking</option>
+                    <option value="speaking">Speaking/Training</option>
+                    <option value="other">Other</option>
+                  </optgroup>
+                </select>
+              </label>
             </fieldset>
             <fieldset>
               <legend>
                 <span class="number">2</span> Additional Info
               </legend>
               <textarea
+                aria-label="Additional info"
                 name="Info"
                 placeholder="Additional Information"
               ></textarea>
             </fieldset>
-            <input type="submit" value="Submit" />
-            <input type="reset" value="Reset" />
+            <input type="submit" value="Submit" aria-label="Submit" />
+            <input type="reset" value="Reset" aria-label="Reset" />
           </FormStyles>
         </section>
-        <Wrapper3Col>
-          <div>
-            <p>
-              Call Send to mobile <br />
-              (phone icon)
-            </p>
-            <img src={callMe} height="200" alt="call me" />
-          </div>
-          <div>
-            <p>
-              Email Send to mobile <br />
-              (phone icon)
-            </p>
-            <img src={emailMe} height="200" alt="email me" />
-          </div>
-          <div>
-            <p>
-              VCard Send to mobile <br />
-              (phone icon)
-            </p>
-            <img src={addMe} height="200" alt="download my info" />
-          </div>
-        </Wrapper3Col>
       </PageWrapper>
     </>
   )

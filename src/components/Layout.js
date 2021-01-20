@@ -233,6 +233,7 @@ export default class Layout extends Component {
             <ThemeSelector setTheme={this.setTheme} />
             <form className="weatherForm" onSubmit={this.handleClick}>
               <input
+                aria-label="city"
                 type="text"
                 ref={cityInput}
                 id="city"
