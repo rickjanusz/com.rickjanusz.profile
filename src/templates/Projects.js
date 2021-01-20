@@ -118,7 +118,7 @@ const TagStyles = styled.div`
   margin: 1rem;
   gap: 2rem;
   flex-flow: row wrap;
-  color: ${(props) => props.theme.dark};
+  color: ${(props) => props.theme.white};
   flex-basis: auto;
   justify-content: center;
   span {
