@@ -25,7 +25,7 @@ export default function WorkMobile() {
               <div>Creative Innovation &amp; Capabilities</div>
             </div>
 
-            <div className="one featured-image-container">
+            <div className="one featured-image-container current">
               <div className="card">
                 <img width="600" src={epsilon} alt="" />
               </div>

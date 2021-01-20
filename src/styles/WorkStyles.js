@@ -97,9 +97,8 @@ const ExpWrapper = styled.div`
     .feature {
       margin-bottom: 0px;
     }
-    .empty,
-    .lastEmpty {
-      height: auto;
+    .current {
+      width: 100%;
     }
     .ipsType_right {
       margin-bottom: 50px;
