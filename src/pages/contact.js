@@ -136,7 +136,7 @@ export default function ContactPage() {
       </h1>
       <PageWrapper>
         <section>
-          <FormStyles>
+          <FormStyles method="POST" data-netlify="true">
             <fieldset>
               <legend>
                 <span class="number">1</span> Contact Info
