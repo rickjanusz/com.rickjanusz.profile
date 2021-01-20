@@ -29,7 +29,7 @@ const WeatherWrapper = styled.div`
   transition: var(--transition);
   z-index: 1000;
   pointer-events: none;
-  position: relative;
+  position: fixed;
   @media (max-width: 1000px) {
   }
   @media (max-width: 700px) {
