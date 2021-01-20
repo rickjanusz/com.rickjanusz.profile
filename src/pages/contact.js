@@ -162,6 +162,7 @@ export default function ContactPage() {
                 placeholder="Additional Information"
               ></textarea>
             </fieldset>
+            <div data-netlify-recaptcha="true"></div>
             <input type="submit" value="Submit" aria-label="Submit" />
             <input type="reset" value="Reset" aria-label="Reset" />
           </FormStyles>
