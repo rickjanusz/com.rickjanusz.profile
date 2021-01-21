@@ -150,7 +150,7 @@ export default function AboutPage() {
           </div>
           <section>
             <p>
-              I'm a {new Date().getFullYear() - 2003} year veteran developer
+              I'm an {new Date().getFullYear() - 2003} year veteran developer
               working in Chicago, IL. I've been at{' '}
               <span className="em">Epsilon</span>, formerly Conversant, formerly
               Dotomi for {new Date().getFullYear() - 2014} years. Prior to that,
@@ -162,14 +162,12 @@ export default function AboutPage() {
             <p>
               I'm currently a <span className="em">Creative Director</span> with
               a focus on <span className="em">Tech</span>,{' '}
-              <span className="em">Innovation</span>
-              and <span className="em">Creative Capabilities</span>. I lead
-              cross organizational teams in developing and implementing new ad
-              tech. The space I work in is highly personalized online media
-              which delivers billions of ad impressions daily.{' '}
-              <span className="em">
-                I only work in ES6 javascript, all day, everyday.
-              </span>
+              <span className="em">Innovation</span> and{' '}
+              <span className="em">Creative Capabilities</span>. I lead cross
+              organizational teams in developing and implementing new ad tech.
+              The space I work in is highly personalized online media which
+              delivers billions of ad impressions daily.{' '}
+              <span className="em">I work in ES6. All day. Everyday.</span>
             </p>
           </section>
         </TextWrapper>

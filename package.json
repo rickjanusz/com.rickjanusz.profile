@@ -50,6 +50,7 @@
     "react-syntax-highlighter": "^15.4.3",
     "rxjs": "^6.6.3",
     "styled-components": "^5.2.1",
+    "three": "^0.124.0",
     "unsplash-js": "^7.0.2"
   },
   "devDependencies": {

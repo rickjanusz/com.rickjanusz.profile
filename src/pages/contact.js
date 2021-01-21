@@ -7,7 +7,7 @@ const FormStyles = styled.form`
   max-width: 500px;
   padding: 10px 20px;
   background: #f4f7f8;
-  margin: 0 auto 10px;
+  margin: 0 auto 50px;
   padding: 20px;
   background: ${(props) => props.theme.light};
   border: 10px solid white;
