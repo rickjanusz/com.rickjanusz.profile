@@ -66,9 +66,22 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ['Price'],
+        secretKey: process.env.STRIPE_TEST_SECRET,
+        downloadFiles: false,
+      },
+    },
+    {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        allowList: ['WEATHER_APP_KEY', 'UNSPLASH_KEY', 'UNSPLASH_SECRET'],
+        allowList: [
+          'WEATHER_APP_KEY',
+          'UNSPLASH_KEY',
+          'UNSPLASH_SECRET',
+          'STRIPE_TEST',
+        ],
       },
     },
     {
