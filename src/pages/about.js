@@ -174,7 +174,7 @@ export default function AboutPage() {
       </PageWrapper>
 
       <h2>
-        <span>This Site Was Built With...</span>
+        <span>This Site Is Built &amp; Maintained With</span>
       </h2>
       <DarkSection>
         <ApiLogos />
@@ -244,7 +244,7 @@ export default function AboutPage() {
       </PageWrapper>
 
       <h2>
-        <span>Client Sampling...</span>
+        <span>Client Sampling</span>
       </h2>
 
       <DarkSection>

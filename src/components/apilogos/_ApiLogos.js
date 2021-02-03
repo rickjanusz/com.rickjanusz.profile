@@ -17,9 +17,13 @@ const ApiStyles = styled.div`
   justify-content: space-around;
   place-items: center;
   align-items: stretch;
+
   svg {
     flex: 1;
     min-width: 100px;
+  }
+  span {
+    text-align: center;
   }
 `
 
@@ -30,11 +34,31 @@ export default function ApiLogos() {
         <JamStack />
       </ApiStyles>
       <ApiStyles>
-        <ReactLogo />
-        <Gatsby />
-        <GraphQl />
-        <Sanity />
-        <Netlify />
+        <span>
+          React
+          <br />
+          <ReactLogo />
+        </span>
+        <span>
+          Gatsby
+          <br />
+          <Gatsby />
+        </span>
+        <span>
+          GraphQL
+          <br />
+          <GraphQl />
+        </span>
+        <span>
+          Sanity
+          <br />
+          <Sanity />
+        </span>
+        <span>
+          Netlify
+          <br />
+          <Netlify />
+        </span>
       </ApiStyles>
     </PageWrapper>
   )
