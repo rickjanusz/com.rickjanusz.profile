@@ -66,14 +66,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-stripe`,
-      options: {
-        objects: ['Price'],
-        secretKey: process.env.STRIPE_TEST_SECRET,
-        downloadFiles: false,
-      },
-    },
-    {
       resolve: `gatsby-plugin-env-variables`,
       options: {
         allowList: [
