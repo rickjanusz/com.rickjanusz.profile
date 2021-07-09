@@ -1,8 +1,5 @@
 import React from 'react'
-
 import ExpWrapper from '../styles/WorkStyles'
-import PageWrapper from '../styles/PageWrapperStyles'
-import SEO from '../components/SEO'
 
 import anthem from '../assets/company_anthem.jpg'
 import dimg from '../assets/company_dimg.jpg'

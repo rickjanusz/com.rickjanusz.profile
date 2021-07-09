@@ -1,6 +1,25 @@
 import path from 'path'
 import slugify from './src/utils/slugify'
 
+exports.onCreateWebpackConfig = ({
+  stage,
+  rules,
+  loaders,
+  plugins,
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.(glb|gltf)$/,
+          use: [`url-loader`],
+        },
+      ],
+    },
+  })
+}
+
 async function createTagPages({ graphql, actions }) {
   const tagTemplate = path.resolve('./src/pages/projects.js')
   const { data } = await graphql(`

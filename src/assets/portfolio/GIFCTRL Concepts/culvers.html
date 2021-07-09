@@ -1,0 +1,255 @@
+<html>
+	<head>
+        <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
+        <title>Culvers GIFCTRL</title>
+        <style>
+            body, section, div{
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: center;
+                align-items: center;
+            }
+            a{
+                display: block;
+            }
+            section{
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: space-around;
+                width: 100vw;
+            }
+
+            .container{
+                border: 5px solid black;
+                position: relative;
+
+            }
+            .log{
+                width: 30em;
+                height: 10em;
+                padding: 4em;
+            }
+            #log{
+                color: white;
+                background: black;
+                padding: 2em;
+                border-radius: 20px;
+            }
+            section{
+                flex-flow: row nowrap;
+                align-items: center;
+            }
+            aside{
+                flex: 0 0 auto;
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: center;
+                align-items: center;
+            }
+            article{
+                margin: 3em;
+                max-width: 45em;
+                flex: 0 1 auto;
+            }
+            #watched{
+                position: absolute;
+                top: 100%;
+                height: 100vh;
+                border-left: 1px dashed #ddd;
+            }
+            .blank{
+                position: relative;
+            }
+
+            .hidden{
+                display: none;
+            }
+        </style>
+	</head>
+	<body>
+        <section>
+                <div id="container" class="container">
+                    <canvas id='myCanvas'></canvas>
+                </div>
+        </section>
+        
+        <!-- <video id='v' controls src='https://i.imgur.com/c1EgTd5.mp4'></video> -->
+        <script type="text/javascript">
+            const watched = document.getElementById('watched');
+            const cnvs = document.getElementById('myCanvas');
+            // const cnvs = document.createElement('canvas');
+            const ctx = cnvs.getContext('2d');
+            const video = document.createElement('video');
+            const cont = document.getElementById('container');
+            // cont.appendChild(video);
+
+            // ctx.fillRect(5, 5, 30, 30);
+
+            // const file = 'https://i.imgur.com/c1EgTd5.mp4';
+            const file = 'https://i.imgur.com/TNl7mT2.mp4';
+                    
+            let w = 100, h = 200;
+            w *=3;
+            h *=3;
+            cnvs.width = w;
+            cnvs.height = h;
+            video.width = w;
+            video.height = h;
+ 
+            const obj = {
+                isLoaded: false,
+                isProcessed: false,
+                isPlaying: true,
+                isOnScreen: false,
+                frames: [],
+                dataImg: [],
+                currentTime: 0,
+                currentFrame: 0,
+                fps: 20,
+                secondsToRecord: 10,
+                frame: 0,
+                lastFrameTime: null,
+                frameMath: null,
+                async init(src){
+                    // fps means 1 / fps
+                    // 1000 ms in a secon
+                    // if 60 frames per second
+                    this.frameMath = 1000 / this.fps;
+
+
+                    this.loadVideo(src).then( r =>{
+                        video.src = r;
+                        
+                        updateText(`Storing frames in array. Off-screen video player is playign and canvas is capturing frames. Currently set at ${this.fps} fps. Ideally this would be not be done at serving. Wanted to demonstrate this before putting time into that part.`)
+                        this.loop();
+                    }).catch(err =>{
+                        console.log(err);
+                    });
+                },
+                async loadVideo(){
+                    updateText('loading video');
+                    const a = await fetch(file);
+                    const b = await a.blob();
+                    return URL.createObjectURL(b);
+
+                },
+                message1(){
+                    updateText('Paused while not scrolling...');
+                    
+                },
+                message2(){
+                    updateText('GIFCTRL Activated!');
+
+                },
+                loop(){
+                    if (obj.frame >= video.duration) obj.isProcessed = true;
+                    if (obj.isProcessed) {
+                        // obj.play();
+                        obj.message1();
+                    }
+                    if (obj.isProcessed) return;
+                    let videoReady;
+                    let a;
+                    if (video.readyState === 4 && video.duration) videoReady = true;
+
+                    if (Math.abs(video.currentTime - obj.frame) < 0.001) obj.frame = video.currentTime;
+                    
+                    if (video.currentTime !== obj.frame) video.currentTime = obj.frame;
+                    else a = true;
+
+                    if (videoReady && a) obj.process();
+
+                    requestAnimationFrame(obj.loop);
+                },
+                process(){
+                    ctx.drawImage(video, 0, 0, w, h);
+
+                    const i = new Image();
+                    i.onload = function(){
+                            obj.frames.push(i);     
+                        }
+                    const d = cnvs.toDataURL();
+                    obj.dataImg.push(d);
+                    i.src = cnvs.toDataURL();
+
+                    
+                    obj.frame += 1 / obj.fps;
+                    },
+                play(){
+                    if (!obj.isPlaying) return;
+
+                    const now = new Date();
+                    if (!obj.lastFrameTime) obj.lastFrameTime = now;
+                    const elapsed = now - obj.lastFrameTime;
+
+                    if (elapsed > obj.frameMath) {
+                        obj.lastFrameTime = now;
+                        obj.currentFrame++;
+                    if (obj.currentFrame > obj.frames.length - 1) {
+                        obj.currentFrame = 0;
+                    }
+
+                        const a = obj.frames[obj.currentFrame];
+
+                        ctx.drawImage(a, 0, 0, w, h);
+                    }
+
+
+                    requestAnimationFrame(obj.play);
+                }
+            }
+
+            obj.init();
+
+
+
+            function updateText(x){
+                // log.textContent = x;
+            }
+
+
+            const gifcontrol = {
+                currentFrame: -1,
+                displayFrame(f){
+                    if (f === this.currentFrame) return;
+                    this.currentFrame = f;
+                    obj.currentFrame = f;
+                    ctx.drawImage(obj.frames[f], 0, 0);
+                },
+                mouseMovement(xPercent){
+                    // const xPercent = x/window.innerWidth;
+                    const frame = Math.round(xPercent * obj.frames.length) - 1;
+                    if (frame < 0 || frame > obj.frames.length - 1) return;
+                    this.displayFrame(frame);
+                }
+            }
+
+            cnvs.addEventListener('mousemove', (ev)=>{
+                if (obj.isProcessed){
+                    obj.isPlaying = false;
+                    // console.log('move');
+                    // console.log(ev.offsetX / w);
+                    obj.message2()
+                    gifcontrol.mouseMovement(ev.offsetX / w);
+
+                } 
+                // console.log(ev);
+            })
+
+            cnvs.addEventListener('mouseleave', (ev)=>{
+                // console.log('out')
+                if (obj.isProcessed) {
+                    obj.isPlaying = true;
+                    obj.loop();
+                    obj.message1();
+                }
+                // console.log(ev);
+                // gifcontrol.mouseMovement(ev.x);
+            })
+
+
+
+
+		</script>
+	</body>
+</html>

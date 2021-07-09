@@ -7,9 +7,13 @@ const Wrap = styled.div`
     width: 100%;
     height: 40px;
     cursor: pointer;
-    background-color: ${(props) => props.theme.dark};
     transition: var(--transition);
+    background-color: ${(props) => props.theme.dark};
+    color: ${(props) => props.theme.light};
+    font-size: 2em;
+    position: relative;
     &:hover {
+      color: ${(props) => props.theme.dark};
       background-color: ${(props) => props.theme.light};
       svg {
         fill: ${(props) => props.theme.dark};
@@ -20,6 +24,12 @@ const Wrap = styled.div`
       width: 40px;
       fill: ${(props) => props.theme.light};
     }
+    .condition {
+      position: absolute;
+      top: 8px;
+      width: 100%;
+      text-align: center;
+    }
   }
 `
 const WeatherWrapper = styled.div`
@@ -29,7 +39,7 @@ const WeatherWrapper = styled.div`
   transition: var(--transition);
   z-index: 1000;
   pointer-events: none;
-  position: fixed;
+  /* position: fixed; */
   @media (max-width: 1000px) {
   }
   @media (max-width: 700px) {
@@ -39,18 +49,17 @@ const WeatherWrapper = styled.div`
 const WeatherStyles = styled.div`
   margin: 0;
   width: 100vw;
-  height: 0vh;
+  max-height: 0;
   pointer-events: auto;
-  /* display: flex; */
   z-index: 2;
   font-size: 2rem;
   overflow: hidden;
-  /* position: relative; */
   color: ${(props) => props.theme.white};
   background-color: ${(props) => props.theme.dark};
-  transition: var(--transition);
+  transition: max-height 0.6s ease-in-out;
   &.active {
-    height: 100vh;
+    height: auto;
+    max-height: 1500px;
   }
   img {
     width: 4vw;
@@ -128,7 +137,9 @@ class Weather extends Component {
           className="handle"
           onClick={() => this.setState({ active: !this.state.active })}
         >
-          <WeatherIcon />
+          <div className="condition">
+            {location} &bull; {conditionText} &bull; {temp}º
+          </div>
         </div>
         <WeatherWrapper>
           <WeatherStyles className={this.state.active && 'active'}>

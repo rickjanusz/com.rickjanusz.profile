@@ -95,7 +95,12 @@ const TextWrapper = styled.div`
   .em {
     font-weight: 900;
   }
-
+  .city {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: ${(props) => props.theme.dark};
+    transition: var(--transition);
+  }
   .card {
     margin-bottom: 10px;
     border: 1px solid #cccccc;
@@ -150,18 +155,20 @@ export default function AboutPage() {
           </div>
           <section>
             <p>
-              I'm an {new Date().getFullYear() - 2003} year veteran developer
-              working in Chicago, IL. I've been at{' '}
-              <span className="em">Epsilon</span>, formerly Conversant, formerly
-              Dotomi for {new Date().getFullYear() - 2014} years. Prior to that,
-              I spent time at <span className="em">Manifest Digital</span>,{' '}
+              I've been a working Developer in{' '}
+              <span className="city">Chicago, IL.</span> for the past{' '}
+              {new Date().getFullYear() - 2003} years. I've been at{' '}
+              <span className="em">Epsilon</span> recently acquired by Publicis
+              Groupe, formerly Conversant, formerly Dotomi for the last{' '}
+              {new Date().getFullYear() - 2014} years. Prior to that, I spent
+              time at <span className="em">Manifest Digital</span>,{' '}
               <span className="em">Element79</span> of DDB/Omnicom,{' '}
               <span className="em">AnthemWW</span> and also{' '}
               <span className="em">Disney Interactive Media Group</span>.
             </p>
             <p>
               I'm currently a <span className="em">Creative Director</span> with
-              a focus on <span className="em">Tech</span>,{' '}
+              a focus on <span className="em">Creative Tech</span>{' '}
               <span className="em">Innovation</span> and{' '}
               <span className="em">Creative Capabilities</span>. I lead cross
               organizational teams in developing and implementing new ad tech.

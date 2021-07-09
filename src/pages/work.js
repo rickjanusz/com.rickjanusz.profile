@@ -70,7 +70,7 @@ export default function WorkPage() {
     })
     ScrollTrigger.create({
       trigger: '#trigger1',
-      start: window.innerHeight / 2 - 200,
+      //start: window.innerHeight / 2 - 100,
       end: '+=1880',
       pin: '#pinnedContent',
     })
