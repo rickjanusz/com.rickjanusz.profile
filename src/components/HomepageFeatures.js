@@ -8,13 +8,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import { Serializer } from '../utils/serializer'
 
-import { Canvas } from 'react-three-fiber'
+// import { Canvas } from 'react-three-fiber'
 
-import Model from '../components/model'
-import Controls from '../components/controls'
+// import Model from '../components/model'
+// import Controls from '../components/controls'
 
-import helmet from '../components/DamagedHelmet.glb'
-import auto from '../assets/automator.mp4'
+// import helmet from '../components/DamagedHelmet.glb'
+// import auto from '../assets/automator.mp4'
 // import bg from '../assets/neonbg.png'
 gsap.registerPlugin(ScrollTrigger)
 
@@ -77,30 +77,45 @@ const Cont = styled.div`
   z-index: 3;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   display: grid;
-  grid-template-columns: 2fr 1fr 0.5fr;
+  grid-template-columns: 1fr;
   grid-gap: 20px;
   margin: 0 30px;
   /* font-weight: bold; */
   font-family: Arial, sans-serif;
   color: white;
+  text-align: center;
   h1 {
     color: white;
     font-size: 60px;
     text-transform: uppercase;
-    text-align: left;
+    /* text-align: left; */
     margin: 0 30px 0 0;
+    position: relative;
+  }
+  &:after {
+    content: '';
+    height: 30%;
+    width: 60%;
+    top: 37%;
+    left: calc(50% - 30%);
+    transform: rotate(-5deg);
+    background-color: ${(props) => props.theme.primary};
+    position: absolute;
+    z-index: -1;
   }
   p {
     font: 16px Arial, sans-serif;
-    width: 100%;
+    max-width: 60%;
+    margin: 0 auto;
   }
   a {
     position: relative;
-    margin: 0;
+    padding: 10px 20px;
     z-index: 3;
+    top: 20px;
     font: bold 2vw Arial, sans-serif;
     width: 40vw;
-    background-color: red;
+    background-color: ${(props) => props.theme.light};
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     color: white;
   }
@@ -173,28 +188,14 @@ export default function HomepageFeatures({ features }) {
         <div className="feature bg"></div>
 
         <Cont>
-          <Canvas camera={{ position: [0, 0, 1] }}>
-            <ambientLight intensity={1} />
-            <Model url={helmet} />
-            <Controls
-              autoRotate
-              enablePan={false}
-              enableZoom={false}
-              enableDamping
-              dampingFactor={0.3}
-              rotateSpeed={1}
-              // maxPolarAngle={Math.PI / 2}
-              // minPolarAngle={Math.PI / 2}
-            />
-          </Canvas>
           <div>
             <h1>{feats.subHL1}</h1>
             <PortableText
               blocks={feats._rawS1Description}
               serializers={Serializer}
             />
+            <Link to="/projects/">See All Innovations &gt;</Link>
           </div>
-          {/* <Link to="#">LINK &gt;</Link> */}
         </Cont>
       </section>
       <section className="panel panel3">
@@ -203,15 +204,17 @@ export default function HomepageFeatures({ features }) {
         <div className="feature bg"></div>
 
         <Cont>
-          <video src={auto} controls mute autoPlay loop playsInline></video>
+          {/* <video src={auto} controls mute autoPlay loop playsInline></video> */}
           <div>
             <h1>{feats.subHL2}</h1>
             <PortableText
               blocks={feats._rawS2Description}
               serializers={Serializer}
             />
+            <Link to="/project/responsive-ads">
+              Check Out Responsive Ads &gt;
+            </Link>
           </div>
-          {/* <Link to="#">LINK &gt;</Link> */}
         </Cont>
       </section>
       <section className="panel panel4">
@@ -219,13 +222,16 @@ export default function HomepageFeatures({ features }) {
         <div className="overlay2"></div>
         <div className="feature bg"> </div>
         <Cont>
-          <img src="" />
+          {/* <img src="" /> */}
           <div>
             <h1>{feats.subHL3}</h1>
             <PortableText
               blocks={feats._rawS3Description}
               serializers={Serializer}
             />
+            <Link to="https://videocrop.netlify.app/" target="_blank">
+              Crop Some Video &gt;
+            </Link>
           </div>
           {/* <Link to="#">LINK &gt;</Link> */}
         </Cont>
