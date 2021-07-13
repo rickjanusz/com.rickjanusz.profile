@@ -58,7 +58,7 @@ export const snowTheme = {
   backgroundColor:
     'linear-gradient(270deg, hsla(224, 30%, 60%, 1) 0%, hsla(210,44%,80%, 1) 100%)',
   contentBgColor: 'hsla(224, 30%, 80%, 1)',
-  darkSection: 'hsla(224,50%,20%,1)',
+  darkSection: 'hsla(224,30%,40%,1)',
   transparentBar: 'rgba(190, 205, 255, 0.6)',
   separatorTop: 'hsla(224, 30%, 40%, 1)',
   separatorBtm: '#fff',

@@ -87,6 +87,7 @@ const Cont = styled.div`
   h1 {
     color: white;
     font-size: 60px;
+    text-align: center;
     text-transform: uppercase;
     /* text-align: left; */
     margin: 0 30px 0 0;
