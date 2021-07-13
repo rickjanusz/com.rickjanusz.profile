@@ -99,7 +99,7 @@ const Cont = styled.div`
     top: 37%;
     left: calc(50% - 30%);
     transform: rotate(-5deg);
-    background-color: ${(props) => props.theme.primary};
+    background-color: ${(props) => props.theme.dark};
     position: absolute;
     z-index: -1;
   }
@@ -115,7 +115,7 @@ const Cont = styled.div`
     top: 20px;
     font: bold 2vw Arial, sans-serif;
     width: 40vw;
-    background-color: ${(props) => props.theme.light};
+    background-color: ${(props) => props.theme.darkSection};
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     color: white;
   }

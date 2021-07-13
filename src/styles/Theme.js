@@ -83,7 +83,7 @@ export const overcastTheme = {
   // contentBgColor: '#31485e',
   contentBgColor: 'hsla(190, 10%, 70%, 1)',
   darkSection: 'hsla(200,50%,20%,1)',
-  transparentBar: 'hsla(190, 10%, 50%, .7)',
+  transparentBar: 'hsla(190, 10%, 30%, 1)',
   separatorTop: '#ccc',
   separatorBtm: 'hsla(200, 100%, 10%, 1)',
   clientLogoColor: '#999',
@@ -105,7 +105,7 @@ export const midnightTheme = {
   backgroundColor:
     'linear-gradient(-270deg, hsla(200, 100%, 10%, 1) 0%, hsla(251, 100%, 0%, 1) 100%)',
   contentBgColor: '#537380',
-  darkSection: 'hsla(200,50%,10%,1)',
+  darkSection: 'hsla(200,50%,5%,1)',
   transparentBar: 'rgba(49, 72, 94, 0.6)',
   separatorTop: '#777',
   separatorBtm: 'hsla(200, 100%, 10%, 1)',
@@ -127,7 +127,7 @@ export const rainTheme = {
   backgroundColor:
     'linear-gradient(270deg, hsla(214, 3%, 87%, 1) 0%, #8fb6c8 50%)',
   contentBgColor: '#D1E1F0',
-  darkSection: 'hsla(194,20%,30%,1)',
+  darkSection: 'hsla(194,20%,20%,1)',
   transparentBar: 'rgba(93, 159, 163, 0.6)',
   separatorTop: '#2296AD',
   separatorBtm: '#fff',
