@@ -1,49 +1,8 @@
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import React from 'react'
-import styled from 'styled-components'
 import slugify from '../utils/slugify'
 
-const Tag = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 4rem;
-  transition: var(--transition);
-  a {
-    transition: var(--transition);
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0 1rem;
-    padding: 10px;
-    border-radius: 8px 0 8px 0;
-    background-color: ${(props) => props.theme.dark};
-    color: ${(props) => props.theme.light};
-    align-items: center;
-    .count {
-      transition: var(--transition);
-      border-radius: 5px 0 5px 0;
-      padding: 4px;
-      color: ${(props) => props.theme.dark};
-      background-color: ${(props) => props.theme.light};
-    }
-    &.active {
-      transition: var(--transition);
-      background-color: ${(props) => props.theme.light};
-      color: ${(props) => props.theme.dark};
-    }
-    &.active .count {
-      transition: var(--transition);
-      color: ${(props) => props.theme.light};
-      background-color: ${(props) => props.theme.dark};
-    }
-  }
-  @media (max-width: 1000px) {
-    display: none;
-  }
-
-  @media (max-width: 700px) {
-  }
-`
+import StyledTag from '../styles/TagStyles'
 
 function countTagsInProjects(projects) {
   //   console.log(projects)
@@ -86,14 +45,14 @@ export default function ProjectsFilter({ activeTag }) {
       }
     }
   `)
-  console.clear()
+  // console.clear()
   //   console.log({ tags, projects })
 
   const tagsWithCounts = countTagsInProjects(projects.nodes)
   // console.log(tagsWithCounts)
 
   return (
-    <Tag>
+    <StyledTag>
       <p>{activeTag}</p>
       {tagsWithCounts.map((tag) => (
         <Link
@@ -105,6 +64,6 @@ export default function ProjectsFilter({ activeTag }) {
           <span className="count">{tag.count}</span>
         </Link>
       ))}
-    </Tag>
+    </StyledTag>
   )
 }

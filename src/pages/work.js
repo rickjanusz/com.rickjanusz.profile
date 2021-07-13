@@ -1,31 +1,13 @@
 import React, { useEffect } from 'react'
-import styled from 'styled-components'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import PageWrapper from '../styles/PageWrapperStyles'
 import SEO from '../components/SEO'
 import WorkMobile from '../components/WorkMobile'
 import WorkDesktop from '../components/WorkDesktop'
 
-const SwitchDevice = styled.div`
-  .mobile {
-    display: none;
-  }
-  .desktop {
-    display: block;
-  }
-  @media (max-width: 1000px) {
-    .desktop {
-      display: none;
-    }
-    .mobile {
-      display: block;
-    }
-  }
-  @media (max-width: 700px) {
-  }
-`
+import PageWrapper from '../styles/PageWrapperStyles'
+import StyledDevice from '../styles/DeviceSwitchStyles'
 
 export default function WorkPage() {
   useEffect(() => {
@@ -83,14 +65,14 @@ export default function WorkPage() {
         <span>Work History</span>
       </h1>
       <PageWrapper>
-        <SwitchDevice>
+        <StyledDevice>
           <div className="desktop">
             <WorkDesktop />
           </div>
           <div className="mobile">
             <WorkMobile />
           </div>
-        </SwitchDevice>
+        </StyledDevice>
       </PageWrapper>
     </>
   )
