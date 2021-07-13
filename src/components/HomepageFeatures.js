@@ -20,7 +20,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const Wrap = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 70vh;
   transition: var(--transition);
   /* background-image: url({bg}); */
   section {

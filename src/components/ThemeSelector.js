@@ -54,7 +54,9 @@ const ThemeSelector = (props) => {
       <StyledButton
         aria-label="Default theme"
         className="condition default"
-        onClick={() => props.setTheme(defaultTheme)}
+        onClick={() => {
+          props.setTheme(defaultTheme)
+        }}
       >
         <Dflt />
       </StyledButton>

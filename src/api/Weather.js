@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import styled from 'styled-components'
 import WeatherIcon from '../components/icons/Dflt'
 
@@ -110,13 +110,25 @@ const WeatherStyles = styled.div`
 `
 
 class Weather extends Component {
-  state = {
-    active: false,
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      active: false,
+    }
   }
 
   toggleClass() {
     const currentState = this.state.active
     this.setState({ active: !currentState })
+  }
+
+  openDrawer = () => {
+    this.setState({ active: true })
+  }
+
+  closeDrawer = () => {
+    this.setState({ active: false })
   }
 
   render(props) {
@@ -130,19 +142,25 @@ class Weather extends Component {
       //tempFeelsLike,
       //time,
     } = this.props.details
+    const active = this.props.active
 
     return (
       <Wrap>
         <div
           className="handle"
-          onClick={() => this.setState({ active: !this.state.active })}
+          onClick={() => {
+            this.toggleClass()
+          }}
         >
           <div className="condition">
             {location} &bull; {conditionText} &bull; {temp}º
           </div>
         </div>
         <WeatherWrapper>
-          <WeatherStyles className={this.state.active && 'active'}>
+          <WeatherStyles
+            id="weatherSelector"
+            className={this.state.active && 'active'}
+          >
             <div className="cityDetails">
               <img
                 className="cityChild"
