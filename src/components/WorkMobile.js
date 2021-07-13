@@ -18,7 +18,7 @@ export default function WorkMobile() {
                 <div className="sm">2019-current</div>
                 <h3>Creative Director</h3>
               </div>
-              <div className="sm em">Epsilon (formerly Conversant)</div>
+              <div className="sm em">Epsilon DMS, Publicis Groupe </div>
               <div>Creative Innovation &amp; Capabilities</div>
             </div>
 
@@ -35,7 +35,7 @@ export default function WorkMobile() {
                 <div className="sm">2017-2019</div>
                 <h3>Assoc. Director</h3>
               </div>
-              <div className="sm em">Epsilon (formerly Conversant)</div>
+              <div className="sm em">Epsilon DMS, Publicis Groupe </div>
               <div>Creative Technology</div>
             </div>
           </div>
@@ -46,7 +46,7 @@ export default function WorkMobile() {
                 <div className="sm">2016-2017</div>
                 <h3>Sr. Manager</h3>
               </div>
-              <div className="sm em">Epsilon (formerly Conversant)</div>
+              <div className="sm em">Epsilon DMS, Publicis Groupe </div>
               <div>Creative Technology</div>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function WorkMobile() {
                   Sr. Creative Tech, <br /> Team Lead
                 </h3>
               </div>
-              <div className="sm em">Epsilon (formerly Conversant)</div>
+              <div className="sm em">Epsilon DMS, Publicis Groupe </div>
               <div>Creative Technology</div>
             </div>
           </div>

@@ -19,7 +19,7 @@ export default function WorkDesktop() {
                 <h3>Creative Director</h3>
               </div>
               <div className="gs_reveal sm em">
-                Epsilon (formerly Conversant)
+                Epsilon DMS, Publicis Groupe
               </div>
               <div className="gs_reveal">
                 Creative Innovation &amp; Capabilities
@@ -43,7 +43,7 @@ export default function WorkDesktop() {
                 <h3>Assoc. Director</h3>
               </div>
               <div className="gs_reveal sm em">
-                Epsilon (formerly Conversant)
+                Epsilon DMS, Publicis Groupe
               </div>
               <div className="gs_reveal">Creative Technology</div>
             </div>
@@ -56,7 +56,7 @@ export default function WorkDesktop() {
                 <h3>Sr. Manager</h3>
               </div>
               <div className="gs_reveal sm em">
-                Epsilon (formerly Conversant)
+                Epsilon DMS, Publicis Groupe
               </div>
               <div className="gs_reveal">Creative Technology</div>
             </div>
@@ -71,7 +71,7 @@ export default function WorkDesktop() {
                 </h3>
               </div>
               <div className="gs_reveal sm em">
-                Epsilon (formerly Conversant)
+                Epsilon DMS, Publicis Groupe
               </div>
               <div className="gs_reveal">Creative Technology</div>
             </div>
