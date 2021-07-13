@@ -130,6 +130,18 @@ const Cont = styled.div`
     position: relative;
     left: calc(50% - 25vw);
   }
+  @media (max-width: 1000px) {
+    /* font-size: 1.5rem; */
+  }
+  @media (max-width: 700px) {
+    h1 {
+      font-size: 5rem;
+    }
+    p,
+    a {
+      font-size: 1.5rem;
+    }
+  }
 `
 
 export default function HomepageFeatures({ features }) {
