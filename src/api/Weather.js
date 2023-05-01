@@ -7,7 +7,7 @@ class Weather extends Component {
     super(props)
 
     this.state = {
-      active: true,
+      active: false,
     }
   }
 
