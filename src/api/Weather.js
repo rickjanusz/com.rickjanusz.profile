@@ -7,7 +7,7 @@ class Weather extends Component {
     super(props)
 
     this.state = {
-      active: false,
+      active: true,
     }
   }
 
@@ -38,20 +38,12 @@ class Weather extends Component {
           }}
         >
           <div className="condition">
-            {location} &bull; {conditionText} &bull; {temp}º
           </div>
         </div>
         <div className="weatherWrapper">
           <div id="weatherSelector" className={this.state.active && 'active'}>
             <div className="cityDetails">
-              <img
-                className="cityChild"
-                src={conditionIconURL}
-                alt={conditionText}
-              />
-              <div className="cityChild">Location: {location}</div>
-              <div className="cityChild">Temp: {temp}</div>
-              {/* <div>Humidity: {humidity}</div> */}
+            
             </div>
             {this.props.children}
           </div>
