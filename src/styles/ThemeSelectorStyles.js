@@ -7,15 +7,13 @@ const StyledThemeSelector = styled.div`
   flex-direction: row;
   align-items: stretch;
   transition: all 0.25s;
-  margin-top: 50px;
-
   button {
     transition: var(--transition);
     color: ${(props) => props.theme.white};
     background-color: ${(props) => props.theme.dark};
     transition: var(--transition);
     flex: 1;
-    border: 1px solid #333;
+    border: 1px solid ${(props) => props.theme.headings};
     &.condition {
       transition: var(--transition);
       /* height: 10vh; */
