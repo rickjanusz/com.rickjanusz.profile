@@ -4,8 +4,8 @@ const IconStyles = styled.svg`
   fill: ${(props) => props.theme.light};
   transition: var(--transition);
   display: block;
-  width: 100%;
-  margin: 3px auto;
+  width: 50%;
+  margin: 1em auto 0;
   cursor: pointer;
   .st0 {
     transition: var(--transition);
