@@ -53,7 +53,7 @@ export default class Layout extends Component {
   weatherDefault = `${WEATHER_URL}key=${process.env.WEATHER_APP_KEY}&q=${this.defaultQuery}`
 
   mountLocalStorage(dataName, apiURL, setData) {
-    console.log(this.weatherDefault)
+    // console.log("HEYYYYYYYY", this.weatherDefault)
     const ref = localStorage.getItem(dataName)
     if (ref) {
       this.setState({
@@ -61,13 +61,15 @@ export default class Layout extends Component {
       })
     } else {
       this.fetchApiData(apiURL, setData)
+      this.setTheme(defaultTheme)
     }
   }
 
   setWeather = (data) => {
     const weather = this.weather
 
-    //console.log(this.current)
+
+    console.log(this.current)
     weather.temp = data.current.temp_f
     weather.tempFeelsLike = data.current.feelslike_f
     weather.humidity = data.current.humidity
@@ -161,6 +163,7 @@ export default class Layout extends Component {
     } else {
       this.setTheme(defaultTheme)
     }
+
   }
 
   setHeaderImg = (data) => {
@@ -221,7 +224,7 @@ export default class Layout extends Component {
 
   setTheme = (theme) => {
     this.setState({ theme }, () => {
-      // console.log(this.state.theme)
+       console.log(this.state.theme)
     })
   }
 
@@ -231,16 +234,6 @@ export default class Layout extends Component {
         <GlobalStyle />
         <Weather details={this.state.weather}>
           <ThemeSelector setTheme={this.setTheme} />
-          <form className="weatherForm" onSubmit={this.handleClick}>
-            <input
-              aria-label="city"
-              type="text"
-              ref={cityInput}
-              id="city"
-              placeholder="Enter a City Name"
-            />
-            <button type="Submit">Theme this site by weather</button>
-          </form>
         </Weather>
         <Header />
         {/* <Location details={this.state.headerImg} props={this.props} /> */}
