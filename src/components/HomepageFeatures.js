@@ -246,7 +246,6 @@ export default function HomepageFeatures({ features }) {
               Crop Some Video &gt;
             </Link>
           </div>
-          {/* <Link to="#">LINK &gt;</Link> */}
         </Cont>
       </section>
     </Wrap>

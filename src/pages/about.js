@@ -31,16 +31,16 @@ export default function AboutPage() {
             <p>
               I've been a working Developer in{' '}
               <span className="city">Chicago, IL.</span> for the past{' '}
-              {new Date().getFullYear() - 2003} years. I've been at{' '}
-              <span className="em">Epsilon</span> recently acquired by Publicis
-              Groupe, formerly Conversant, formerly Dotomi for the last{' '}
-              {new Date().getFullYear() - 2014} years. Prior to that, I spent
+              {new Date().getFullYear() - 2003} years. In my last residency, I was at{' '}
+              <span className="em">Epsilon</span> which was acquired by Publicis
+              Groupe and formerly known as Conversant, for almost 9 years. Prior to that, I spent
               time at <span className="em">Manifest Digital</span>,{' '}
               <span className="em">Element79</span> of DDB/Omnicom,{' '}
               <span className="em">AnthemWW</span> and also{' '}
               <span className="em">Disney Interactive Media Group</span>.
             </p>
-            <p>
+
+            {/* <p>
               I'm currently a <span className="em">Creative Director</span> with
               a focus on <span className="em">Creative Tech</span>{' '}
               <span className="em">Innovation</span> and{' '}
@@ -49,7 +49,8 @@ export default function AboutPage() {
               The space I work in is highly personalized online media which
               delivers billions of ad impressions daily.{' '}
               <span className="em">I work in ES6. All day. Everyday.</span>
-            </p>
+            </p> */}
+
           </section>
         </TextWrapper>
       </PageWrapper>

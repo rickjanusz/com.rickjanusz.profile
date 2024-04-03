@@ -6,16 +6,36 @@ import dimg from '../assets/company_dimg.jpg'
 import epsilon from '../assets/company_epsilon.jpg'
 import e79 from '../assets/company_e79.jpg'
 import manifest from '../assets/company_manifest.jpg'
+import bb from '../assets/company_bb.jpg'
 
 export default function WorkDesktop() {
   return (
     <>
       <ExpWrapper>
-        <div className="cInnerContent" id="trigger1">
-          <div className=" feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone">
+        <div className="cInnerContent">
+
+
+          <div className="feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone" >
+            <div className="one featured-image-container ipsGrid_span6 gs_reveal gs_reveal_fromBottomFirst">
+              <div className="card">
+                <img width="600" src={bb} alt="" />
+              </div>
+            </div>
+            <div className="two ipsGrid_span6 ipsType_left">
+              <div className="heading_large gs_reveal">
+                <div className="sm">2021-current</div>
+                <h3>Owner, Maker, Creative</h3>
+              </div>
+              <div className="gs_reveal sm em">Bumblin Bee Candle</div>
+              <div className="gs_reveal">Candles & Accessories</div>
+            </div>
+          </div>
+
+
+          <div className=" feature ipsSpacer_bottom_double ipsGrid ipsGrid_collapsePhone" id="trigger1">
             <div className="two ipsGrid_span6 ipsType_right">
               <div className="heading_large gs_reveal">
-                <div className="sm">2019-current</div>
+                <div className="sm">2019-2021</div>
                 <h3>Creative Director</h3>
               </div>
               <div className="gs_reveal sm em">
@@ -28,7 +48,7 @@ export default function WorkDesktop() {
 
             <div
               id="pinnedContent"
-              className="one featured-image-container ipsGrid_span6 gs_reveal_fromBottomFirst"
+              className="one featured-image-container ipsGrid_span6 gs_reveal_fromTop"
             >
               <div className="card">
                 <img width="600" src={epsilon} alt="" />
