@@ -6,12 +6,50 @@ import dimg from '../assets/company_dimg.jpg'
 import epsilon from '../assets/company_epsilon.jpg'
 import e79 from '../assets/company_e79.jpg'
 import manifest from '../assets/company_manifest.jpg'
+import bb from '../assets/company_bb.jpg'
+import redtail from '../assets/company_redtail.jpg'
 
 export default function WorkMobile() {
   return (
     <>
       <ExpWrapper>
         <div className="cInnerContent">
+
+
+          <div className="feature ipsGrid">
+            <div className="one featured-image-container ipsGrid_span6 ">
+              <div className="card">
+                <img width="600" src={redtail} alt="" />
+              </div>
+            </div>
+            <div className="two ipsGrid_span6 ipsType_left">
+              <div className="heading_large">
+                <div className="sm">2022-current</div>
+                <h3>Owner</h3>
+              </div>
+              <div className="sm em">Redtail Market</div>
+              <div>Technical Creative Director</div>
+              <p></p>
+            </div>
+          </div>
+
+          <div className="feature ipsGrid">
+            <div className="one featured-image-container ipsGrid_span6 ">
+              <div className="card">
+                <img width="600" src={bb} alt="" />
+              </div>
+            </div>
+            <div className="two ipsGrid_span6 ipsType_left">
+              <div className="heading_large">
+                <div className="sm">2021-current</div>
+                <h3>Maker, Creative, Owner</h3>
+              </div>
+              <div className="sm em">Bumblin Bee Candle</div>
+              <div>Candles &amp; Accessories</div>
+              <p></p>
+            </div>
+          </div>
+
           <div className="feature ipsGrid">
             <div className="two">
               <div className="heading_large">

@@ -42,10 +42,10 @@ export default function WorkDesktop() {
             <div className="two ipsGrid_span6 ipsType_left">
               <div className="heading_large gs_reveal">
                 <div className="sm">2021-current</div>
-                <h3>Maker, Creative</h3>
+                <h3>Maker, Creative, Owner</h3>
               </div>
               <div className="gs_reveal sm em">Bumblin Bee Candle</div>
-              <div className="gs_reveal">Yes, I do own this, too</div>
+              <div className="gs_reveal">Candles &amp; Accessories</div>
             </div>
           </div>
 
