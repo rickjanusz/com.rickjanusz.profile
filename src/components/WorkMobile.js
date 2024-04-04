@@ -53,10 +53,10 @@ export default function WorkMobile() {
           <div className="feature ipsGrid">
             <div className="two">
               <div className="heading_large">
-                <div className="sm">2019-current</div>
+                <div className="sm">2019-2021</div>
                 <h3>Creative Director</h3>
               </div>
-              <div className="sm em">Epsilon DMS, Publicis Groupe </div>
+              <div className="sm em">Epsilon, Publicis Groupe </div>
               <div>Creative Innovation &amp; Capabilities</div>
             </div>
 
@@ -73,7 +73,7 @@ export default function WorkMobile() {
                 <div className="sm">2017-2019</div>
                 <h3>Assoc. Director</h3>
               </div>
-              <div className="sm em">Epsilon DMS, Publicis Groupe </div>
+              <div className="sm em">Epsilon, Publicis Groupe </div>
               <div>Creative Technology</div>
             </div>
           </div>
@@ -84,7 +84,7 @@ export default function WorkMobile() {
                 <div className="sm">2016-2017</div>
                 <h3>Sr. Manager</h3>
               </div>
-              <div className="sm em">Epsilon DMS, Publicis Groupe </div>
+              <div className="sm em">Epsilon, Publicis Groupe </div>
               <div>Creative Technology</div>
             </div>
           </div>
@@ -97,7 +97,7 @@ export default function WorkMobile() {
                   Sr. Creative Tech, <br /> Team Lead
                 </h3>
               </div>
-              <div className="sm em">Epsilon DMS, Publicis Groupe </div>
+              <div className="sm em">Epsilon, Publicis Groupe </div>
               <div>Creative Technology</div>
             </div>
           </div>
