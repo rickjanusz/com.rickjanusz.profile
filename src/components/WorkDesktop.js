@@ -78,7 +78,7 @@ export default function WorkDesktop() {
             <div className="two ml ipsGrid_span6 ipsType_right">
               <div className="heading_large gs_reveal">
                 <div className="sm">2017-2019</div>
-                <h3>Assoc. Director</h3>
+                <h3>Assoc. Creative Director</h3>
               </div>
               <div className="gs_reveal sm em">
                 Epsilon, Publicis Groupe
