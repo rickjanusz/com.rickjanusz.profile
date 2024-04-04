@@ -42,10 +42,10 @@ export default function WorkMobile() {
             <div className="two ipsGrid_span6 ipsType_left">
               <div className="heading_large">
                 <div className="sm">2021-current</div>
-                <h3>Maker, Creative, Owner</h3>
+                <h3>Maker, Owner</h3>
               </div>
               <div className="sm em">Bumblin Bee Candle</div>
-              <div>Candles &amp; Accessories</div>
+              <div>Technical Creative Director</div>
               <p></p>
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function WorkMobile() {
             <div className="two ipsGrid_span6">
               <div className="heading_large">
                 <div className="sm">2017-2019</div>
-                <h3>Assoc. Director</h3>
+                <h3>Assoc. Creative Director</h3>
               </div>
               <div className="sm em">Epsilon, Publicis Groupe </div>
               <div>Creative Technology</div>
