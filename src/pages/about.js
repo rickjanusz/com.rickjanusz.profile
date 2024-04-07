@@ -9,7 +9,7 @@ import ApiLogos from '../components/apilogos/_ApiLogos'
 import PageWrapper from '../styles/PageWrapperStyles'
 import { GridWrapper, TextWrapper } from '../styles/AboutStyles'
 
-import me from '../assets/me2.jpg'
+import me from '../assets/epsilon_ps.png'
 
 export default function AboutPage() {
   //console.log(props)
@@ -23,7 +23,7 @@ export default function AboutPage() {
       <PageWrapper>
         <TextWrapper>
           <div className="featured-image-container">
-            <div className="card">
+            <div >
               <img src={me} alt="Rick Janusz" width="300" />
             </div>
           </div>
@@ -31,25 +31,18 @@ export default function AboutPage() {
             <p>
               I've been a working Developer in{' '}
               <span className="city">Chicago, IL.</span> for the past{' '}
-              {new Date().getFullYear() - 2003} years. In my last residency, I was at{' '}
-              <span className="em">Epsilon</span> which was acquired by Publicis
-              Groupe and formerly known as Conversant, for almost 9 years. Prior to that, I spent
+              {new Date().getFullYear() - 2003} years. My last residency was at{' '}
+              <span className="em">Epsilon</span>, an advertising platform that was acquired by Publicis
+              Groupe, for almost 8 years. Prior to that, I spent
               time at <span className="em">Manifest Digital</span>,{' '}
               <span className="em">Element79</span> of DDB/Omnicom,{' '}
               <span className="em">AnthemWW</span> and also{' '}
               <span className="em">Disney Interactive Media Group</span>.
             </p>
 
-            {/* <p>
-              I'm currently a <span className="em">Creative Director</span> with
-              a focus on <span className="em">Creative Tech</span>{' '}
-              <span className="em">Innovation</span> and{' '}
-              <span className="em">Creative Capabilities</span>. I lead cross
-              organizational teams in developing and implementing new ad tech.
-              The space I work in is highly personalized online media which
-              delivers billions of ad impressions daily.{' '}
-              <span className="em">I work in ES6. All day. Everyday.</span>
-            </p> */}
+            <p>
+              I currently own two companies, Bumblin Bee Candle and Redtail Market, that I started during the pandemic. Both have successfully launched and are in self sustaining mode right now, allowing me to step away and move on to something else. {' '}
+            </p>
 
           </section>
         </TextWrapper>

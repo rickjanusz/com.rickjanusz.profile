@@ -216,6 +216,7 @@ export default function HomepageFeatures({ features }) {
         <div className="overlay2"></div>
         <div className="feature bg"></div>
 
+
         <Cont>
           {/* <video src={auto} controls mute autoPlay loop playsInline></video> */}
           <div>
