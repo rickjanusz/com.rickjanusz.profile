@@ -242,7 +242,7 @@ export default function HomepageFeatures({ features }) {
             <PortableText
               blocks={feats._rawS3Description}
               serializers={Serializer}
-            /> <p>(Safari only)</p>
+            /> <p>(Chrome only)</p>
             <Link to="https://videocrop.netlify.app/" target="_blank">
               Crop Some Video &gt;
             </Link>
