@@ -92,77 +92,9 @@ export default class Layout extends Component {
     // console.log(timeofday)
     var condition = conditionText.toLowerCase()
     // console.log('Condition:', condition)
-    if (!condition.includes('sunny')) {
-      // console.log('SNOW CONDITION: ', condition)
-      if (
-        condition.includes('mist') ||
-        condition.includes('snow') ||
-        condition.includes('freezing') ||
-        condition.includes('ice') ||
-        condition.includes('sleet') ||
-        condition.includes('blizzard')
-      ) {
-        // console.log('CONDITION: ', condition)
-        this.setTheme(snowTheme)
-      } else if (
-        condition.includes('fog') ||
-        condition.includes('overcast') ||
-        (condition.includes('cloudy') && !condition.includes('partly'))
-      ) {
-        // console.log('OVERCAST: ', condition)
-        this.setTheme(overcastTheme)
-      } else if (condition.includes('rain')) {
-        this.setTheme(rainTheme)
-      } else if (condition.includes('clear')) {
-        this.setTheme(midnightTheme)
-      } else if (condition.includes('partly cloudy')) {
-        if (timeofday === 'day') {
-          this.setTheme(sunTheme)
-        } else {
-          this.setTheme(midnightTheme)
-        }
-      }
-    } else if (temp > 35 && !condition.includes('sunny')) {
-      if (
-        condition.includes('mist') ||
-        condition.includes('rain') ||
-        (condition.includes('drizzle') && !condition.includes('freezing'))
-      ) {
-        // console.log('CONDITION: ', condition)
-        this.setTheme(rainTheme)
-      } else if (condition.includes('fog') || condition.includes('overcast')) {
-        // console.log('OVERCAST: ', condition)
-        this.setTheme(overcastTheme)
-      } else if (condition.includes('clear')) {
-        this.setTheme(midnightTheme)
-      } else if (condition.includes('partly cloudy')) {
-        if (timeofday === 'day') {
-          this.setTheme(sunTheme)
-        } else {
-          this.setTheme(midnightTheme)
-        }
-      }
-      // console.log('CONDITION OUT: ', weather.conditionText)
-    } else if (
-      condition.includes('sunny') ||
-      condition.includes('partly cloudy')
-    ) {
-      // console.log('SUNNY: ', condition)
-      this.setTheme(sunTheme)
 
-      // console.log('CONDITION OUT: ', weather.conditionText)
-    } else if (
-      condition.includes('fog') ||
-      condition.includes('overcast') ||
-      (condition.includes('cloudy') && !condition.includes('partly'))
-    ) {
-      // console.log('OVERCAST: ', condition)
-      this.setTheme(overcastTheme)
+    this.setTheme(defaultTheme)
 
-      // console.log('CONDITION OUT: ', weather.conditionText)
-    } else {
-      this.setTheme(defaultTheme)
-    }
 
   }
 
@@ -224,7 +156,7 @@ export default class Layout extends Component {
 
   setTheme = (theme) => {
     this.setState({ theme }, () => {
-       console.log(this.state.theme)
+      console.log(this.state.theme)
     })
   }
 

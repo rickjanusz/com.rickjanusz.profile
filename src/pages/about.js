@@ -41,7 +41,7 @@ export default function AboutPage() {
             </p>
 
             <p>
-              I currently own two companies, Bumblin Bee Candle and Redtail Market, that I started during the pandemic. Both have successfully launched and are in self sustaining mode right now, allowing me to step away and move on to something else. {' '}
+              I currently own two companies, Bumblin Bee Candle and Redtail Market, that I started during the pandemic. Both have successfully launched and are in self sustaining mode right now, allowing me to step away and get back into the workforce. {' '}
             </p>
 
           </section>
